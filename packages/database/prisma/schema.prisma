@@ -37,13 +37,14 @@ model Product {
 }
 
 model ProductPrice {
-  id           Int      @id @default(autoincrement())
-  product      Product  @relation(fields: [productId], references: [id])
+  id           Int     @id @default(autoincrement())
+  product      Product @relation(fields: [productId], references: [id])
   productId    Int
   price        Float
   currency     String
-  createdAt    DateTime @default(now())
-  availability String
+  availability String // In stock, Out of stock, Pre-order
+
+  createdAt DateTime @default(now())
 
   @@index([createdAt])
 }
@@ -54,6 +55,9 @@ model Site {
   slug     String    @unique
   url      String
   products Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 // Disc golf related
@@ -72,11 +76,12 @@ model Disc {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  bags       DiscInBag[]
-  plastics   DiscPlasticVariants[]
-  users      UserDiscs[]
-  products   Product[]
-  proPlayers ProPlayerSignatureDiscs[] @ignore
+  bags     DiscInBag[]
+  plastics DiscPlasticVariants[]
+  users    UserDiscs[]
+  products Product[]
+
+  proPlayersSignature ProPlayerSignatureDiscs[] @ignore
 }
 
 model Brand {
@@ -174,6 +179,7 @@ model User {
   bags          UserBags[]
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
+  role          String?     @default("user")
 }
 
 // next-auth

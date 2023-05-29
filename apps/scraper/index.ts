@@ -16,13 +16,18 @@ const sitemaps = fs
     return {
       name: `${value.name}/sitemap`,
       interval: "1h",
-      timeout: index * 1000 * 60, // 1 minute time per
+      timeout: index * 1000 * 5, // 1 minute time per
     };
   });
 
 // const sitemaps = [
 //   {
-//     name: "discgolfdynasty/sitemap",
+//     name: "aceshop/sitemap",
+//     interval: "1h",
+//     timeout: 0,
+//   },
+//   {
+//     name: "dgshop/sitemap",
 //     interval: "1h",
 //     timeout: 0,
 //   },
