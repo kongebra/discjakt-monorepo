@@ -21,13 +21,16 @@ export async function updateScrapedData(
         logger.info(`Updated scraped data for ${loc}`);
       }
     } else {
-      await prisma.scrapedData.create({
+      const item = await prisma.scrapedData.create({
         data: {
           loc,
           lastmod,
           site: { connect: { id: site.id } },
         },
       });
+
+      // put new item back to map
+      itemsMap.set(loc, item);
 
       logger.info(`Created new scraped data for ${loc}`);
     }
