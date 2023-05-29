@@ -10,9 +10,26 @@ interface ProductResult {
   price: number;
   currency: string;
   imageUrl: string;
+  outOfStock: boolean;
 }
 
-const getLDJson = ($: CheerioAPI): ProductResult | null => {
+const isOutOfStock = ($: CheerioAPI, url: string): boolean => {
+  const outOfStockSelectors = ["out-of-stock"];
+
+  for (const selector of outOfStockSelectors) {
+    if ($(`.${selector}`).length > 0) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const getLDJson = (
+  $: CheerioAPI,
+  url: string,
+  outOfStock: boolean
+): ProductResult | null => {
   const scriptTags = $('script[type="application/ld+json"]');
 
   for (let i = 0; i < scriptTags.length; i++) {
@@ -33,7 +50,10 @@ const getLDJson = ($: CheerioAPI): ProductResult | null => {
           description: json.mainEntity.description,
           price: parseFloat(json.mainEntity.offers?.price),
           currency: json.mainEntity.offers?.priceCurrency,
-          imageUrl: json.mainEntity.image[0], // image is an array here
+          imageUrl: Array.isArray(json.mainEntity.image)
+            ? json.mainEntity.image[0]
+            : json.mainEntity.image,
+          outOfStock,
         };
       }
 
@@ -42,13 +62,20 @@ const getLDJson = ($: CheerioAPI): ProductResult | null => {
         json.offers &&
         json.offers.length > 0
       ) {
-        return {
+        const product = {
           name: json.name,
           description: json.description,
           price: parseFloat(json.offers[0]?.price),
-          currency: json.offers[0]?.priceCurrency,
-          imageUrl: json.image,
+          currency: json.offers[0]?.priceCurrency || "NOK",
+          imageUrl: Array.isArray(json.image) ? json.image[0] : json.image,
+          outOfStock,
         };
+
+        if (outOfStock) {
+          product.price = 0;
+        }
+
+        return product;
       }
     }
   }
@@ -56,7 +83,11 @@ const getLDJson = ($: CheerioAPI): ProductResult | null => {
   return null;
 };
 
-const getOGTags = ($: CheerioAPI): ProductResult | null => {
+const getOGTags = (
+  $: CheerioAPI,
+  url: string,
+  outOfStock: boolean
+): ProductResult | null => {
   const product: Partial<ProductResult> = {};
 
   const ogTags = $('meta[property^="og:"]');
@@ -93,17 +124,23 @@ const getOGTags = ($: CheerioAPI): ProductResult | null => {
   const priceContent = $('meta[property="product:price:amount"]').attr(
     "content"
   );
-  if (priceContent) {
-    product.price = parseFloat(priceContent);
+  if (!product.price && priceContent) {
+    product.price = parseFloat(priceContent) || 0;
   }
-  product.currency = $('meta[property="product:price:currency"]').attr(
-    "content"
-  );
+
+  if (!product.currency) {
+    product.currency =
+      $('meta[property="product:price:currency"]').attr("content") || "NOK";
+  }
+
+  if (outOfStock) {
+    product.price = 0;
+  }
 
   if (
     !product.name ||
     !product.description ||
-    !product.price ||
+    (!product.price && product.price !== 0) ||
     !product.currency ||
     !product.imageUrl
   ) {
@@ -113,45 +150,52 @@ const getOGTags = ($: CheerioAPI): ProductResult | null => {
   return product as ProductResult;
 };
 
-const getCommonTags = ($: CheerioAPI): ProductResult | null => {
+const getCommonTags = (
+  $: CheerioAPI,
+  url: string,
+  outOfStock: boolean
+): ProductResult | null => {
   const product: Partial<ProductResult> = {};
 
-  product.name = $("h1").text().trim() || "";
-
-  if (!product.name) {
-    product.name = $(".product-title").text().trim() || "";
-  }
-
-  if (!product.name) {
-    product.name = $(".product-title-v1").text().trim() || "";
+  // Check multiple selectors for the product name
+  const nameSelectors = ["h1", ".product-title", ".product-title-v1", "title"];
+  for (const selector of nameSelectors) {
+    const potentialName = $(selector).text().trim();
+    if (potentialName) {
+      product.name = potentialName;
+      break;
+    }
   }
 
   product.description =
     $('meta[name="description"]').attr("content")?.trim() || "";
 
-  const firstPriceStr =
-    $(".product-price")
-      .text()
-      .replaceAll(",-", "")
-      .replaceAll("kr", "")
-      .trim() || "";
-  if (firstPriceStr) {
-    const firstPriceNum = parseFloat(firstPriceStr);
-    if (!isNaN(firstPriceNum)) {
-      product.price = firstPriceNum;
+  // Find price, clean it up, and convert to a number
+  const priceText = $(".product-price").text();
+  const priceMatch = priceText.match(/(\d[\d.,]*)/);
+  if (priceMatch) {
+    const price = parseFloat(priceMatch[1].replace(",", "."));
+    if (!isNaN(price)) {
+      product.price = price;
     }
   }
 
-  const imageOne = $(`img[alt="${product.name}"`).attr("src");
-  if (imageOne) {
-    product.imageUrl = imageOne;
+  // Check multiple selectors for the product image
+  const imageSelectors = [`img[alt="${product.name}"]`, ".fit-prod-page"];
+  for (const selector of imageSelectors) {
+    const potentialImage = $(selector).attr("src");
+    if (potentialImage) {
+      product.imageUrl = potentialImage;
+      break;
+    }
   }
 
-  const imageTwo = $(".fit-prod-page").attr("src");
-  if (imageTwo) {
-    product.imageUrl = imageTwo;
+  if (outOfStock) {
+    product.price = 0;
+    product.currency = "NOK";
   }
 
+  // Check if all fields are filled
   if (
     !product.name ||
     !product.description ||
@@ -168,17 +212,19 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
   const { data: html } = await axios.get(url);
   const $ = load(html);
 
-  const ldJsonProduct = getLDJson($);
+  const outOfStock = isOutOfStock($, url);
+
+  const ldJsonProduct = getLDJson($, url, outOfStock);
   if (ldJsonProduct) {
     return ldJsonProduct;
   }
 
-  const ogProduct = getOGTags($);
+  const ogProduct = getOGTags($, url, outOfStock);
   if (ogProduct) {
     return ogProduct;
   }
 
-  const commonTagsProduct = getCommonTags($);
+  const commonTagsProduct = getCommonTags($, url, outOfStock);
   if (commonTagsProduct) {
     return commonTagsProduct;
   }
@@ -191,7 +237,7 @@ export const scrapeProduct = async (data: ProductQueueData) => {
     const product = await combinedScraper(data.loc);
 
     if (!product) {
-      logger.warn("No product found for:", data.loc);
+      logger.warn("No product found for:", { url: data.loc });
       return;
     }
 
