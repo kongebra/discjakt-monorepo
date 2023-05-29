@@ -1,6 +1,7 @@
 import type { ScrapedData, Site } from "database";
 import prisma from "../lib/prisma";
 import logger from "./logger";
+import { productQueue } from "../queue";
 
 export async function updateScrapedData(
   site: Site,
@@ -13,10 +14,13 @@ export async function updateScrapedData(
   try {
     if (existingData) {
       if (existingData.lastmod?.getTime() !== lastmod?.getTime()) {
-        await prisma.scrapedData.update({
+        const item = await prisma.scrapedData.update({
           where: { id: existingData.id },
           data: { lastmod },
         });
+
+        // add to product queue
+        await productQueue.add(item);
 
         logger.info(`Updated scraped data for ${loc}`);
       }
@@ -31,6 +35,9 @@ export async function updateScrapedData(
 
       // put new item back to map
       itemsMap.set(loc, item);
+
+      // add to product queue
+      await productQueue.add(item);
 
       logger.info(`Created new scraped data for ${loc}`);
     }

@@ -1,9 +1,13 @@
+import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config();
+
 import process from "node:process";
 import * as path from "node:path";
 import Bree from "bree";
 import fs from "node:fs";
 import Graceful from "@ladjs/graceful";
-import { parentPort } from "node:worker_threads";
+import logger from "./utils/logger";
+import { productQueue } from "./queue";
 
 // get all directory names in the jobs folder
 const sitemaps = fs
@@ -16,6 +20,7 @@ const sitemaps = fs
     };
   });
 
+// bree: Cron jobs
 const bree = new Bree({
   /**
    * Always set the root option when doing any type of
@@ -32,11 +37,16 @@ const bree = new Bree({
    */
   defaultExtension: process.env.TS_NODE ? "ts" : "js",
   jobs: [...sitemaps],
+  logger: logger,
 });
 
 // handle graceful reloads, pm2 support, and events like SIGHUP, SIGINT, etc.
 const graceful = new Graceful({ brees: [bree] });
 graceful.listen();
+
+productQueue.on("completed", async (job) => {
+  logger.debug(`Job completed: ${job.id}`);
+});
 
 (async () => {
   await bree.start();
