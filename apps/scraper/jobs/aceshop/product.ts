@@ -1,6 +1,6 @@
-import Queue from "bull";
-import { ScrapedData } from "database";
+import type { ScrapedData } from "database";
+import logger from "../../utils/logger";
 
 export async function scrapeAceshopProduct(data: ScrapedData) {
-  console.log("aceshop", { data });
+  logger.info("aceshop", { data });
 }

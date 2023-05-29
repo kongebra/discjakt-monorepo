@@ -1,6 +1,6 @@
-import Queue from "bull";
-import { ScrapedData } from "database";
+import type { ScrapedData } from "database";
+import logger from "../../utils/logger";
 
 export async function scrapeProdiscProduct(data: ScrapedData) {
-  console.log("Prodisc", { data });
+  logger.debug("Prodisc", { data });
 }
