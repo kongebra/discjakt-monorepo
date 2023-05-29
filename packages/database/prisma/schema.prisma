@@ -12,20 +12,40 @@ datasource db {
 }
 
 // Scraping
-model ScrapedData {
-  id      Int       @id @default(autoincrement())
-  loc     String    @unique
+model Product {
+  id      Int            @id @default(autoincrement())
+  loc     String         @unique
   lastmod DateTime?
-  site    Site      @relation(fields: [siteId], references: [id])
+  site    Site           @relation(fields: [siteId], references: [id])
   siteId  Int
+  prices  ProductPrice[]
+
+  name        String
+  description String
+  imageUrl    String?
+
+  disc   Disc? @relation(fields: [discId], references: [id])
+  discId Int?
+}
+
+model ProductPrice {
+  id           Int      @id @default(autoincrement())
+  product      Product  @relation(fields: [productId], references: [id])
+  productId    Int
+  price        Float
+  currency     String
+  createdAt    DateTime @default(now())
+  availability String
+
+  @@index([createdAt])
 }
 
 model Site {
-  id          Int           @id @default(autoincrement())
-  name        String        @unique
-  slug        String        @unique
-  url         String
-  scrapedData ScrapedData[]
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  slug     String    @unique
+  url      String
+  products Product[]
 }
 
 // Disc golf related
@@ -47,6 +67,7 @@ model Disc {
   bags     DiscInBag[]
   plastics DiscPlasticVariants[]
   users    UserDiscs[]
+  products Product[]
 }
 
 model Brand {

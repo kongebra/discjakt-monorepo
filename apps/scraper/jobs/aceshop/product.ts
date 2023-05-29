@@ -1,6 +1,6 @@
-import type { ScrapedData } from "database";
+import type { Product } from "database";
 import logger from "../../utils/logger";
 
-export async function scrapeAceshopProduct(data: ScrapedData) {
+export async function scrapeAceshopProduct(data: Product) {
   logger.info("aceshop", { data });
 }

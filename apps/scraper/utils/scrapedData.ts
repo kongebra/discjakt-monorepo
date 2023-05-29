@@ -1,11 +1,11 @@
-import type { ScrapedData, Site } from "database";
+import type { Product, Site } from "database";
 import prisma from "../lib/prisma";
 import logger from "./logger";
 import { productQueue } from "../queue";
 
-export async function updateScrapedData(
+export async function updateProduct(
   site: Site,
-  itemsMap: Map<string, ScrapedData>,
+  itemsMap: Map<string, Product>,
   loc: string,
   lastmod: Date | null
 ): Promise<void> {
@@ -47,9 +47,9 @@ export async function updateScrapedData(
 }
 
 export function scrapedDataArrayToMap(
-  scrapedData: ScrapedData[]
-): Map<string, ScrapedData> {
-  const itemsMap = new Map<string, ScrapedData>();
+  scrapedData: Product[]
+): Map<string, Product> {
+  const itemsMap = new Map<string, Product>();
 
   for (const item of scrapedData) {
     itemsMap.set(item.loc, item);

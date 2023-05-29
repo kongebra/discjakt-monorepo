@@ -1,4 +1,4 @@
-import { ScrapedData, Site } from "database";
+import { Product, Site } from "database";
 import axios from "axios";
 import { load } from "cheerio";
 

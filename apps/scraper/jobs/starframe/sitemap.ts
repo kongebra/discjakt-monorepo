@@ -1,10 +1,7 @@
 import prisma from "../../lib/prisma";
 import { createSiteIfNotExists } from "../../utils/site";
 import { fetchSitemap } from "../../utils/sitemap";
-import {
-  scrapedDataArrayToMap,
-  updateScrapedData,
-} from "../../utils/scrapedData";
+import { scrapedDataArrayToMap, updateProduct } from "../../utils/scrapedData";
 import logger from "../../utils/logger";
 import { calculateDaysSince } from "../../utils/date";
 
@@ -31,7 +28,7 @@ async function scrapeStarframeSitemap() {
           const daysSinceLastmod = calculateDaysSince(lastmod);
           // check if under 1 year
           if (daysSinceLastmod < 365) {
-            await updateScrapedData(site, itemsMap, loc, lastmod);
+            await updateProduct(site, itemsMap, loc, lastmod);
           }
         }
       }

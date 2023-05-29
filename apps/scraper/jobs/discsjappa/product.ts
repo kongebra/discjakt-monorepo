@@ -1,6 +1,6 @@
-import type { ScrapedData } from "database";
+import type { Product } from "database";
 import logger from "../../utils/logger";
 
-export async function scrapeDiscsjappaProduct(data: ScrapedData) {
+export async function scrapeDiscsjappaProduct(data: Product) {
   logger.debug("Discsjappa", { data });
 }

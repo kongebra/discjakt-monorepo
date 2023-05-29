@@ -1,6 +1,6 @@
-import type { ScrapedData } from "database";
+import type { Product } from "database";
 import logger from "../../utils/logger";
 
-export async function scrapeSpinnvilldgProduct(data: ScrapedData) {
+export async function scrapeSpinnvilldgProduct(data: Product) {
   logger.debug("Spinnvilldg", { data });
 }
