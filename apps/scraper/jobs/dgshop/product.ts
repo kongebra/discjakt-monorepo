@@ -3,8 +3,9 @@ import { load } from "cheerio";
 import logger from "../../utils/logger";
 import type { Product } from "database";
 import { prisma } from "database";
+import { ProductQueueData } from "../../queue";
 
-export async function scrapeDgshopProduct(data: Product) {
+export async function scrapeDgshopProduct(data: ProductQueueData) {
   logger.debug("Dgshop", { data });
 
   try {
@@ -38,7 +39,7 @@ export async function scrapeDgshopProduct(data: Product) {
 
     await prisma.product.update({
       where: {
-        id: data.id,
+        loc: data.loc,
       },
       data: {
         name: title,

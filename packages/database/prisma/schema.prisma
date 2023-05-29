@@ -13,19 +13,27 @@ datasource db {
 
 // Scraping
 model Product {
-  id      Int            @id @default(autoincrement())
-  loc     String         @unique
+  id      Int       @id @default(autoincrement())
+  loc     String    @unique
   lastmod DateTime?
-  site    Site           @relation(fields: [siteId], references: [id])
+  site    Site      @relation(fields: [siteId], references: [id])
   siteId  Int
-  prices  ProductPrice[]
 
-  name        String
-  description String
+  category String? // Disc, Bag, Basket, Accessories, Apparel, Other
+
+  prices ProductPrice[]
+
+  name        String?
+  description String?
   imageUrl    String?
 
   disc   Disc? @relation(fields: [discId], references: [id])
   discId Int?
+
+  // TODO: Other product types
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model ProductPrice {
@@ -64,10 +72,11 @@ model Disc {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  bags     DiscInBag[]
-  plastics DiscPlasticVariants[]
-  users    UserDiscs[]
-  products Product[]
+  bags       DiscInBag[]
+  plastics   DiscPlasticVariants[]
+  users      UserDiscs[]
+  products   Product[]
+  proPlayers ProPlayerSignatureDiscs[] @ignore
 }
 
 model Brand {
@@ -109,18 +118,62 @@ model Bag {
   id    Int         @id @default(autoincrement())
   discs DiscInBag[]
 
-  players Player[]
+  proPlayers ProPlayer[]
+  users      UserBags[]
 }
 
-model Player {
-  id           Int    @id @default(autoincrement())
-  firstName    String
-  lastName     String
-  nationallity String
-  imageUrl     String
-  pdgaNumber   String
-  bag          Bag    @relation(fields: [bagId], references: [id])
-  bagId        Int
+model UserBags {
+  bag    Bag    @relation(fields: [bagId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
+  bagId  Int
+  userId String
+
+  @@id([bagId, userId])
+}
+
+// Pro player
+model ProPlayer {
+  id             Int                       @id @default(autoincrement())
+  firstName      String
+  lastName       String
+  nationallity   String
+  imageUrl       String
+  pdgaNumber     String
+  bag            Bag                       @relation(fields: [bagId], references: [id])
+  bagId          Int
+  signatureDiscs ProPlayerSignatureDiscs[]
+}
+
+model ProPlayerSignatureDiscs {
+  discId      Int
+  disc        Disc      @relation(fields: [discId], references: [id])
+  proPlayerId Int       @map("playerId")
+  proPlayer   ProPlayer @relation(fields: [proPlayerId], references: [id])
+
+  @@id([discId, proPlayerId])
+}
+
+model UserDiscs {
+  disc   Disc   @relation(fields: [discId], references: [id])
+  user   User   @relation(fields: [userId], references: [id])
+  discId Int
+  userId String
+
+  @@id([discId, userId])
+}
+
+model User {
+  id            String      @id @default(cuid())
+  name          String?
+  email         String?     @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  discs         UserDiscs[]
+  bags          UserBags[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 }
 
 // next-auth
@@ -149,26 +202,6 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model UserDiscs {
-  disc   Disc   @relation(fields: [discId], references: [id])
-  user   User   @relation(fields: [userId], references: [id])
-  discId Int
-  userId String
-
-  @@id([discId, userId])
-}
-
-model User {
-  id            String      @id @default(cuid())
-  name          String?
-  email         String?     @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  discs         UserDiscs[]
 }
 
 model VerificationToken {

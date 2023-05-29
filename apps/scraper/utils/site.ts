@@ -5,7 +5,7 @@ export async function createSiteIfNotExists(data: Omit<Site, "id">) {
   const existingSite = await prisma.site.findUnique({
     where: { slug: data.slug },
     include: {
-      scrapedData: true,
+      products: true,
     },
   });
 
@@ -16,7 +16,7 @@ export async function createSiteIfNotExists(data: Omit<Site, "id">) {
   return prisma.site.create({
     data,
     include: {
-      scrapedData: true,
+      products: true,
     },
   });
 }

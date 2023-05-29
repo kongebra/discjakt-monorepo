@@ -12,13 +12,21 @@ import { productQueue } from "./queue";
 // get all directory names in the jobs folder
 const sitemaps = fs
   .readdirSync(path.join(__dirname, "jobs"), { withFileTypes: true })
-  .map((value) => {
+  .map((value, index) => {
     return {
       name: `${value.name}/sitemap`,
       interval: "1h",
-      timeout: 0,
+      timeout: index * 1000 * 60, // 1 minute time per
     };
   });
+
+// const sitemaps = [
+//   {
+//     name: "discgolfdynasty/sitemap",
+//     interval: "1h",
+//     timeout: 0,
+//   },
+// ];
 
 // bree: Cron jobs
 const bree = new Bree({

@@ -1,6 +1,5 @@
 import Queue from "bull";
 import { prisma } from "database";
-import type { Product } from "database";
 import { scrapeAceshopProduct } from "../jobs/aceshop/product";
 import { scrapeDgshopProduct } from "../jobs/dgshop/product";
 import { scrapeDiscgolfDynastyProduct } from "../jobs/discgolfdynasty/product";
@@ -20,7 +19,14 @@ import { scrapeWearediscgolfProduct } from "../jobs/wearediscgolf/product";
 if (!process.env.REDIS_URL) {
   throw new Error("REDIS_URL is not set");
 }
-export const productQueue = new Queue<Product>(
+
+export type ProductQueueData = {
+  siteId: number;
+  loc: string;
+  lastmod: Date | null;
+};
+
+export const productQueue = new Queue<ProductQueueData>(
   "product",
   process.env.REDIS_URL,
   {

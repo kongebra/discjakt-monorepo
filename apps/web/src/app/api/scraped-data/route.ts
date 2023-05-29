@@ -6,9 +6,9 @@ export async function GET(req: Request) {
   const id = searchParams.get("siteId");
 
   if (!id) {
-    const scrapedData = await prisma.scrapedData.findMany({});
+    const products = await prisma.product.findMany({});
 
-    return NextResponse.json(scrapedData);
+    return NextResponse.json(products);
   }
 
   const siteId = Number(id);
@@ -20,7 +20,7 @@ export async function GET(req: Request) {
     );
   }
 
-  const data = await prisma.scrapedData.findMany({ where: { siteId } });
+  const data = await prisma.product.findMany({ where: { siteId } });
 
   return NextResponse.json(data);
 }
@@ -42,7 +42,7 @@ export async function DELETE(req: Request) {
     );
   }
 
-  const resp = await prisma.scrapedData.deleteMany({
+  const resp = await prisma.product.deleteMany({
     where: {
       siteId,
     },
