@@ -12,7 +12,7 @@ const logger = winston.createLogger({
         winston.format.colorize(),
         winston.format.simple()
       ),
-      level: "debug",
+      level: "info",
     }), // Log to the console
   ],
 });

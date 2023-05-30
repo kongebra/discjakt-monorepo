@@ -1,7 +1,9 @@
 import { Site } from "database";
 import prisma from "../lib/prisma";
 
-export async function createSiteIfNotExists(data: Omit<Site, "id">) {
+export async function createSiteIfNotExists(
+  data: Omit<Site, "id" | "createdAt" | "updatedAt">
+) {
   const existingSite = await prisma.site.findUnique({
     where: { slug: data.slug },
     include: {

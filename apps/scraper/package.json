@@ -11,8 +11,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/bull": "^4.10.0",
+    "@types/decomment": "^0.9.3",
     "@types/node": "20.2.5",
+    "@types/node-cron": "^3.0.7",
     "@types/safe-timers": "^1.1.0",
     "cross-env": "^7.0.3",
     "rimraf": "^5.0.1",
@@ -27,7 +28,9 @@
     "bull": "^4.10.4",
     "cheerio": "1.0.0-rc.12",
     "database": "workspace:*",
+    "decomment": "^0.9.5",
     "dotenv": "^16.0.3",
+    "node-cron": "^3.0.2",
     "winston": "^3.9.0"
   }
 }

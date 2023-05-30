@@ -3,6 +3,7 @@ import { CheerioAPI, load } from "cheerio";
 import { ProductQueueData } from "../queue";
 import logger from "./logger";
 import { prisma } from "database";
+import decomment from "decomment";
 
 interface ProductResult {
   name: string;
@@ -36,8 +37,16 @@ const getLDJson = (
     const childNode = scriptTags[i].children[0];
 
     if (childNode && childNode.type === "text") {
-      const content = childNode.data || "";
-      const json = JSON.parse(content);
+      let content = childNode.data || "";
+      content = decomment(content);
+
+      let json;
+      try {
+        json = JSON.parse(content);
+      } catch (error) {
+        logger.error(`Error parsing JSON from ${url}`, error);
+        continue;
+      }
 
       // If the @type is Webpage and mainEntity's @type is Product, retrieve it.
       if (
@@ -45,7 +54,7 @@ const getLDJson = (
         json.mainEntity &&
         json.mainEntity["@type"] === "Product"
       ) {
-        return {
+        const product = {
           name: json.mainEntity.name,
           description: json.mainEntity.description,
           price: parseFloat(json.mainEntity.offers?.price),
@@ -55,6 +64,10 @@ const getLDJson = (
             : json.mainEntity.image,
           outOfStock,
         };
+
+        logger.debug("inside getLDJson - product: ", { product });
+
+        return product;
       }
 
       if (
@@ -214,17 +227,22 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
 
   const outOfStock = isOutOfStock($, url);
 
+  logger.debug("outOfStock", { outOfStock });
+
   const ldJsonProduct = getLDJson($, url, outOfStock);
+  logger.debug("ldJsonProduct", { ldJsonProduct });
   if (ldJsonProduct) {
     return ldJsonProduct;
   }
 
   const ogProduct = getOGTags($, url, outOfStock);
+  logger.debug("ogProduct", { ogProduct });
   if (ogProduct) {
     return ogProduct;
   }
 
   const commonTagsProduct = getCommonTags($, url, outOfStock);
+  logger.debug("commonTagsProduct", { commonTagsProduct });
   if (commonTagsProduct) {
     return commonTagsProduct;
   }
@@ -235,13 +253,14 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
 export const scrapeProduct = async (data: ProductQueueData) => {
   try {
     const product = await combinedScraper(data.loc);
+    logger.debug("combinedScraper", { product });
 
     if (!product) {
       logger.warn("No product found for:", { url: data.loc });
       return;
     }
 
-    await prisma.product.update({
+    const result = await prisma.product.update({
       where: {
         loc: data.loc,
       },
@@ -258,7 +277,12 @@ export const scrapeProduct = async (data: ProductQueueData) => {
           },
         },
       },
+      include: {
+        prices: true,
+      },
     });
+
+    logger.debug("Product updated:", { result });
   } catch (error) {
     if (error instanceof AxiosError) {
       if (error.status === 404) {

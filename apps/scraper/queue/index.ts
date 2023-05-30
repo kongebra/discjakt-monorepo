@@ -24,20 +24,22 @@ export const productQueue = new Queue<ProductQueueData>(
   }
 );
 
-productQueue.process(5, async (job) => {
-  try {
-    const { data } = job;
+export function initQueue() {
+  productQueue.process(5, async (job) => {
+    try {
+      const { data } = job;
 
-    const site = await prisma.site.findUnique({
-      where: { id: data.siteId },
-    });
+      const site = await prisma.site.findUnique({
+        where: { id: data.siteId },
+      });
 
-    if (!site) {
-      throw new Error(`Site with id ${data.siteId} not found`);
+      if (!site) {
+        throw new Error(`Site with id ${data.siteId} not found`);
+      }
+
+      await scrapeProduct(data);
+    } catch (error) {
+      logger.error("Error scraping product:", error);
     }
-
-    await scrapeProduct(data);
-  } catch (error) {
-    logger.error("Error scraping product:", error);
-  }
-});
+  });
+}

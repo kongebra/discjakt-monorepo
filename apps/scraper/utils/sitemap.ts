@@ -47,17 +47,19 @@ export async function fetchSitemap(url: string) {
   }
 }
 
+export type SitemapHandlerArgs = {
+  site: Pick<Site, "name" | "slug" | "url">;
+  itemCondition(item: SitemapResultItem): boolean;
+  sitemaps?: string[];
+  sitemapSearch?: (value: string) => boolean;
+};
+
 export async function sitemapHandler({
   site: { name, slug, url },
   itemCondition,
   sitemaps,
   sitemapSearch,
-}: {
-  site: Pick<Site, "name" | "slug" | "url">;
-  itemCondition(item: SitemapResultItem): boolean;
-  sitemaps?: string[];
-  sitemapSearch?: (value: string) => boolean;
-}) {
+}: SitemapHandlerArgs) {
   try {
     const _site = await createSiteIfNotExists({ name, slug, url });
     const items = await sitemapFetchter({ url, sitemaps, sitemapSearch });
