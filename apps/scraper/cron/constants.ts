@@ -119,7 +119,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
       slug: "frisbeesor",
     },
     itemCondition: ({ loc }) => {
-      return loc.includes("/product/");
+      return loc.includes("/produkt/");
     },
     sitemapSearch(value) {
       return value.includes("/product-sitemap");
@@ -139,6 +139,19 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     },
     sitemapSearch(value) {
       return value.includes("/sitemap_products_1.xml");
+    },
+  },
+
+  // Krokhol Disc Golf Shop
+  {
+    disabled: false,
+    site: {
+      url: "https://krokholdgs.no",
+      name: "Krokhol Disc Golf Shop",
+      slug: "krokholdgs",
+    },
+    itemCondition: ({ loc }) => {
+      return loc.includes("/products/");
     },
   },
 
@@ -174,6 +187,22 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     },
   },
 
+  // Skippy Disc Golf
+  {
+    disabled: false,
+    site: {
+      url: "https://skippydg.no",
+      name: "Skippy Disc Golf",
+      slug: "skippydg",
+    },
+    itemCondition(item) {
+      return item.loc.includes("/products/");
+    },
+    sitemapSearch(value) {
+      return value.includes("/sitemap_products_1.xml");
+    },
+  },
+
   // Spinnvill DG
   {
     disabled: false,
@@ -183,7 +212,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
       slug: "spinnvilldg",
     },
     itemCondition: ({ loc }) => {
-      return loc.includes("/product-page//");
+      return loc.includes("/product-page/");
     },
     sitemapSearch(value) {
       return value.includes("/store-products-sitemap");
