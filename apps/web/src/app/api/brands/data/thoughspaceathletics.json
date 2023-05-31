@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Praxis",
+    "brand": "Thought Space Athletics",
+    "type": "PUTT_APPROACH",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "name": "Alter",
+    "brand": "Thought Space Athletics",
+    "type": "PUTT_APPROACH",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "name": "Muse",
+    "brand": "Thought Space Athletics",
+    "type": "PUTT_APPROACH",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Temple",
+    "brand": "Thought Space Athletics",
+    "type": "PUTT_APPROACH",
+    "speed": 4,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "name": "Pathfinder",
+    "brand": "Thought Space Athletics",
+    "type": "MIDRAGE",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "name": "Mana",
+    "brand": "Thought Space Athletics",
+    "type": "MIDRAGE",
+    "speed": 5,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "name": "Votum",
+    "brand": "Thought Space Athletics",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 7,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "name": "Omen",
+    "brand": "Thought Space Athletics",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 9,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "name": "Mantra",
+    "brand": "Thought Space Athletics",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 9,
+    "glide": 6,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "name": "Coalesce",
+    "brand": "Thought Space Athletics",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 9,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "name": "Construct",
+    "brand": "Thought Space Athletics",
+    "type": "DISTANCE_DRIVER",
+    "speed": 10,
+    "glide": 6,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "name": "Animus",
+    "brand": "Thought Space Athletics",
+    "type": "DISTANCE_DRIVER",
+    "speed": 11,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Synapse",
+    "brand": "Thought Space Athletics",
+    "type": "DISTANCE_DRIVER",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 3
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Butter",
+    "brand": "Clash Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "name": "Fudge",
+    "brand": "Clash Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Popcorn",
+    "brand": "Clash Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "name": "Mint",
+    "brand": "Clash Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 4,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "name": "Peppermint",
+    "brand": "Clash Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 4,
+    "glide": 2,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "name": "Peach",
+    "brand": "Clash Discs",
+    "type": "MIDRANGE",
+    "speed": 4,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "name": "Berry",
+    "brand": "Clash Discs",
+    "type": "MIDRANGE",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "name": "Mango",
+    "brand": "Clash Discs",
+    "type": "MIDRANGE",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "name": "Soda",
+    "brand": "Clash Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 7,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "name": "Cookie",
+    "brand": "Clash Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 7,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Ginger",
+    "brand": "Clash Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 9,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Spice",
+    "brand": "Clash Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 10,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "name": "Wild Honey",
+    "brand": "Clash Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 12,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "name": "Salt",
+    "brand": "Clash Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "name": "Pepper",
+    "brand": "Clash Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 11,
+    "glide": 5,
+    "turn": 0,
+    "fade": 4
+  }
+]

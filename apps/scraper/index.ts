@@ -3,6 +3,13 @@ dotenv.config();
 
 import { initQueue } from "./queue";
 import { initCronJobs } from "./cron";
+import { scrapeProduct } from "./utils/scraper";
 
-initQueue();
-initCronJobs();
+// initQueue();
+// initCronJobs();
+
+scrapeProduct({
+  loc: "https://aceshop.no/products/neo-evolution",
+  storeId: 1,
+  lastmod: new Date(0),
+});

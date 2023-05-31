@@ -1,0 +1,92 @@
+[
+  {
+    "brand": "Streamline Discs",
+    "name": "Trace",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Streamline Discs",
+    "name": "Jet",
+    "speed": 11,
+    "glide": 5,
+    "turn": -3,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Streamline Discs",
+    "name": "Lift",
+    "speed": 9,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1.5,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Streamline Discs",
+    "name": "Flare",
+    "speed": 9,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3.5,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Streamline Discs",
+    "name": "Drift",
+    "speed": 7,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Streamline Discs",
+    "name": "Ascend",
+    "speed": 6,
+    "glide": 5,
+    "turn": -3,
+    "fade": 0.5,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Streamline Discs",
+    "name": "Runway",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3.5,
+    "type": "MIDRANGE"
+  },
+  {
+    "brand": "Streamline Discs",
+    "name": "Echo",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 1,
+    "type": "MIDRANGE"
+  },
+  {
+    "brand": "Streamline Discs",
+    "name": "Stabilizer",
+    "speed": 3,
+    "glide": 3.5,
+    "turn": 0,
+    "fade": 3,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "brand": "Streamline Discs",
+    "name": "Pilot",
+    "speed": 2,
+    "glide": 5,
+    "turn": 0,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  }
+]

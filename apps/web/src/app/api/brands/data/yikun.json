@@ -1,0 +1,281 @@
+[
+  {
+    "name": "Luan",
+    "brand": "Yikun Discs",
+    "type": "DISTANCE_DRIVER",
+    "speed": 14,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "name": "Da'E",
+    "brand": "Yikun Discs",
+    "type": "DISTANCE_DRIVER",
+    "speed": 13,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "name": "Twin Swords",
+    "brand": "Yikun Discs",
+    "type": "DISTANCE_DRIVER",
+    "speed": 12,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Jun",
+    "brand": "Yikun Discs",
+    "type": "DISTANCE_DRIVER",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "name": "Wei",
+    "brand": "Yikun Discs",
+    "type": "DISTANCE_DRIVER",
+    "speed": 10,
+    "glide": 5,
+    "turn": -2.5,
+    "fade": 2
+  },
+  {
+    "name": "Hu",
+    "brand": "Yikun Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 9,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "name": "Gou",
+    "brand": "Yikun Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 8,
+    "glide": 5,
+    "turn": -3.5,
+    "fade": 1
+  },
+  {
+    "name": "View",
+    "brand": "Yikun Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 7,
+    "glide": 6,
+    "turn": -3.5,
+    "fade": 1
+  },
+  {
+    "name": "Jiao",
+    "brand": "Yikun Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 6,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1.5
+  },
+  {
+    "name": "Fu",
+    "brand": "Yikun Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 7,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Zhu",
+    "brand": "Yikun Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 7,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Qi",
+    "brand": "Yikun Discs",
+    "type": "DISTANCE_DRIVER",
+    "speed": 13,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "name": "Rong",
+    "brand": "Yikun Discs",
+    "type": "DISTANCE_DRIVER",
+    "speed": 13,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "name": "Long",
+    "brand": "Yikun Discs",
+    "type": "DISTANCE_DRIVER",
+    "speed": 10,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "name": "Bi",
+    "brand": "Yikun Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "name": "Kui",
+    "brand": "Yikun Discs",
+    "type": "MIDRANGE",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2.5
+  },
+  {
+    "name": "Tomahawk",
+    "brand": "Yikun Discs",
+    "type": "MIDRANGE",
+    "speed": 5,
+    "glide": 6,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "name": "Yao",
+    "brand": "Yikun Discs",
+    "type": "MIDRANGE",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Crossbow",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 4,
+    "glide": 1.5,
+    "turn": 0.5,
+    "fade": 4
+  },
+  {
+    "name": "Wings",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Yan",
+    "brand": "Yikun Discs",
+    "type": "MIDRANGE",
+    "speed": 3,
+    "glide": 6,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "name": "Shu",
+    "brand": "Yikun Discs",
+    "type": "MIDRANGE",
+    "speed": 4,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "name": "Zheng",
+    "brand": "Yikun Discs",
+    "type": "MIDRANGE",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Kang",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 3,
+    "glide": 5,
+    "turn": -2,
+    "fade": 0
+  },
+  {
+    "name": "Gui",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Meteor Hammer",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "name": "Hammer",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 2,
+    "glide": 2.5,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "name": "Claws",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 1,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0.5
+  },
+  {
+    "name": "Xing",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "name": "Ling",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 2,
+    "glide": 3,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "name": "Yi",
+    "brand": "Yikun Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0
+  }
+]

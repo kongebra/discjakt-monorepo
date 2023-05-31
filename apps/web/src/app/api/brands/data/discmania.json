@@ -1,0 +1,443 @@
+[
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "Link",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "P1",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "P2",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "Rainmaker",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0.5
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "Shogun",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "Logic",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "Sensei",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "Razor Claw Tactic",
+    "speed": 4,
+    "glide": 2,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "Tactic",
+    "speed": 4,
+    "glide": 2,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "Maestro",
+    "speed": 4,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "Tailor",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "Method",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "MD1",
+    "speed": 5,
+    "glide": 6,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "MD3",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "MD5",
+    "speed": 5,
+    "glide": 3,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "Mutant",
+    "speed": 5,
+    "glide": 3,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "Origin",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "Magician",
+    "speed": 6,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "FD",
+    "speed": 7,
+    "glide": 6,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "FD1",
+    "speed": 7,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Genius",
+    "speed": 7,
+    "glide": 5,
+    "turn": -4,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Instinct",
+    "speed": 7,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Essence",
+    "speed": 8,
+    "glide": 6,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Rockstar",
+    "speed": 8,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "CD1",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "FD3",
+    "speed": 9,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Splice",
+    "speed": 9,
+    "glide": 3,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "PD",
+    "speed": 10,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "DD1",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "Mentor",
+    "speed": 11,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "Astronaut",
+    "speed": 12,
+    "glide": 6,
+    "turn": -4,
+    "fade": 1
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "Cloud Breaker",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "DD3",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "Enigma",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "Paradigm",
+    "speed": 12,
+    "glide": 6,
+    "turn": -1.5,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "Majesty",
+    "speed": 13,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "P1x",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Discmania",
+    "type": "PUTT_APPROACH",
+    "name": "P3x",
+    "speed": 3,
+    "glide": 2,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "MD",
+    "speed": 4,
+    "glide": 5,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Discmania",
+    "type": "MIDRANGE",
+    "name": "MD4",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "FD2",
+    "speed": 7,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Tilt",
+    "speed": 9,
+    "glide": 1,
+    "turn": 1,
+    "fade": 6
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "CD2",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "CD3",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "DD2",
+    "speed": 13,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "DDx",
+    "speed": 12,
+    "glide": 6,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "PD2",
+    "speed": 12,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Discmania",
+    "type": "DISTANCE_DRIVER",
+    "name": "PD3",
+    "speed": 11,
+    "glide": 3,
+    "turn": 0,
+    "fade": 5
+  },
+  {
+    "brand": "Discmania",
+    "type": "FAIRWAY_DRIVER",
+    "name": "TD",
+    "speed": 10,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  }
+]

@@ -9,19 +9,22 @@ export function initCronJobs() {
   logger.info("Starting cron job for product cleanup, running");
   cron.schedule("*/1 * * * *", productCleanup);
 
-  let index = 0;
-  const spacingTImeSeconds = 10;
   for (const sitemapHandlerArgs of sitemapHandlerArgsArray) {
-    setTimeout(() => {
+    if (!sitemapHandlerArgs.disabled) {
       logger.info(
-        `Starting cron job for ${sitemapHandlerArgs.site.slug}, running every 30 minutes`
+        `Starting cron job for ${sitemapHandlerArgs.store.slug}, running every 30 minutes`
       );
 
       // every 30 minutes
       cron.schedule(
         "*/30 * * * *",
-        async () => await sitemapHandler(sitemapHandlerArgs)
+        async () => {
+          await sitemapHandler(sitemapHandlerArgs);
+        },
+        {
+          runOnInit: true,
+        }
       );
-    }, 1000 * spacingTImeSeconds * index++);
+    }
   }
 }

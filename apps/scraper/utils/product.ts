@@ -1,4 +1,4 @@
-import type { Prisma, PrismaPromise, Product, Site } from "database";
+import type { Prisma, PrismaPromise, Product, Store } from "database";
 import prisma from "../lib/prisma";
 import logger from "./logger";
 import { productQueue } from "../queue";
@@ -6,22 +6,22 @@ import { SitemapResultItem } from "./sitemap";
 import { calculateDaysSince } from "./date";
 
 export async function bulkUpsertProducts({
-  site,
+  store,
   items,
   itemCondition,
   bulkLimit = 32,
 }: {
-  site: Site & { products: Product[] };
+  store: Store & { products: Product[] };
   items: SitemapResultItem[];
   itemCondition: (item: SitemapResultItem) => boolean;
   bulkLimit?: number;
 }) {
   try {
-    const itemsMap = productArrayToMap(site.products || []);
+    const itemsMap = productArrayToMap(store.products || []);
 
     const createArray: Pick<
       Product,
-      "loc" | "lastmod" | "siteId" | "name" | "description"
+      "loc" | "lastmod" | "storeId" | "name" | "description" | "imageUrl"
     >[] = [];
 
     for (const item of items) {
@@ -55,7 +55,8 @@ export async function bulkUpsertProducts({
           lastmod: lastmod,
           name: "",
           description: "",
-          siteId: site.id,
+          storeId: store.id,
+          imageUrl: "",
         });
       } else {
         await prisma.product.update({
@@ -67,7 +68,7 @@ export async function bulkUpsertProducts({
 
         // put updated on queue
         await productQueue.add({
-          siteId: site.id,
+          storeId: store.id,
           loc,
           lastmod,
         });
@@ -86,7 +87,7 @@ export async function bulkUpsertProducts({
           createArray.map(
             async ({ loc, lastmod }) =>
               await productQueue.add({
-                siteId: site.id,
+                storeId: store.id,
                 loc,
                 lastmod,
               })
@@ -109,7 +110,7 @@ export async function bulkUpsertProducts({
         createArray.map(
           async ({ loc, lastmod }) =>
             await productQueue.add({
-              siteId: site.id,
+              storeId: store.id,
               loc,
               lastmod,
             })
@@ -126,12 +127,12 @@ export async function bulkUpsertProducts({
 export async function upsertProduct({
   loc,
   lastmod,
-  site,
+  store,
   itemsMap,
 }: {
   loc: string;
-  lastmod: Date | null;
-  site: Site;
+  lastmod: Date;
+  store: Store;
   itemsMap: Map<string, Product>;
 }) {
   const item = await prisma.product.upsert({
@@ -141,9 +142,10 @@ export async function upsertProduct({
     create: {
       loc,
       lastmod,
-      site: { connect: { id: site.id } },
+      storeId: store.id,
       name: "",
       description: "",
+      imageUrl: "",
     },
     update: {
       lastmod,
@@ -158,10 +160,10 @@ export async function upsertProduct({
 }
 
 export async function createOrUpdateProduct(
-  site: Site,
+  store: Store,
   itemsMap: Map<string, Product>,
   loc: string,
-  lastmod: Date | null
+  lastmod: Date
 ) {
   const existingData = itemsMap.get(loc);
 
@@ -183,9 +185,10 @@ export async function createOrUpdateProduct(
         data: {
           loc,
           lastmod,
-          site: { connect: { id: site.id } },
+          storeId: store.id,
           name: "",
           description: "",
+          imageUrl: "",
         },
       });
 

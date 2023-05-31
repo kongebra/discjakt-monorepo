@@ -1,0 +1,344 @@
+[
+  {
+    "brand": "Prodigy Discs",
+    "name": "PA-1",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "PA-2",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "PA-3",
+    "speed": 4,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "PA-4",
+    "speed": 3,
+    "glide": 3,
+    "turn": -1,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "A1",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "A2",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "A3",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "A4",
+    "speed": 4,
+    "glide": 4,
+    "turn": -1,
+    "fade": 2,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "M1",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3,
+    "type": "MIDRANGE"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "M2",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2,
+    "type": "MIDRANGE"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "M3",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2,
+    "type": "MIDRANGE"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "MX-3",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2,
+    "type": "MIDRANGE"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "M4",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1,
+    "type": "MIDRANGE"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "F1",
+    "speed": 7,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "F2",
+    "speed": 7,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "FX-2",
+    "speed": 9,
+    "glide": 4,
+    "turn": -0.5,
+    "fade": 3,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "F3",
+    "speed": 7,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "F5",
+    "speed": 7,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "F7",
+    "speed": 7,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "F9",
+    "speed": 8,
+    "glide": 6,
+    "turn": -4,
+    "fade": 0.5,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "H1 V2",
+    "speed": 11,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "H2 V2",
+    "speed": 11,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2.5,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "H3 V2",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "H4 V2",
+    "speed": 10,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1.5,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "H5",
+    "speed": 9,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "D1",
+    "speed": 13,
+    "glide": 5,
+    "turn": 0,
+    "fade": 4,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "D1 Max",
+    "speed": 12,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "D2",
+    "speed": 13,
+    "glide": 6,
+    "turn": -0.5,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "D2 Pro",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "D2 Max",
+    "speed": 12,
+    "glide": 6,
+    "turn": -1,
+    "fade": 2.5,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "D3",
+    "speed": 13,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "D3 Max",
+    "speed": 12,
+    "glide": 6,
+    "turn": -3,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "D4",
+    "speed": 12,
+    "glide": 6,
+    "turn": -3,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "D6",
+    "speed": 13,
+    "glide": 6,
+    "turn": -4,
+    "fade": 1,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "X2",
+    "speed": 13,
+    "glide": 4.5,
+    "turn": 0,
+    "fade": 4,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "X3",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "X4",
+    "speed": 12.5,
+    "glide": 5,
+    "turn": -2.5,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "brand": "Prodigy Discs",
+    "name": "X5",
+    "speed": 13,
+    "glide": 5,
+    "turn": -4,
+    "fade": 1,
+    "type": "DISTANCE_DRIVER"
+  }
+]

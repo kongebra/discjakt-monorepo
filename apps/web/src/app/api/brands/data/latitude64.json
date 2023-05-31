@@ -1,0 +1,380 @@
+[
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Ballista",
+    "speed": 14,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Ballista_Pro",
+    "speed": 14,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Bolt",
+    "speed": 13,
+    "glide": 6,
+    "turn": -2,
+    "fade": 3
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Flow",
+    "speed": 11,
+    "glide": 6,
+    "turn": 0.5,
+    "fade": 2
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Grace",
+    "speed": 11,
+    "glide": 6,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Havoc",
+    "speed": 13,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Recoil",
+    "speed": 12,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Rive",
+    "speed": 13,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3.5
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Sapphire",
+    "speed": 10,
+    "glide": 6,
+    "turn": -2,
+    "fade": 1.5
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "DISTANCE_DRIVERS",
+    "name": "Stiletto",
+    "speed": 13,
+    "glide": 3,
+    "turn": 0.5,
+    "fade": 5
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Diamond",
+    "speed": 8,
+    "glide": 6,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Explorer",
+    "speed": 7,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Fury",
+    "speed": 9,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Glory",
+    "speed": 7,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Honor",
+    "speed": 9,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2.5
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Jade",
+    "speed": 9,
+    "glide": 6,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Maul",
+    "speed": 7,
+    "glide": 7,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Musket",
+    "speed": 10,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 2
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Pioneer",
+    "speed": 9,
+    "glide": 3,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "River",
+    "speed": 7,
+    "glide": 7,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Saint",
+    "speed": 9,
+    "glide": 7,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Saint_Pro",
+    "speed": 8,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 2
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Trident",
+    "speed": 6,
+    "glide": 4,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "MIDRANGES",
+    "name": "Anchor",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "MIDRANGES",
+    "name": "Claymore",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "MIDRANGES",
+    "name": "Compass",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "MIDRANGES",
+    "name": "Core",
+    "speed": 6,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "MIDRANGES",
+    "name": "Fuse",
+    "speed": 5,
+    "glide": 6,
+    "turn": -1,
+    "fade": 0
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "MIDRANGES",
+    "name": "Pearl",
+    "speed": 4,
+    "glide": 6,
+    "turn": -4,
+    "fade": 0
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "MIDRANGES",
+    "name": "Savior",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "MIDRANGES",
+    "name": "Trust",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Dagger",
+    "speed": 2,
+    "glide": 5,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Faith",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Gauntlet",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Hope",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Keystone",
+    "speed": 2,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Macana",
+    "speed": 2,
+    "glide": 5,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Mercy",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Pure",
+    "speed": 3,
+    "glide": 3,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Ruby",
+    "speed": 3,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Spike",
+    "speed": 4,
+    "glide": 3,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Latitude 64",
+    "type": "PUTT_APPROACH",
+    "name": "Sinus",
+    "speed": 2,
+    "glide": 2,
+    "turn": 0,
+    "fade": 2
+  }
+]

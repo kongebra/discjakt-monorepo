@@ -1,8 +1,7 @@
 import axios from "axios";
 import { load } from "cheerio";
-import { createSiteIfNotExists } from "./site";
-import type { Site } from "database";
-import { prisma } from "database";
+import { createStoreIfNotExists } from "./store";
+import type { Store } from "database";
 import { bulkUpsertProducts } from "./product";
 import logger from "./logger";
 
@@ -48,24 +47,25 @@ export async function fetchSitemap(url: string) {
 }
 
 export type SitemapHandlerArgs = {
-  site: Pick<Site, "name" | "slug" | "url">;
+  store: Pick<Store, "name" | "slug" | "url">;
   itemCondition(item: SitemapResultItem): boolean;
   sitemaps?: string[];
   sitemapSearch?: (value: string) => boolean;
 };
 
 export async function sitemapHandler({
-  site: { name, slug, url },
+  store: { name, slug, url },
   itemCondition,
   sitemaps,
   sitemapSearch,
 }: SitemapHandlerArgs) {
   try {
-    const _site = await createSiteIfNotExists({ name, slug, url });
+    logger.debug("Starting sitemapHandler");
+    const _site = await createStoreIfNotExists({ name, slug, url });
     const items = await sitemapFetchter({ url, sitemaps, sitemapSearch });
 
     await bulkUpsertProducts({
-      site: _site,
+      store: _site,
       items,
       itemCondition,
       bulkLimit: 64,

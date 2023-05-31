@@ -1,0 +1,398 @@
+[
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Dimension",
+    "speed": 14.5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Teleport",
+    "speed": 14.5,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 2.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Relativity",
+    "speed": 14.5,
+    "glide": 5.5,
+    "turn": -3,
+    "fade": 1.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Limit",
+    "speed": 14.5,
+    "glide": 3.5,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Energy",
+    "speed": 13,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Nitro",
+    "speed": 13,
+    "glide": 4,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Octane",
+    "speed": 13,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Catalyst",
+    "speed": 13,
+    "glide": 5.5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Phase",
+    "speed": 11,
+    "glide": 3.5,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Photon",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Zenith",
+    "speed": 11,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Wave",
+    "speed": 11,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Orbital",
+    "speed": 11,
+    "glide": 5,
+    "turn": -4.5,
+    "fade": 1
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Motion",
+    "speed": 9,
+    "glide": 3.5,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Tesla",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Inertia",
+    "speed": 9,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Impulse",
+    "speed": 9,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Terra",
+    "speed": 8,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Volt",
+    "speed": 8,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Amp",
+    "speed": 8,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 1
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Shock",
+    "speed": 8,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Resistor",
+    "speed": 6.5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Servo",
+    "speed": 6.5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Switch",
+    "speed": 6.5,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 1
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Relay",
+    "speed": 6,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Signal",
+    "speed": 6,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "MIDRANGE",
+    "name": "Deflector",
+    "speed": 5,
+    "glide": 3.5,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "MIDRANGE",
+    "name": "Reactor",
+    "speed": 5,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 1.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "MIDRANGE",
+    "name": "Matrix",
+    "speed": 5,
+    "glide": 4,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "MIDRANGE",
+    "name": "Uplink",
+    "speed": 5,
+    "glide": 5,
+    "turn": -3,
+    "fade": 0.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "MIDRANGE",
+    "name": "Vertex",
+    "speed": 4,
+    "glide": 4,
+    "turn": -2,
+    "fade": 0.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "MIDRANGE",
+    "name": "Vector",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "MIDRANGE",
+    "name": "Axis",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "MIDRANGE",
+    "name": "Tensor",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "MIDRANGE",
+    "name": "Tangent",
+    "speed": 4,
+    "glide": 4,
+    "turn": -0.5,
+    "fade": 0.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Ion",
+    "speed": 2.5,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Anode",
+    "speed": 2.5,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Spin",
+    "speed": 2.5,
+    "glide": 4,
+    "turn": -2,
+    "fade": 0
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Entropy",
+    "speed": 4,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Atom",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Particle",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Nomad",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1.5
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Ohm",
+    "speed": 2,
+    "glide": 5,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "MVP Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Glitch",
+    "speed": 1,
+    "glide": 7,
+    "turn": 0,
+    "fade": 0
+  }
+]

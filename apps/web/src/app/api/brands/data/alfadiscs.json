@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Snoopy",
+    "brand": "Alfa Discs",
+    "type": "PUTT_APPROACH",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Cosmic",
+    "brand": "Alfa Discs",
+    "type": "FAIRWAY_DRIVER",
+    "speed": 8,
+    "glide": 6,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "name": "Apollo",
+    "brand": "Alfa Discs",
+    "type": "MIDRANGE",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  }
+]

@@ -9,7 +9,7 @@ if (!process.env.REDIS_URL) {
 }
 
 export type ProductQueueData = {
-  siteId: number;
+  storeId: number;
   loc: string;
   lastmod: Date | null;
 };
@@ -29,12 +29,12 @@ export function initQueue() {
     try {
       const { data } = job;
 
-      const site = await prisma.site.findUnique({
-        where: { id: data.siteId },
+      const site = await prisma.store.findUnique({
+        where: { id: data.storeId },
       });
 
       if (!site) {
-        throw new Error(`Site with id ${data.siteId} not found`);
+        throw new Error(`Site with id ${data.storeId} not found`);
       }
 
       await scrapeProduct(data);

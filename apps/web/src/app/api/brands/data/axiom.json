@@ -1,0 +1,218 @@
+[
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Delirium",
+    "speed": 14.5,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Tantrum",
+    "speed": 14.5,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 3
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Excite",
+    "speed": 14.5,
+    "glide": 5.5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Panic",
+    "speed": 13,
+    "glide": 4,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Mayhem",
+    "speed": 13,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 2
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Tenacity",
+    "speed": 13,
+    "glide": 5,
+    "turn": -2.5,
+    "fade": 2
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Defy",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Vanish",
+    "speed": 11,
+    "glide": 5,
+    "turn": -3,
+    "fade": 2
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Thrill",
+    "speed": 11,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3.5
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "MIDRANGE",
+    "name": "Fireball",
+    "speed": 9,
+    "glide": 3.5,
+    "turn": 0,
+    "fade": 3.5
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "MIDRANGE",
+    "name": "Wrath",
+    "speed": 9,
+    "glide": 4.5,
+    "turn": -0.5,
+    "fade": 2
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "MIDRANGE",
+    "name": "Insanity",
+    "speed": 9,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1.5
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "MIDRANGE",
+    "name": "Virus",
+    "speed": 9,
+    "glide": 5,
+    "turn": -3.5,
+    "fade": 1
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Rhythm",
+    "speed": 7,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Crave",
+    "speed": 6.5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Clash",
+    "speed": 6.5,
+    "glide": 4,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Inspire",
+    "speed": 6.5,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 1
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Pyro",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2.5
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Hex",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Paradox",
+    "speed": 5,
+    "glide": 4,
+    "turn": -4,
+    "fade": 0
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Alias",
+    "speed": 4,
+    "glide": 4,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Theory",
+    "speed": 4,
+    "glide": 4,
+    "turn": -1.5,
+    "fade": 1
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Envy",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Axiom Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Proxy",
+    "speed": 3,
+    "glide": 3,
+    "turn": -1,
+    "fade": 0.5
+  }
+]

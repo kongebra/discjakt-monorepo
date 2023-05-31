@@ -1,0 +1,308 @@
+[
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "World",
+    "speed": 14,
+    "glide": 4,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Catapult",
+    "speed": 14,
+    "glide": 4,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "King",
+    "speed": 14,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 3
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Destiny",
+    "speed": 14,
+    "glide": 6,
+    "turn": -2,
+    "fade": 3
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Queen",
+    "speed": 14,
+    "glide": 5,
+    "turn": -3,
+    "fade": 2
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "War Horse",
+    "speed": 13,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Giant",
+    "speed": 13,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3.5
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Sorcerer",
+    "speed": 13,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Sword",
+    "speed": 12,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 2
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Boatman",
+    "speed": 11,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Northman",
+    "speed": 10,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Fortress",
+    "speed": 10,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Sampo",
+    "speed": 10,
+    "glide": 4,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Ahti",
+    "speed": 9,
+    "glide": 3,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Longbowman",
+    "speed": 9,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Hatchet",
+    "speed": 9,
+    "glide": 6,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Stag",
+    "speed": 8,
+    "glide": 6,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Seer",
+    "speed": 7,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Underworld",
+    "speed": 7,
+    "glide": 6,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Bard",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Pine",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Warship",
+    "speed": 5,
+    "glide": 6,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Sling",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Tursas",
+    "speed": 5,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Anvil",
+    "speed": 4,
+    "glide": 2,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Harp",
+    "speed": 4,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Crown",
+    "speed": 3,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Shield",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Swan 2",
+    "speed": 3,
+    "glide": 3,
+    "turn": -1,
+    "fade": 0
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Swan 1 Reborn",
+    "speed": 3,
+    "glide": 3,
+    "turn": -2.5,
+    "fade": 0
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Maiden",
+    "speed": 3,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Gatekeeper",
+    "speed": 4,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Adder",
+    "speed": 13,
+    "glide": 5,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Westside Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Bear",
+    "speed": 8,
+    "glide": 6,
+    "turn": -0.5,
+    "fade": 2.5
+  }
+]

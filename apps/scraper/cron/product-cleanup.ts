@@ -4,6 +4,16 @@ import { productQueue } from "../queue";
 
 export async function productCleanup() {
   try {
+    const count = await prisma.product.count({
+      where: {
+        prices: {
+          none: {},
+        },
+      },
+    });
+
+    logger.info(`product-cleanup count: ${count}`);
+
     const products = await prisma.product.findMany({
       where: {
         prices: {
@@ -11,19 +21,20 @@ export async function productCleanup() {
         },
       },
       take: 16,
+      orderBy: {
+        updatedAt: "asc",
+      },
     });
 
     for (const product of products) {
       logger.info(`Adding product to queue:`, {
-        lastmod: product.lastmod,
         loc: product.loc,
-        siteId: product.siteId,
       });
 
       await productQueue.add({
         lastmod: product.lastmod,
         loc: product.loc,
-        siteId: product.siteId,
+        storeId: product.storeId,
       });
     }
   } catch (error) {

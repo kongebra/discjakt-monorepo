@@ -1,0 +1,1010 @@
+[
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Birdie",
+    "speed": 1,
+    "glide": 2,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Polecat",
+    "speed": 1,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Sonic",
+    "speed": 1,
+    "glide": 2,
+    "turn": -4,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Animal",
+    "speed": 2,
+    "glide": 1,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Aviar",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Aviar Driver",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Classic Aviar",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "JK Aviar",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "KC Aviar",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Nova",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Rhyno",
+    "speed": 2,
+    "glide": 1,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "RhynoX",
+    "speed": 2,
+    "glide": 1,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Whale",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Xero",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Yeti Aviar",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Aero",
+    "speed": 3,
+    "glide": 6,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Aviar3",
+    "speed": 3,
+    "glide": 2,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "AviarX3",
+    "speed": 3,
+    "glide": 2,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Bullfrog",
+    "speed": 3,
+    "glide": 1,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Colt",
+    "speed": 3,
+    "glide": 4,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Dart",
+    "speed": 3,
+    "glide": 4,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Hydra",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Invader",
+    "speed": 3,
+    "glide": 2,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Mirage",
+    "speed": 3,
+    "glide": 4,
+    "turn": -3,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Stud",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "XD",
+    "speed": 3,
+    "glide": 4,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Cobra",
+    "speed": 4,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Coyote",
+    "speed": 4,
+    "glide": 5,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "King Cobra",
+    "speed": 4,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Mako",
+    "speed": 4,
+    "glide": 5,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Pig",
+    "speed": 4,
+    "glide": 1,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Rat",
+    "speed": 4,
+    "glide": 2,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Roc",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Roc+",
+    "speed": 4,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "PUTT_APPROACH",
+    "name": "Shark",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Stingray",
+    "speed": 4,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Toro",
+    "speed": 4,
+    "glide": 2,
+    "turn": 1,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "VRoc",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Wolf",
+    "speed": 4,
+    "glide": 3,
+    "turn": -4,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Atlas",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Avatar",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Cro",
+    "speed": 5,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Foxbat",
+    "speed": 5,
+    "glide": 6,
+    "turn": -1,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Gator",
+    "speed": 5,
+    "glide": 2,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Jay",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Kite",
+    "speed": 5,
+    "glide": 6,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Lion",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Mako3",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Manta",
+    "speed": 5,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Panther",
+    "speed": 5,
+    "glide": 4,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Roc3",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "RocX3",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3.5
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Shark3",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Skeeter",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Spider",
+    "speed": 5,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "VCobra",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Wombat",
+    "speed": 5,
+    "glide": 6,
+    "turn": -1,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "MIDRANGE",
+    "name": "Wombat3",
+    "speed": 5,
+    "glide": 6,
+    "turn": -1,
+    "fade": 0
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Cheetah",
+    "speed": 6,
+    "glide": 4,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Gazelle",
+    "speed": 6,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Leopard",
+    "speed": 6,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Viper",
+    "speed": 6,
+    "glide": 4,
+    "turn": 1,
+    "fade": 5
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Whippet",
+    "speed": 6,
+    "glide": 3,
+    "turn": 1,
+    "fade": 5
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Banshee",
+    "speed": 7,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Eagle",
+    "speed": 7,
+    "glide": 4,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Hawkeye",
+    "speed": 7,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "IT",
+    "speed": 7,
+    "glide": 6,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Leopard3",
+    "speed": 7,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "TeeBird",
+    "speed": 7,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "TL",
+    "speed": 7,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Archangel",
+    "speed": 8,
+    "glide": 6,
+    "turn": -4,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Dragon",
+    "speed": 8,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "TeeBird3",
+    "speed": 8,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "TL3",
+    "speed": 8,
+    "glide": 4,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Firebird",
+    "speed": 9,
+    "glide": 3,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "FL",
+    "speed": 9,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Roadrunner",
+    "speed": 9,
+    "glide": 5,
+    "turn": -4,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Savant",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Sidewinder",
+    "speed": 9,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Thunderbird",
+    "speed": 9,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Valkyrie",
+    "speed": 9,
+    "glide": 4,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "FAIRWAY_DRIVERS",
+    "name": "Viking",
+    "speed": 9,
+    "glide": 4,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Beast",
+    "speed": 10,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Invictus",
+    "speed": 10,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Monarch",
+    "speed": 10,
+    "glide": 5,
+    "turn": -4,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Monster",
+    "speed": 10,
+    "glide": 3,
+    "turn": 0,
+    "fade": 5
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Orc",
+    "speed": 10,
+    "glide": 4,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Starfire",
+    "speed": 10,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Archon",
+    "speed": 11,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Krait",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Mamba",
+    "speed": 11,
+    "glide": 6,
+    "turn": -5,
+    "fade": 1
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Max",
+    "speed": 11,
+    "glide": 3,
+    "turn": 0,
+    "fade": 5
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Mystere",
+    "speed": 11,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "TeeRex",
+    "speed": 11,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Wraith",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Destroyer",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "TeeDevil",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Tern",
+    "speed": 12,
+    "glide": 6,
+    "turn": -3,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Wahoo",
+    "speed": 12,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "XCaliber",
+    "speed": 12,
+    "glide": 5,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Ape",
+    "speed": 13,
+    "glide": 5,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Boss",
+    "speed": 13,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Charger",
+    "speed": 13,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Daedalus",
+    "speed": 13,
+    "glide": 6,
+    "turn": -3,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Dominator",
+    "speed": 13,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Groove",
+    "speed": 13,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Katana",
+    "speed": 13,
+    "glide": 5,
+    "turn": -3,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Shryke",
+    "speed": 13,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Vulcan",
+    "speed": 13,
+    "glide": 5,
+    "turn": -4,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Colossus",
+    "speed": 14,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Corvette",
+    "speed": 14,
+    "glide": 6,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Innova Disc Golf",
+    "type": "DISTANCE_DRIVER",
+    "name": "Firestorm",
+    "speed": 14,
+    "glide": 4,
+    "turn": -1,
+    "fade": 3
+  }
+]

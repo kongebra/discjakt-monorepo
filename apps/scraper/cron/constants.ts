@@ -8,7 +8,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
   // Aceshop
   {
     disabled: false,
-    site: {
+    store: {
       url: "https://aceshop.no",
       name: "Aceshop",
       slug: "aceshop",
@@ -20,8 +20,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // DGShop
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://dgshop.no",
       name: "DGShop",
       slug: "dgshop",
@@ -35,8 +35,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Discgolf Dynasty
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://discgolfdynasty.no",
       name: "Discgolf Dynasty",
       slug: "discgolfdynasty",
@@ -51,8 +51,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Discover Discs
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://discoverdiscs.no",
       name: "Discover Discs",
       slug: "discoverdiscs",
@@ -67,8 +67,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Discshopen
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://discshopen.no",
       name: "Disc Shopen",
       slug: "discshopen",
@@ -83,8 +83,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Discsjappa
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://discsjappa.no",
       name: "Disc Sjappa",
       slug: "discsjappa",
@@ -99,8 +99,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Frisbeebutikken
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://frisbeebutikken.no",
       name: "Frisbeebutikken",
       slug: "frisbeebutikken",
@@ -112,8 +112,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Frisbeesør
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://frisbeesor.no",
       name: "Frisbee Sør",
       slug: "frisbeesor",
@@ -128,8 +128,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Golfdiscer
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://golfdiscer.no",
       name: "Golf Discer",
       slug: "golfdiscer",
@@ -144,8 +144,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Krokhol Disc Golf Shop
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://krokholdgs.no",
       name: "Krokhol Disc Golf Shop",
       slug: "krokholdgs",
@@ -157,8 +157,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Prodisc
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://prodisc.no",
       name: "Prodisc",
       slug: "prodisc",
@@ -173,8 +173,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Sendeskive
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://sendeskive.no",
       name: "Sendeskive",
       slug: "sendeskive",
@@ -189,8 +189,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Skippy Disc Golf
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://skippydg.no",
       name: "Skippy Disc Golf",
       slug: "skippydg",
@@ -205,8 +205,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Spinnvill DG
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://spinnvilldg.no",
       name: "Spinnvill DG",
       slug: "spinnvilldg",
@@ -221,8 +221,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Starframe
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://starframe.no",
       name: "Starframe",
       slug: "starframe",
@@ -234,8 +234,8 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // We are Disc Golf
   {
-    disabled: false,
-    site: {
+    disabled: true,
+    store: {
       url: "https://wearediscgolf.no",
       name: "We are Disc Golf",
       slug: "wearediscgolf",

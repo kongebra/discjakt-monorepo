@@ -7,14 +7,12 @@ export async function sitemapHandler({
   ...args
 }: SitemapHandlerArrayArgs) {
   try {
-    if (disabled) {
-      return;
-    }
+    logger.info(`${args.store.slug} sitemapHandler starting...`);
 
     await sitemapHandlerFunc(args);
 
-    logger.info(`${args.site.slug} sitemapHandler done`);
+    logger.info(`${args.store.slug} sitemapHandler done`);
   } catch (error) {
-    logger.error(`${args.site.slug} sitemapHandler error:`, error);
+    logger.error(`${args.store.slug} sitemapHandler error:`, error);
   }
 }

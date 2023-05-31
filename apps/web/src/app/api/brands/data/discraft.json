@@ -1,0 +1,530 @@
+[
+  {
+    "name": "Challenger SS",
+    "speed": 2,
+    "glide": 3,
+    "turn": -1,
+    "fade": 2,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Focus",
+    "speed": 2,
+    "glide": 2,
+    "turn": -1,
+    "fade": 2,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "APX",
+    "speed": 2,
+    "glide": 2,
+    "turn": -1,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Roach",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Challenger OS",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Putt'r",
+    "speed": 2,
+    "glide": 2,
+    "turn": -1,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Banger GT",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Challenger",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Magnet",
+    "speed": 2,
+    "glide": 3,
+    "turn": -1,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Rattler",
+    "speed": 2,
+    "glide": 2,
+    "turn": -2,
+    "fade": 1,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Luna",
+    "speed": 3,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Comet",
+    "speed": 4,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Hawk",
+    "speed": 4,
+    "glide": 3,
+    "turn": -2,
+    "fade": 2,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Zone",
+    "speed": 4,
+    "glide": 3,
+    "turn": 0,
+    "fade": 3,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Ringer GT",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Sol",
+    "speed": 4,
+    "glide": 5,
+    "turn": -3,
+    "fade": 0,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Ringer",
+    "speed": 4,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Hornet",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 4,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Wasp",
+    "speed": 5,
+    "glide": 3,
+    "turn": 0,
+    "fade": 2,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Buzzz SS",
+    "speed": 5,
+    "glide": 4,
+    "turn": -2,
+    "fade": 1,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Buzzz",
+    "speed": 5,
+    "glide": 4,
+    "turn": -1,
+    "fade": 1,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Drone",
+    "speed": 5,
+    "glide": 3,
+    "turn": 1,
+    "fade": 4,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Malta",
+    "speed": 5,
+    "glide": 4,
+    "turn": 1,
+    "fade": 3,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Stratus",
+    "speed": 5,
+    "glide": 4,
+    "turn": -4,
+    "fade": 1,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Buzzz OS",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Meteor",
+    "speed": 5,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1,
+    "type": "MIDRANGE"
+  },
+  {
+    "name": "Impact",
+    "speed": 6,
+    "glide": 6,
+    "turn": -3,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "Zombee",
+    "speed": 6,
+    "glide": 4,
+    "turn": -1,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "Sting",
+    "speed": 7,
+    "glide": 5,
+    "turn": -2,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "Cyclone",
+    "speed": 7,
+    "glide": 4,
+    "turn": -1,
+    "fade": 2,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "Stalker",
+    "speed": 7,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "XL",
+    "speed": 7,
+    "glide": 4,
+    "turn": -2,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "Archer",
+    "speed": 7,
+    "glide": 4,
+    "turn": -3,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "Xpress",
+    "speed": 8,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "XS",
+    "speed": 8,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "Mantis",
+    "speed": 8,
+    "glide": 4,
+    "turn": -2,
+    "fade": 2,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "Heat",
+    "speed": 9,
+    "glide": 6,
+    "turn": -3,
+    "fade": 1,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Predator",
+    "speed": 9,
+    "glide": 4,
+    "turn": 1,
+    "fade": 4,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Raptor",
+    "speed": 9,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Undertaker",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Avenger",
+    "speed": 10,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Vulture",
+    "speed": 10,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Avenger SS",
+    "speed": 10,
+    "glide": 5,
+    "turn": -3,
+    "fade": 1,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Anax",
+    "speed": 10,
+    "glide": 6,
+    "turn": 0,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Surge SS",
+    "speed": 11,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Surge",
+    "speed": 11,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Machete",
+    "speed": 11,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Pulse",
+    "speed": 11,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Crush",
+    "speed": 11,
+    "glide": 5,
+    "turn": 0,
+    "fade": 4,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Trasher",
+    "speed": 12,
+    "glide": 5,
+    "turn": -3,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Zeus",
+    "speed": 12,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Force",
+    "speed": 12,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Punisher",
+    "speed": 12,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Flick",
+    "speed": 12,
+    "glide": 3,
+    "turn": 1,
+    "fade": 5,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Nuke SS",
+    "speed": 13,
+    "glide": 5,
+    "turn": -3,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Crank SS",
+    "speed": 13,
+    "glide": 5,
+    "turn": -3,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Nuke",
+    "speed": 13,
+    "glide": 5,
+    "turn": -1,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Crank",
+    "speed": 13,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Nuke OS",
+    "speed": 13,
+    "glide": 4,
+    "turn": 0,
+    "fade": 4,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Scorch",
+    "speed": 11,
+    "glide": 6,
+    "turn": -2,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Hades",
+    "speed": 12,
+    "glide": 6,
+    "turn": -3,
+    "fade": 2,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Captain's Rapotor",
+    "speed": 9,
+    "glide": 3,
+    "turn": 1,
+    "fade": 4,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Fierce",
+    "speed": 3,
+    "glide": 4,
+    "turn": -2,
+    "fade": 0,
+    "type": "PUTT_APPROACH"
+  },
+  {
+    "name": "Passion",
+    "speed": 8,
+    "glide": 5,
+    "turn": 1,
+    "fade": 1,
+    "type": "FAIRWAY_DRIVER"
+  },
+  {
+    "name": "Venom",
+    "speed": 13,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3,
+    "type": "DISTANCE_DRIVER"
+  },
+  {
+    "name": "Athena",
+    "speed": 7,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2,
+    "type": "FAIRWAY_DRIVER"
+  }
+]

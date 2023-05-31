@@ -1,0 +1,335 @@
+[
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Agent",
+    "speed": 2,
+    "glide": 3,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Emac Judge",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Supreme Judge",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Judge",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Warden",
+    "speed": 2,
+    "glide": 4,
+    "turn": 0,
+    "fade": 0.5
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Guard",
+    "speed": 2,
+    "glide": 5,
+    "turn": 0,
+    "fade": 0.5
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Sockibomb Slammer",
+    "speed": 3,
+    "glide": 1,
+    "turn": 0.5,
+    "fade": 4
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Marshal",
+    "speed": 3,
+    "glide": 4,
+    "turn": 0,
+    "fade": 1
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Deputy",
+    "speed": 3,
+    "glide": 4,
+    "turn": -1.5,
+    "fade": 0
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "PUTT_APPROACH",
+    "name": "Culprit",
+    "speed": 4,
+    "glide": 2,
+    "turn": 0,
+    "fade": 3.5
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "MIDRANGE",
+    "name": "Bounty",
+    "speed": 4,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 0.5
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "MIDRANGE",
+    "name": "Justice",
+    "speed": 5,
+    "glide": 1,
+    "turn": 0.5,
+    "fade": 4
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "MIDRANGE",
+    "name": "Supreme Fugitive",
+    "speed": 5,
+    "glide": 3,
+    "turn": 0,
+    "fade": 4
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "MIDRANGE",
+    "name": "Verdict",
+    "speed": 5,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3.5
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "MIDRANGE",
+    "name": "Emac Truth",
+    "speed": 5,
+    "glide": 5,
+    "turn": 0,
+    "fade": 2
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "MIDRANGE",
+    "name": "Truth",
+    "speed": 5,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Evader",
+    "speed": 7,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2.5
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Maverick",
+    "speed": 7,
+    "glide": 4,
+    "turn": -1.5,
+    "fade": 2
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Breakout",
+    "speed": 8,
+    "glide": 5,
+    "turn": -1,
+    "fade": 1.5
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Sockibomb Felon",
+    "speed": 9,
+    "glide": 4,
+    "turn": 0.5,
+    "fade": 4
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Felon",
+    "speed": 9,
+    "glide": 3,
+    "turn": 0.5,
+    "fade": 4
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Getaway",
+    "speed": 9,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Convict",
+    "speed": 9,
+    "glide": 4,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Supreme Escape",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Escape",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "FAIRWAY_DRIVER",
+    "name": "Vandal",
+    "speed": 9,
+    "glide": 5,
+    "turn": -1.5,
+    "fade": 2
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Sampo",
+    "speed": 10,
+    "glide": 4,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Sergeant",
+    "speed": 11,
+    "glide": 4,
+    "turn": 0,
+    "fade": 2.5
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Supreme Trespass",
+    "speed": 12,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Trespass",
+    "speed": 12,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 3
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Enforcer",
+    "speed": 12,
+    "glide": 4,
+    "turn": 0.5,
+    "fade": 4
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Captain",
+    "speed": 13,
+    "glide": 5,
+    "turn": -2,
+    "fade": 2
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Sheriff",
+    "speed": 13,
+    "glide": 5,
+    "turn": -1,
+    "fade": 2
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Defender",
+    "speed": 13,
+    "glide": 5,
+    "turn": 0,
+    "fade": 3
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Raider",
+    "speed": 13,
+    "glide": 5,
+    "turn": -0.5,
+    "fade": 3.0
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Giant",
+    "speed": 13,
+    "glide": 4,
+    "turn": 0,
+    "fade": 3.5
+  },
+  {
+    "brand": "Dynamic Discs",
+    "type": "DISTANCE_DRIVER",
+    "name": "Freedom",
+    "speed": 14,
+    "glide": 5,
+    "turn": -3,
+    "fade": 3
+  }
+]
