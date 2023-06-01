@@ -26,7 +26,38 @@ export async function GET(req: Request, { params: { storeId } }: Props) {
 
   const products = await prisma.product.findMany({
     where: {
-      storeId: Number(storeId),
+      AND: [
+        {
+          storeId: Number(storeId),
+        },
+        {
+          deletedAt: null,
+        },
+      ],
+    },
+    select: {
+      id: true,
+      loc: true,
+      lastmod: true,
+      name: true,
+      description: true,
+      imageUrl: true,
+      category: true,
+      storeId: true,
+      discId: true,
+
+      prices: {
+        select: {
+          price: true,
+          currency: true,
+          availability: true,
+          createdAt: true,
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+        take: 1,
+      },
     },
     take: limit,
     skip: (page - 1) * limit,
@@ -35,7 +66,14 @@ export async function GET(req: Request, { params: { storeId } }: Props) {
   // You might also want to return total products count for front-end pagination UI
   const totalProducts = await prisma.product.count({
     where: {
-      storeId: Number(storeId),
+      AND: [
+        {
+          storeId: Number(storeId),
+        },
+        {
+          deletedAt: null,
+        },
+      ],
     },
   });
 

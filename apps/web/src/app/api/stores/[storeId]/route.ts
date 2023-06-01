@@ -7,7 +7,7 @@ type Props = {
   };
 };
 
-export async function GET(req: Request, { params: { storeId } }: Props) {
+export async function GET(_req: Request, { params: { storeId } }: Props) {
   if (!storeId) {
     return NextResponse.json({ error: "Missing storeId" }, { status: 400 });
   }
@@ -19,7 +19,11 @@ export async function GET(req: Request, { params: { storeId } }: Props) {
     include: {
       _count: {
         select: {
-          products: true,
+          products: {
+            where: {
+              deletedAt: null,
+            },
+          },
         },
       },
     },

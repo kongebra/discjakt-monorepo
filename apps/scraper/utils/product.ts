@@ -82,7 +82,6 @@ export async function bulkUpsertProducts({
           },
           {
             delay,
-            removeOnComplete: true,
           }
         );
       }
@@ -105,7 +104,6 @@ export async function bulkUpsertProducts({
               },
               {
                 delay,
-                removeOnComplete: true,
               }
             );
           })
@@ -132,7 +130,6 @@ export async function bulkUpsertProducts({
             },
             {
               delay,
-              removeOnComplete: true,
             }
           );
         })
@@ -179,7 +176,6 @@ export async function upsertProduct({
 
   await productQueue.add(item, {
     delay,
-    removeOnComplete: true,
   });
 }
 
@@ -203,7 +199,6 @@ export async function createOrUpdateProduct(
         // add to product queue
         await productQueue.add(item, {
           delay,
-          removeOnComplete: true,
         });
 
         logger.info(`Updated scraped data for ${loc}`);
@@ -227,7 +222,6 @@ export async function createOrUpdateProduct(
       // add to product queue
       await productQueue.add(item, {
         delay,
-        removeOnComplete: true,
       });
 
       logger.info(`Created new scraped data for ${loc}`);

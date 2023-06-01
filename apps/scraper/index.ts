@@ -3,13 +3,20 @@ dotenv.config();
 
 import { initQueue } from "./queue";
 import { initCronJobs } from "./cron";
-import { scrapeProduct } from "./utils/scraper";
+import axios from "axios";
+// import { scrapeProduct } from "./utils/scraper";
+
+axios.interceptors.request.use((req) => {
+  req.headers.setUserAgent("discjaktbot/1.0 (+https://discjakt.no)");
+
+  return req;
+});
 
 initQueue();
 initCronJobs();
 
 // scrapeProduct({
-//   loc: "https://aceshop.no/products/neo-evolution",
-//   storeId: 1,
+//   loc: "https://discshopen.no/produkt/champion-valkyrie/",
+//   storeId: 16,
 //   lastmod: new Date(0),
 // });

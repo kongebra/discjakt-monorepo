@@ -7,12 +7,13 @@ const logger = winston.createLogger({
   defaultMeta: { service: "scraper" },
   transports: [
     new winston.transports.File({ filename: "logs/error.log", level: "error" }), // Log errors to a file
+    new winston.transports.File({ filename: "logs/debug.log", level: "debug" }), // Log debugs to a file
     new winston.transports.Console({
       format: winston.format.combine(
         winston.format.colorize(),
         winston.format.simple()
       ),
-      level: "debug",
+      level: "info",
     }), // Log to the console
   ],
 });

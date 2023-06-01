@@ -20,7 +20,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // DGShop
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://dgshop.no",
       name: "DGShop",
@@ -35,7 +35,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Discgolf Dynasty
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://discgolfdynasty.no",
       name: "Discgolf Dynasty",
@@ -51,7 +51,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Discover Discs
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://discoverdiscs.no",
       name: "Discover Discs",
@@ -67,7 +67,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Discshopen
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://discshopen.no",
       name: "Disc Shopen",
@@ -83,7 +83,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Discsjappa
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://discsjappa.no",
       name: "Disc Sjappa",
@@ -99,7 +99,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Frisbeebutikken
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://frisbeebutikken.no",
       name: "Frisbeebutikken",
@@ -112,7 +112,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Frisbeesør
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://frisbeesor.no",
       name: "Frisbee Sør",
@@ -128,7 +128,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Golfdiscer
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://golfdiscer.no",
       name: "Golf Discer",
@@ -144,7 +144,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Krokhol Disc Golf Shop
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://krokholdgs.no",
       name: "Krokhol Disc Golf Shop",
@@ -157,7 +157,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Prodisc
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://prodisc.no",
       name: "Prodisc",
@@ -173,7 +173,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Sendeskive
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://sendeskive.no",
       name: "Sendeskive",
@@ -189,7 +189,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Skippy Disc Golf
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://skippydg.no",
       name: "Skippy Disc Golf",
@@ -205,7 +205,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Spinnvill DG
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://spinnvilldg.no",
       name: "Spinnvill DG",
@@ -221,7 +221,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // Starframe
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://starframe.no",
       name: "Starframe",
@@ -234,7 +234,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
 
   // We are Disc Golf
   {
-    disabled: true,
+    disabled: false,
     store: {
       url: "https://wearediscgolf.no",
       name: "We are Disc Golf",

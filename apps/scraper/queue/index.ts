@@ -21,6 +21,7 @@ export const productQueue = new Queue<ProductQueueData>(
   {
     defaultJobOptions: {
       removeOnComplete: true,
+      removeOnFail: true,
     },
   }
 );

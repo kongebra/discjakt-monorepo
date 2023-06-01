@@ -13,16 +13,17 @@ export const parseRobotsTxt = (content: string): UserAgentDirectives => {
   const robots: UserAgentDirectives = {};
 
   for (let line of lines) {
-    line = line.trim();
-    if (line.startsWith("User-agent:")) {
+    line = line.trim().toLowerCase();
+    if (line.startsWith("user-agent:")) {
       currentUserAgent = line.split(":")[1].trim();
       robots[currentUserAgent] = robots[currentUserAgent] || [];
     } else if (
-      line.startsWith("Allow:") ||
-      line.startsWith("Disallow:") ||
-      line.startsWith("Crawl-delay:")
+      line.startsWith("allow:") ||
+      line.startsWith("disallow:") ||
+      line.startsWith("crawl-delay:")
     ) {
       const [type, value] = line.split(":");
+
       robots[currentUserAgent].push({
         type: type.trim(),
         value: value.trim(),
@@ -36,14 +37,15 @@ export const parseRobotsTxt = (content: string): UserAgentDirectives => {
 export const getCrawlDelay = (
   robots: UserAgentDirectives,
   userAgent: string
-): string | undefined => {
+): string => {
   const agentDirectives = robots[userAgent] || robots["*"];
   if (agentDirectives) {
     for (let directive of agentDirectives) {
-      if (directive.type === "Crawl-delay") {
+      if (directive.type === "crawl-delay") {
         return directive.value;
       }
     }
   }
-  return undefined;
+
+  return "0";
 };

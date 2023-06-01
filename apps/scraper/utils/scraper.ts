@@ -2,9 +2,10 @@ import axios, { AxiosError } from "axios";
 import { CheerioAPI, load } from "cheerio";
 import { ProductQueueData } from "../queue";
 import logger from "./logger";
-import type { Currency } from "database";
+import type { Currency, Prisma } from "database";
 import { prisma } from "database";
 import decomment from "decomment";
+import { parsePrice } from "./price";
 
 interface ProductResult {
   name: string;
@@ -225,6 +226,7 @@ const getProductPrice = ($: CheerioAPI, url: string): string | null => {
   for (const selector of ogSelectors) {
     const ogPrice = $(selector).attr("content");
     if (ogPrice) {
+      logger.debug(`Found price from ${selector}`, { ogPrice });
       return ogPrice;
     }
   }
@@ -246,6 +248,7 @@ const getProductPrice = ($: CheerioAPI, url: string): string | null => {
     try {
       const potentialPrice = $(selector).first().text().trim();
       if (potentialPrice) {
+        logger.debug(`Found price from ${selector}`, { potentialPrice });
         return potentialPrice;
       }
     } catch (error) {
@@ -318,7 +321,7 @@ const getProductInfo = ($: CheerioAPI, url: string) => {
 
   const priceStr = getProductPrice($, url);
   if (priceStr) {
-    const priceNUm = parseFloat(priceStr.replace(/[^0-9.-]+/g, ""));
+    const priceNUm = parsePrice(priceStr);
     if (!isNaN(priceNUm)) {
       product.price = priceNUm;
     } else {
@@ -351,6 +354,7 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
 
   const ldJsonProduct = getLDJson($, url, outOfStock);
   if (ldJsonProduct) {
+    logger.debug(`Found product using LD+JSON for ${url}`, { ldJsonProduct });
     return ldJsonProduct;
   }
 
@@ -389,28 +393,40 @@ export const scrapeProduct = async (data: ProductQueueData) => {
       return;
     }
 
-    await prisma.product.update({
-      where: {
-        loc: data.loc,
-      },
-      data: {
-        name: product.name || "none",
-        description: product.description || "none",
-        imageUrl: product.imageUrl || "none",
+    const dataProduct: Prisma.ProductUpdateInput = {
+      name: product.name || "none",
+      description: product.description || "none",
+      imageUrl: product.imageUrl || "none",
 
-        prices: {
-          create: [
-            {
-              price: product.price || 0,
-              currency: product.currency || "NOK",
-              availability: product.outOfStock ? "OutOfStock" : "InStock",
-            },
-          ],
+      prices: {
+        create: [
+          {
+            price: product.price || 0,
+            currency: product.currency || "NOK",
+            availability: product.outOfStock ? "OutOfStock" : "InStock",
+          },
+        ],
+      },
+
+      updatedAt: new Date(),
+    };
+
+    try {
+      await prisma.product.update({
+        where: {
+          loc: data.loc,
         },
-      },
-    });
+        data: dataProduct,
+      });
 
-    logger.info("Scraped product:", { loc: data.loc });
+      logger.info("Scraped product:", { loc: data.loc });
+    } catch (error) {
+      logger.error("Error updating product (scrapeProduct):", {
+        loc: data.loc,
+        error,
+        dataProduct,
+      });
+    }
   } catch (error) {
     if (
       (error as any)?.status === 404 ||
@@ -425,7 +441,7 @@ export const scrapeProduct = async (data: ProductQueueData) => {
         },
       });
 
-      logger.info("Product not found HTTP 404 (scrapeProduct):", {
+      logger.warn("Product not found HTTP 404 (scrapeProduct):", {
         loc: data.loc,
       });
 

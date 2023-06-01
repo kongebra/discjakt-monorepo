@@ -1,34 +1,45 @@
-import { prisma } from "database";
+import { Prisma, prisma } from "database";
 import logger from "../utils/logger";
 import { productQueue } from "../queue";
-import { getCrawlDelay, parseRobotsTxt } from "../utils/robotsTxt";
 import { getStoreCrawlDelay } from "../utils/store";
 
 export async function productCleanup() {
   try {
-    const count = await prisma.product.count({
-      where: {
-        prices: {
-          none: {},
+    const where: Prisma.ProductFindManyArgs["where"] = {
+      AND: [
+        {
+          OR: [
+            {
+              prices: {
+                none: {},
+              },
+            },
+            {
+              prices: {
+                every: {
+                  createdAt: {
+                    // check if older than 24 hours
+                    lt: new Date(Date.now() - 24 * 60 * 60 * 1000),
+                  },
+                },
+              },
+            },
+          ],
         },
-      },
+        {
+          deletedAt: null,
+        },
+      ],
+    };
+
+    const count = await prisma.product.count({
+      where,
     });
 
     logger.info(`product-cleanup count: ${count}`);
 
     const products = await prisma.product.findMany({
-      where: {
-        AND: [
-          {
-            prices: {
-              none: {},
-            },
-          },
-          {
-            deletedAt: null,
-          },
-        ],
-      },
+      where,
       include: {
         store: true,
       },
@@ -38,12 +49,37 @@ export async function productCleanup() {
       },
     });
 
+    // update updatedAt so that it doesn't get picked up again
+    await prisma.product.updateMany({
+      where: {
+        id: {
+          in: products.map((product) => product.id),
+        },
+      },
+      data: {
+        updatedAt: new Date(),
+      },
+    });
+
+    // convert storeId in products to map<storeId, number>
+    const storeIdMap = new Map<number, number>();
+
     for (const product of products) {
+      // check if storeId is in map
+      if (!storeIdMap.has(product.storeId)) {
+        storeIdMap.set(product.storeId, 0);
+      }
+
       logger.info(`Adding product to queue:`, {
         loc: product.loc,
       });
 
-      const delay = getStoreCrawlDelay(product.store);
+      // get current count for store
+      const count = storeIdMap.get(product.storeId) || 0;
+      // get delay for store and multiply by count
+      const delay = getStoreCrawlDelay(product.store) * count;
+      // increment count
+      storeIdMap.set(product.storeId, count + 1);
 
       await productQueue.add(
         {
@@ -52,7 +88,6 @@ export async function productCleanup() {
           storeId: product.storeId,
         },
         {
-          removeOnComplete: true,
           delay,
         }
       );

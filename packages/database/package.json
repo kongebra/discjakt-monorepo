@@ -20,8 +20,8 @@
     "format": "prisma format",
     "generate": "prisma generate",
     "lint": "eslint ./src --fix",
-    "prebuild": "npm run generate",
-    "predev": "npm run generate",
+    "prebuild": "pnpm run generate",
+    "predev": "pnpm run generate",
     "studio": "prisma studio"
   },
   "dependencies": {
