@@ -373,6 +373,31 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
     return product as ProductResult;
   }
 
+  // extra check on some sites with old products and no 404
+  if (url.includes("wearediscgolf")) {
+    if (outOfStock) {
+      const outOfStockText = $(".stock.out-of-stock")
+        .text()
+        .trim()
+        .toLowerCase();
+
+      if (outOfStockText.includes("utilgjengelig")) {
+        await prisma.product.update({
+          where: {
+            loc: url,
+          },
+          data: {
+            deletedAt: new Date(),
+            updatedAt: new Date(),
+          },
+        });
+
+        logger.warn("Found unavailable product, marking as deleted", { url });
+        return null;
+      }
+    }
+  }
+
   logger.warn(`No product found for ${url}:`, { product });
   return null;
 };

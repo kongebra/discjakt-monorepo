@@ -39,7 +39,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://discgolfdynasty.no",
       name: "Discgolf Dynasty",
-      slug: "discgolfdynasty",
+      slug: "discgolf-dynasty",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/products/");
@@ -55,7 +55,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://discoverdiscs.no",
       name: "Discover Discs",
-      slug: "discoverdiscs",
+      slug: "discover-discs",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/products/");
@@ -71,7 +71,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://discshopen.no",
       name: "Disc Shopen",
-      slug: "discshopen",
+      slug: "disc-shopen",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/produkt/");
@@ -87,7 +87,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://discsjappa.no",
       name: "Disc Sjappa",
-      slug: "discsjappa",
+      slug: "disc-sjappa",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/products/");
@@ -116,7 +116,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://frisbeesor.no",
       name: "Frisbee Sør",
-      slug: "frisbeesor",
+      slug: "frisbee-sor",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/produkt/");
@@ -132,7 +132,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://golfdiscer.no",
       name: "Golf Discer",
-      slug: "golfdiscer",
+      slug: "golf-discer",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/products/");
@@ -148,7 +148,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://krokholdgs.no",
       name: "Krokhol Disc Golf Shop",
-      slug: "krokholdgs",
+      slug: "krokholdgs-disc-golf-shop",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/products/");
@@ -193,7 +193,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://skippydg.no",
       name: "Skippy Disc Golf",
-      slug: "skippydg",
+      slug: "skippy-disc-golf",
     },
     itemCondition(item) {
       return item.loc.includes("/products/");
@@ -209,7 +209,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://spinnvilldg.no",
       name: "Spinnvill DG",
-      slug: "spinnvilldg",
+      slug: "spinnvill-dg",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/product-page/");
@@ -238,7 +238,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://wearediscgolf.no",
       name: "We are Disc Golf",
-      slug: "wearediscgolf",
+      slug: "we-are-disc-golf",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/produkt/");
