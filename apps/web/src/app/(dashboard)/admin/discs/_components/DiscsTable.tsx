@@ -23,6 +23,7 @@ export type DiscsTableItem = Disc & {
 type Props = {
   discs: DiscsTableItem[];
   onClick?: (item: DiscsTableItem) => void;
+  onClickCreate?: () => void;
 };
 
 const columnHelper = createColumnHelper<DiscsTableItem>();
@@ -90,10 +91,25 @@ const makeColumns = (onClick?: (item: DiscsTableItem) => void) => {
   ];
 };
 
-const DiscsTable: React.FC<Props> = ({ discs: Discs, onClick }) => {
+const DiscsTable: React.FC<Props> = ({ discs, onClick, onClickCreate }) => {
   const columns = useMemo(() => makeColumns(onClick), [onClick]);
 
-  return <Table striped data={Discs} columns={columns} />;
+  return (
+    <Table
+      title="Discer"
+      buttons={[
+        {
+          children: "Lag ny disc",
+          size: "sm",
+          color: "primary",
+          onClick: () => onClickCreate?.(),
+        },
+      ]}
+      striped
+      data={discs}
+      columns={columns}
+    />
+  );
 };
 
 export default DiscsTable;

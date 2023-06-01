@@ -10,8 +10,45 @@ export async function GET(req: Request) {
   }
 
   const discs = await prisma.disc.findMany({
-    where: {},
+    where: {
+      deletedAt: null,
+    },
+    include: {
+      brand: true,
+      _count: {
+        select: {
+          products: true,
+          plastics: true,
+          bags: true,
+        },
+      },
+    },
   });
 
   return NextResponse.json(discs);
+}
+
+export async function POST(req: Request) {
+  const body = await req.json();
+  const { name, slug, speed, glide, turn, fade, brandId, type, imageUrl } =
+    body;
+
+  const disc = await prisma.disc.create({
+    data: {
+      name,
+      slug,
+      speed,
+      glide,
+      turn,
+      fade,
+      brandId,
+      type,
+      imageUrl,
+    },
+    include: {
+      brand: true,
+    },
+  });
+
+  return NextResponse.json(disc, { status: 201 });
 }

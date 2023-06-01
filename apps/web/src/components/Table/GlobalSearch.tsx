@@ -1,5 +1,7 @@
 import React from "react";
 import Input from "../Input";
+import Button from "../Button";
+import { FaTimes } from "react-icons/fa";
 
 type Props = {
   value: string;
@@ -13,13 +15,22 @@ const GlobalSearch: React.FC<Props> = ({ value, onChange, show }) => {
   }
 
   return (
-    <div className="flex items-center justify-end mb-4">
+    <div className="join">
       <Input
-        className="max-w-sx"
+        className="max-w-sx join-item"
         value={value}
         onChange={(e) => onChange(e.currentTarget.value)}
         placeholder="Søk..."
       />
+      <Button
+        className="join-item"
+        outline
+        onClick={() => {
+          onChange("");
+        }}
+      >
+        <FaTimes />
+      </Button>
     </div>
   );
 };

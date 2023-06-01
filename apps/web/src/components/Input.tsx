@@ -1,7 +1,10 @@
 import clsx from "clsx";
 import React, { useId } from "react";
 
-export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+export type InputProps = Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  "size"
+> & {
   bordered?: boolean;
   size?: "xs" | "sm" | "md" | "lg";
   color?:

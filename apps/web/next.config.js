@@ -18,11 +18,43 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "new.sunesport.no",
+      },
+      {
+        protocol: "https",
         hostname: "cdn.shopify.com",
       },
       {
         protocol: "https",
         hostname: "*.mycdn.no",
+      },
+      {
+        protocol: "https",
+        hostname: "*.aceshop.no",
+      },
+      {
+        protocol: "https",
+        hostname: "*.sendeskive.no",
+      },
+      {
+        protocol: "https",
+        hostname: "*.krokholdgs.no",
+      },
+      {
+        protocol: "https",
+        hostname: "*.dgshop.no",
+      },
+      {
+        protocol: "https",
+        hostname: "static.wixstatic.com",
+      },
+      {
+        protocol: "https",
+        hostname: "usercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "discshopen.no",
       },
     ],
     // domains: [

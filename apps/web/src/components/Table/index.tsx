@@ -16,6 +16,7 @@ import TablePagination from "./TablePagination";
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 import GlobalSearch from "./GlobalSearch";
+import Button, { ButtonProps } from "../Button";
 
 export type TableProps<T> = React.TableHTMLAttributes<HTMLTableElement> & {
   data: T[];
@@ -26,6 +27,9 @@ export type TableProps<T> = React.TableHTMLAttributes<HTMLTableElement> & {
   striped?: boolean;
 
   globalFilter?: boolean;
+
+  title?: React.ReactNode;
+  buttons?: ButtonProps[];
 };
 
 const Table = <T extends any>({
@@ -38,6 +42,9 @@ const Table = <T extends any>({
   striped = true,
 
   globalFilter: useGlobalFilter = true,
+
+  title,
+  buttons,
 
   ...rest
 }: TableProps<T>) => {
@@ -65,11 +72,23 @@ const Table = <T extends any>({
 
   return (
     <>
-      <GlobalSearch
-        value={globalFilter}
-        onChange={setGlobalFilter}
-        show={useGlobalFilter}
-      />
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-8">
+          {title && <h2 className="text-2xl font-bold">{title}</h2>}
+
+          <div className="flex items-center gap-4">
+            {buttons?.map((button, i) => (
+              <Button key={i} {...button} />
+            ))}
+          </div>
+        </div>
+
+        <GlobalSearch
+          value={globalFilter}
+          onChange={setGlobalFilter}
+          show={useGlobalFilter}
+        />
+      </div>
 
       <table
         className={clsx(

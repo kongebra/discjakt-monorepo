@@ -7,7 +7,7 @@ import Image from "next/image";
 import React, { useMemo } from "react";
 import { useForm } from "react-hook-form";
 
-type FormData = {
+export type DiscFormData = {
   name: string;
   slug: string;
   speed: number;
@@ -20,13 +20,13 @@ type FormData = {
 };
 
 type Props = {
-  onSubmit: (data: FormData) => void;
-  defaultValues?: Partial<FormData>;
+  onSubmit: (data: DiscFormData) => void;
+  defaultValues?: Partial<DiscFormData>;
   brands: Brand[];
 };
 
 const DiscsForm: React.FC<Props> = ({ onSubmit, defaultValues, brands }) => {
-  const form = useForm<FormData>({ defaultValues, mode: "onChange" });
+  const form = useForm<DiscFormData>({ defaultValues, mode: "onChange" });
 
   const brandOptions = useMemo(
     () =>
