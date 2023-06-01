@@ -1,6 +1,8 @@
 import { prisma } from "database";
 import logger from "../utils/logger";
 import { productQueue } from "../queue";
+import { getCrawlDelay, parseRobotsTxt } from "../utils/robotsTxt";
+import { getStoreCrawlDelay } from "../utils/store";
 
 export async function productCleanup() {
   try {
@@ -16,9 +18,19 @@ export async function productCleanup() {
 
     const products = await prisma.product.findMany({
       where: {
-        prices: {
-          none: {},
-        },
+        AND: [
+          {
+            prices: {
+              none: {},
+            },
+          },
+          {
+            deletedAt: null,
+          },
+        ],
+      },
+      include: {
+        store: true,
       },
       take: 16,
       orderBy: {
@@ -31,11 +43,19 @@ export async function productCleanup() {
         loc: product.loc,
       });
 
-      await productQueue.add({
-        lastmod: product.lastmod,
-        loc: product.loc,
-        storeId: product.storeId,
-      });
+      const delay = getStoreCrawlDelay(product.store);
+
+      await productQueue.add(
+        {
+          lastmod: product.lastmod,
+          loc: product.loc,
+          storeId: product.storeId,
+        },
+        {
+          removeOnComplete: true,
+          delay,
+        }
+      );
     }
   } catch (error) {
     logger.error("product-cleanup error:", error);

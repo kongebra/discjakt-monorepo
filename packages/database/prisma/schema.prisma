@@ -59,11 +59,12 @@ enum Availability {
 
 model ProductPrice {
   id           Int          @id @default(autoincrement())
-  product      Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
-  productId    Int
   price        Decimal      @default(0)
   currency     Currency     @default(NOK)
   availability Availability
+
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
 
   createdAt DateTime  @default(now())
   updatedAt DateTime  @default(now()) @updatedAt
@@ -73,10 +74,11 @@ model ProductPrice {
 }
 
 model Store {
-  id   Int    @id @default(autoincrement())
-  name String @unique
-  slug String @unique
-  url  String
+  id        Int    @id @default(autoincrement())
+  name      String @unique
+  slug      String @unique
+  url       String
+  robotsTxt String
 
   products Product[]
 

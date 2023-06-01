@@ -4,6 +4,7 @@ import logger from "./logger";
 import { productQueue } from "../queue";
 import { SitemapResultItem } from "./sitemap";
 import { calculateDaysSince } from "./date";
+import { getStoreCrawlDelay } from "./store";
 
 export async function bulkUpsertProducts({
   store,
@@ -59,39 +60,55 @@ export async function bulkUpsertProducts({
           imageUrl: "",
         });
       } else {
-        await prisma.product.update({
+        // lastmod has changed
+        const product = await prisma.product.update({
           where: { loc },
           data: {
             lastmod: lastmod,
           },
+          include: {
+            store: true,
+          },
         });
 
+        const delay = getStoreCrawlDelay(product.store);
+
         // put updated on queue
-        await productQueue.add({
-          storeId: store.id,
-          loc,
-          lastmod,
-        });
+        await productQueue.add(
+          {
+            storeId: store.id,
+            loc,
+            lastmod,
+          },
+          {
+            delay,
+            removeOnComplete: true,
+          }
+        );
       }
 
       if (createArray.length >= bulkLimit) {
-        logger.profile("createMany");
         await prisma.product.createMany({
           data: createArray,
           skipDuplicates: true,
         });
-        logger.profile("createMany");
 
         // Put all on the queue
         await Promise.all(
-          createArray.map(
-            async ({ loc, lastmod }) =>
-              await productQueue.add({
+          createArray.map(async ({ loc, lastmod }) => {
+            const delay = getStoreCrawlDelay(store);
+            await productQueue.add(
+              {
                 storeId: store.id,
                 loc,
                 lastmod,
-              })
-          )
+              },
+              {
+                delay,
+                removeOnComplete: true,
+              }
+            );
+          })
         );
 
         createArray.length = 0;
@@ -99,28 +116,30 @@ export async function bulkUpsertProducts({
     }
 
     if (createArray.length) {
-      logger.profile("createMany.final");
       await prisma.product.createMany({
         data: createArray,
       });
-      logger.profile("createMany.final");
 
       // Put all on the queue
       await Promise.all(
-        createArray.map(
-          async ({ loc, lastmod }) =>
-            await productQueue.add({
+        createArray.map(async ({ loc, lastmod, storeId }) => {
+          const delay = getStoreCrawlDelay(store);
+          await productQueue.add(
+            {
               storeId: store.id,
               loc,
               lastmod,
-            })
-        )
+            },
+            {
+              delay,
+              removeOnComplete: true,
+            }
+          );
+        })
       );
     }
   } catch (error) {
     throw error;
-  } finally {
-    await prisma.$disconnect();
   }
 }
 
@@ -156,7 +175,12 @@ export async function upsertProduct({
     itemsMap.set(loc, item);
   }
 
-  await productQueue.add(item);
+  const delay = getStoreCrawlDelay(store);
+
+  await productQueue.add(item, {
+    delay,
+    removeOnComplete: true,
+  });
 }
 
 export async function createOrUpdateProduct(
@@ -175,8 +199,12 @@ export async function createOrUpdateProduct(
           data: { lastmod },
         });
 
+        const delay = getStoreCrawlDelay(store);
         // add to product queue
-        await productQueue.add(item);
+        await productQueue.add(item, {
+          delay,
+          removeOnComplete: true,
+        });
 
         logger.info(`Updated scraped data for ${loc}`);
       }
@@ -195,8 +223,12 @@ export async function createOrUpdateProduct(
       // put new item back to map
       itemsMap.set(loc, item);
 
+      const delay = getStoreCrawlDelay(store);
       // add to product queue
-      await productQueue.add(item);
+      await productQueue.add(item, {
+        delay,
+        removeOnComplete: true,
+      });
 
       logger.info(`Created new scraped data for ${loc}`);
     }

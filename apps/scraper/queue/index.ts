@@ -2,6 +2,7 @@ import Queue from "bull";
 import { prisma } from "database";
 import { scrapeProduct } from "../utils/scraper";
 import logger from "../utils/logger";
+import { getCrawlDelay, parseRobotsTxt } from "../utils/robotsTxt";
 
 // bull: Message queue
 if (!process.env.REDIS_URL) {
@@ -29,6 +30,26 @@ export function initQueue() {
     try {
       const { data } = job;
 
+      const product = await prisma.product.findFirst({
+        where: {
+          AND: [
+            {
+              loc: data.loc,
+            },
+            {
+              deletedAt: null,
+            },
+          ],
+        },
+      });
+
+      if (!product) {
+        logger.debug("Product not found, discarding job:", { loc: data.loc });
+        job.discard();
+
+        return;
+      }
+
       const site = await prisma.store.findUnique({
         where: { id: data.storeId },
       });
@@ -37,9 +58,13 @@ export function initQueue() {
         throw new Error(`Site with id ${data.storeId} not found`);
       }
 
+      const robots = parseRobotsTxt(site.robotsTxt);
+      const crawlDelaySecs = getCrawlDelay(robots, "discjakt");
+
+      // This starts the scraping process
       await scrapeProduct(data);
     } catch (error) {
-      logger.error("Error scraping product:", error);
+      logger.error("Error scraping product (initQueue):", error);
     }
   });
 }
