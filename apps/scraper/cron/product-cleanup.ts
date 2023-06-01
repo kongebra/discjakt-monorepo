@@ -43,7 +43,7 @@ export async function productCleanup() {
       include: {
         store: true,
       },
-      take: 16,
+      take: 128,
       orderBy: {
         updatedAt: "asc",
       },
