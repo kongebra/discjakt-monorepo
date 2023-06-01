@@ -202,6 +202,7 @@ const getProductImage = ($: CheerioAPI, url: string): string | null => {
     ".product_image img", // WooCommerce
     ".image-carousel-image", // Wix
     ".product-image-container img", // Wix
+    ".img-fluid.fit-prod-page.fit-prod-page5050", // Frisbeebutikken & Starframe
   ];
   for (const selector of imageSelectors) {
     try {
