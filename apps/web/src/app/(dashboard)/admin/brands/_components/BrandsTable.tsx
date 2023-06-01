@@ -3,23 +3,24 @@
 import Button from "@/components/Button";
 import Table from "@/components/Table";
 import { createColumnHelper } from "@tanstack/react-table";
-import { Store } from "database";
-import React from "react";
+import { Brand } from "database";
+import React, { useMemo } from "react";
 
-export type StoresTableItem = Store & {
+export type BrandsTableItem = Brand & {
   _count: {
-    products: number;
+    discs: number;
+    plastics: number;
   };
 };
 
 type Props = {
-  stores: StoresTableItem[];
-  onClick?: (item: StoresTableItem) => void;
+  brands: BrandsTableItem[];
+  onClick?: (item: BrandsTableItem) => void;
 };
 
-const columnHelper = createColumnHelper<StoresTableItem>();
+const columnHelper = createColumnHelper<BrandsTableItem>();
 
-const makeColumns = (onClick?: (item: StoresTableItem) => void) => {
+const makeColumns = (onClick?: (item: BrandsTableItem) => void) => {
   return [
     columnHelper.accessor("id", {
       cell: (info) => <strong className="font-mono">{info.getValue()}</strong>,
@@ -33,13 +34,13 @@ const makeColumns = (onClick?: (item: StoresTableItem) => void) => {
       cell: (info) => info.getValue(),
       header: () => "Slug",
     }),
-    columnHelper.accessor("url", {
-      cell: (info) => info.getValue(),
-      header: () => "URL",
-    }),
-    columnHelper.accessor("_count.products", {
+    columnHelper.accessor("_count.discs", {
       cell: (info) => <span className="font-mono">{info.getValue()}</span>,
-      header: () => "Antall produkter",
+      header: () => "Antall disker",
+    }),
+    columnHelper.accessor("_count.plastics", {
+      cell: (info) => <span className="font-mono">{info.getValue()}</span>,
+      header: () => "Antall plastiker",
     }),
     columnHelper.display({
       id: "actions",
@@ -58,10 +59,10 @@ const makeColumns = (onClick?: (item: StoresTableItem) => void) => {
   ];
 };
 
-const StoresTable: React.FC<Props> = ({ stores, onClick }) => {
-  const columns = React.useMemo(() => makeColumns(onClick), [onClick]);
+const BrandsTable: React.FC<Props> = ({ brands, onClick }) => {
+  const columns = useMemo(() => makeColumns(onClick), [onClick]);
 
-  return <Table striped data={stores} columns={columns} />;
+  return <Table striped data={brands} columns={columns} />;
 };
 
-export default StoresTable;
+export default BrandsTable;

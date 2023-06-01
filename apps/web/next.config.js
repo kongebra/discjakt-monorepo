@@ -9,6 +9,28 @@ const nextConfig = {
 
     return config;
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "new.sunesport.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.mycdn.no",
+      },
+    ],
+    // domains: [
+    //   "new.sunesport.no",
+    //   "cdn.shopify.com",
+    //   "frisbeebutikke-i02.mycdn.no",
+    // ],
+  },
 };
 
 module.exports = nextConfig;

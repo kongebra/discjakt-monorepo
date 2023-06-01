@@ -43,22 +43,21 @@ const sidenavSections: SidenavSection[] = [
     items: [
       {
         name: "Merker",
-        href: "/admin/discgolf/brands",
+        href: "/admin/brands",
       },
       {
         name: "Discer",
-        href: "/admin/discgolf/discs",
+        href: "/admin/discs",
       },
       {
         name: "Pro Players",
-        href: "/admin/discgolf/pro-players",
+        href: "/admin/pro-players",
       },
     ],
   },
 ];
 const Sidenav = () => {
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <div>
