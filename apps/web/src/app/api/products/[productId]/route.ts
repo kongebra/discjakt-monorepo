@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "database";
+import { Product, prisma } from "database";
 
 type Props = {
   params: {
@@ -24,6 +24,31 @@ export async function GET(req: Request, { params: { productId } }: Props) {
           createdAt: "desc",
         },
       },
+    },
+  });
+
+  return NextResponse.json(product);
+}
+
+export async function PUT(req: Request, { params: { productId } }: Props) {
+  const id = parseInt(productId);
+
+  if (!id) {
+    return NextResponse.json("404", { status: 404 });
+  }
+
+  const body = await req.json();
+  const { category, discId } = body as Product;
+
+  const product = await prisma.product.update({
+    where: {
+      id,
+    },
+    data: {
+      category,
+      discId,
+
+      updatedAt: new Date(),
     },
   });
 

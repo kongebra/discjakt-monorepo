@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "./_components/Navbar";
 import Sidenav from "./_components/Sidenav";
+import Topbar from "./_components/Topbar";
 
 export default function DashboardLayout({
   children,
@@ -9,11 +9,13 @@ export default function DashboardLayout({
 }) {
   return (
     <div>
-      <Navbar />
+      <Sidenav />
+      <div className="lg:pl-72">
+        <Topbar />
 
-      <div className="flex p-4 gap-4">
-        <Sidenav />
-        <main className="flex-1">{children}</main>
+        <main className="py-10">
+          <div className="lg:px-8 sm:px-6 px-4">{children}</div>
+        </main>
       </div>
     </div>
   );

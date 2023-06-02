@@ -23,9 +23,15 @@ type Props = {
   onSubmit: (data: DiscFormData) => void;
   defaultValues?: Partial<DiscFormData>;
   brands: Brand[];
+  isLoading?: boolean;
 };
 
-const DiscsForm: React.FC<Props> = ({ onSubmit, defaultValues, brands }) => {
+const DiscsForm: React.FC<Props> = ({
+  onSubmit,
+  defaultValues,
+  brands,
+  isLoading,
+}) => {
   const form = useForm<DiscFormData>({ defaultValues, mode: "onChange" });
 
   const brandOptions = useMemo(
@@ -75,29 +81,45 @@ const DiscsForm: React.FC<Props> = ({ onSubmit, defaultValues, brands }) => {
           type="number"
           label="Speed"
           placeholder="Speed"
-          {...form.register("speed", { required: "Speed er påkrevd" })}
+          {...form.register("speed", {
+            required: "Speed er påkrevd",
+            valueAsNumber: true,
+          })}
           error={form.formState.errors?.speed?.message}
+          step={0.5}
         />
         <Input
           type="number"
           label="Glide"
           placeholder="Glide"
-          {...form.register("glide", { required: "Glide er påkrevd" })}
+          {...form.register("glide", {
+            required: "Glide er påkrevd",
+            valueAsNumber: true,
+          })}
           error={form.formState.errors?.glide?.message}
+          step={0.5}
         />
         <Input
           type="number"
           label="Turn"
           placeholder="Turn"
-          {...form.register("turn", { required: "Turn er påkrevd" })}
+          {...form.register("turn", {
+            required: "Turn er påkrevd",
+            valueAsNumber: true,
+          })}
           error={form.formState.errors?.turn?.message}
+          step={0.5}
         />
         <Input
           type="number"
           label="Fade"
           placeholder="Fade"
-          {...form.register("fade", { required: "Fade er påkrevd" })}
+          {...form.register("fade", {
+            required: "Fade er påkrevd",
+            valueAsNumber: true,
+          })}
           error={form.formState.errors?.fade?.message}
+          step={0.5}
         />
       </div>
 
@@ -128,7 +150,10 @@ const DiscsForm: React.FC<Props> = ({ onSubmit, defaultValues, brands }) => {
       <Select
         label="Merke"
         options={brandOptions}
-        {...form.register("brandId", { required: "Merke er påkrevd" })}
+        {...form.register("brandId", {
+          required: "Merke er påkrevd",
+          valueAsNumber: true,
+        })}
         error={form.formState.errors?.brandId?.message}
       />
 
@@ -159,7 +184,12 @@ const DiscsForm: React.FC<Props> = ({ onSubmit, defaultValues, brands }) => {
 
       <div className="mb-4"></div>
 
-      <Button type="submit" color="primary">
+      <Button
+        type="submit"
+        color="primary"
+        loading={isLoading}
+        disabled={isLoading}
+      >
         Submit
       </Button>
     </form>

@@ -16,7 +16,7 @@ initQueue();
 initCronJobs();
 
 // scrapeProduct({
-//   loc: "https://discshopen.no/produkt/champion-valkyrie/",
-//   storeId: 16,
+//   loc: "https://discoverdiscs.no/products/innova-go-bag",
+//   storeId: 2,
 //   lastmod: new Date(0),
 // });

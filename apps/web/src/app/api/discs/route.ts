@@ -30,7 +30,7 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const { name, slug, speed, glide, turn, fade, brandId, type, imageUrl } =
+  const { name, slug, speed, glide, turn, fade, type, brandId, imageUrl } =
     body;
 
   const disc = await prisma.disc.create({

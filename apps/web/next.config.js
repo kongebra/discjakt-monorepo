@@ -21,6 +21,10 @@ const nextConfig = {
         hostname: "new.sunesport.no",
       },
       {
+        protocol: "http",
+        hostname: "cdn.shopify.com",
+      },
+      {
         protocol: "https",
         hostname: "cdn.shopify.com",
       },
@@ -30,15 +34,15 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "*.aceshop.no",
+        hostname: "aceshop.no",
       },
       {
         protocol: "https",
-        hostname: "*.sendeskive.no",
+        hostname: "sendeskive.no",
       },
       {
         protocol: "https",
-        hostname: "*.krokholdgs.no",
+        hostname: "krokholdgs.no",
       },
       {
         protocol: "https",
@@ -53,15 +57,14 @@ const nextConfig = {
         hostname: "usercontent.com",
       },
       {
+        protocol: "http",
+        hostname: "discshopen.no",
+      },
+      {
         protocol: "https",
         hostname: "discshopen.no",
       },
     ],
-    // domains: [
-    //   "new.sunesport.no",
-    //   "cdn.shopify.com",
-    //   "frisbeebutikke-i02.mycdn.no",
-    // ],
   },
 };
 

@@ -357,6 +357,17 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
   const ldJsonProduct = getLDJson($, url, outOfStock);
   if (ldJsonProduct) {
     logger.debug(`Found product using LD+JSON for ${url}`, { ldJsonProduct });
+
+    // sometimes the ld+json product is missing the image
+    if (!ldJsonProduct.imageUrl) {
+      const image = getProductImage($, url);
+      if (image) {
+        ldJsonProduct.imageUrl = image;
+      } else {
+        logger.warn("No image found for product", { url });
+      }
+    }
+
     return ldJsonProduct;
   }
 
