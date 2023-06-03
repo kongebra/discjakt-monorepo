@@ -1,10 +1,10 @@
-import type { Prisma, PrismaPromise, Product, Store } from "database";
-import prisma from "../lib/prisma";
-import logger from "./logger";
-import { productQueue } from "../queue";
-import { SitemapResultItem } from "./sitemap";
-import { calculateDaysSince } from "./date";
-import { getStoreCrawlDelay } from "./store";
+import type { Product, Store } from 'database';
+import prisma from '../lib/prisma';
+import { productQueue } from '../queue';
+import { calculateDaysSince } from './date';
+import logger from './logger';
+import { SitemapResultItem } from './sitemap';
+import { getStoreCrawlDelay } from './store';
 
 export async function bulkUpsertProducts({
   store,
@@ -22,7 +22,7 @@ export async function bulkUpsertProducts({
 
     const createArray: Pick<
       Product,
-      "loc" | "lastmod" | "storeId" | "name" | "description" | "imageUrl"
+      'loc' | 'lastmod' | 'storeId' | 'name' | 'description' | 'imageUrl'
     >[] = [];
 
     for (const item of items) {
@@ -35,11 +35,7 @@ export async function bulkUpsertProducts({
 
       const prevItem = itemsMap.get(loc);
       // check if any changes at all on lastmod
-      if (
-        prevItem?.lastmod &&
-        lastmod &&
-        prevItem.lastmod.getTime() === lastmod.getTime()
-      ) {
+      if (prevItem?.lastmod && lastmod && prevItem.lastmod.getTime() === lastmod.getTime()) {
         continue;
       }
 
@@ -54,10 +50,10 @@ export async function bulkUpsertProducts({
         createArray.push({
           loc,
           lastmod: lastmod,
-          name: "",
-          description: "",
+          name: '',
+          description: '',
           storeId: store.id,
-          imageUrl: "",
+          imageUrl: '',
         });
       } else {
         // lastmod has changed
@@ -71,19 +67,7 @@ export async function bulkUpsertProducts({
           },
         });
 
-        const delay = getStoreCrawlDelay(product.store);
-
-        // put updated on queue
-        await productQueue.add(
-          {
-            storeId: store.id,
-            loc,
-            lastmod,
-          },
-          {
-            delay,
-          }
-        );
+        // TODO: Find out if we want to do a page crawl here or wait until midnight-cron-job
       }
 
       if (createArray.length >= bulkLimit) {
@@ -96,6 +80,7 @@ export async function bulkUpsertProducts({
         await Promise.all(
           createArray.map(async ({ loc, lastmod }) => {
             const delay = getStoreCrawlDelay(store);
+            // Vi legger til på denne køen kun når vi lager nye, eller ved midnatt
             await productQueue.add(
               {
                 storeId: store.id,
@@ -104,9 +89,9 @@ export async function bulkUpsertProducts({
               },
               {
                 delay,
-              }
+              },
             );
-          })
+          }),
         );
 
         createArray.length = 0;
@@ -118,22 +103,34 @@ export async function bulkUpsertProducts({
         data: createArray,
       });
 
+      const storeCount: Map<number, number> = new Map();
+
       // Put all on the queue
-      await Promise.all(
-        createArray.map(async ({ loc, lastmod, storeId }) => {
-          const delay = getStoreCrawlDelay(store);
-          await productQueue.add(
-            {
-              storeId: store.id,
-              loc,
-              lastmod,
-            },
-            {
-              delay,
-            }
-          );
-        })
-      );
+      createArray.map(async ({ loc, lastmod, storeId }) => {
+        if (!storeCount.has(storeId)) {
+          // start on 1
+          storeCount.set(storeId, 1);
+        }
+
+        // get count
+        const count = storeCount.get(storeId)!;
+        // calculate delay
+        const delay = getStoreCrawlDelay(store) * count;
+        // increment count
+        storeCount.set(storeId, count + 1);
+
+        // Vi legger til på denne køen kun når vi lager nye, eller ved midnatt
+        await productQueue.add(
+          {
+            storeId: store.id,
+            loc,
+            lastmod,
+          },
+          {
+            delay,
+          },
+        );
+      });
     }
   } catch (error) {
     throw error;
@@ -151,39 +148,54 @@ export async function upsertProduct({
   store: Store;
   itemsMap: Map<string, Product>;
 }) {
-  const item = await prisma.product.upsert({
+  const exists = await prisma.product.findUnique({
     where: {
       loc,
     },
-    create: {
-      loc,
-      lastmod,
-      storeId: store.id,
-      name: "",
-      description: "",
-      imageUrl: "",
-    },
-    update: {
-      lastmod,
-    },
   });
 
-  if (!itemsMap.has(loc)) {
-    itemsMap.set(loc, item);
+  if (!exists) {
+    const item = await prisma.product.create({
+      data: {
+        loc,
+        lastmod,
+        storeId: store.id,
+        name: '',
+        description: '',
+        imageUrl: '',
+      },
+    });
+
+    if (!itemsMap.has(loc)) {
+      itemsMap.set(loc, item);
+    }
+
+    const delay = getStoreCrawlDelay(store);
+    await productQueue.add(item, {
+      delay,
+    });
+  } else {
+    if (exists.lastmod?.getTime() !== lastmod?.getTime()) {
+      const item = await prisma.product.update({
+        where: { id: exists.id },
+        data: { lastmod, updatedAt: new Date() },
+      });
+
+      // TODO: Do we perform page crawl here or wait until midnight-cron-job?
+      // const delay = getStoreCrawlDelay(store);
+      // // add to product queue
+      // await productQueue.add(item, {
+      //   delay,
+      // });
+    }
   }
-
-  const delay = getStoreCrawlDelay(store);
-
-  await productQueue.add(item, {
-    delay,
-  });
 }
 
 export async function createOrUpdateProduct(
   store: Store,
   itemsMap: Map<string, Product>,
   loc: string,
-  lastmod: Date
+  lastmod: Date,
 ) {
   const existingData = itemsMap.get(loc);
 
@@ -195,11 +207,12 @@ export async function createOrUpdateProduct(
           data: { lastmod },
         });
 
-        const delay = getStoreCrawlDelay(store);
-        // add to product queue
-        await productQueue.add(item, {
-          delay,
-        });
+        // TODO: Do we perform page crawl here or wait until midnight-cron-job?
+        // const delay = getStoreCrawlDelay(store);
+        // // add to product queue
+        // await productQueue.add(item, {
+        //   delay,
+        // });
 
         logger.info(`Updated scraped data for ${loc}`);
       }
@@ -209,9 +222,9 @@ export async function createOrUpdateProduct(
           loc,
           lastmod,
           storeId: store.id,
-          name: "",
-          description: "",
-          imageUrl: "",
+          name: '',
+          description: '',
+          imageUrl: '',
         },
       });
 
@@ -231,9 +244,7 @@ export async function createOrUpdateProduct(
   }
 }
 
-export function productArrayToMap(
-  scrapedData: Product[]
-): Map<string, Product> {
+export function productArrayToMap(scrapedData: Product[]): Map<string, Product> {
   const itemsMap = new Map<string, Product>();
 
   for (const item of scrapedData) {
