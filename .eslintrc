@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "extends": [],
+  "settings": {
+    "next": {
+      "rootDir": ["apps/*/"]
+    }
+  },
+  "plugins": [
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ]
+}

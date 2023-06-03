@@ -77,11 +77,7 @@ const makeColumns = (onClick?: (item: DiscsTableItem) => void) => {
     columnHelper.display({
       id: "actions",
       cell: (info) => (
-        <Button
-          color="ghost"
-          size="sm"
-          onClick={() => onClick?.(info.row.original)}
-        >
+        <Button ghost size="sm" onClick={() => onClick?.(info.row.original)}>
           Endre
         </Button>
       ),

@@ -23,7 +23,7 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, title, children }) => {
         <Button
           size="sm"
           shape="square"
-          color="ghost"
+          ghost
           className="absolute right-5 top-5"
           onClick={onClose}
         >

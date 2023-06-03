@@ -71,7 +71,7 @@ export async function sitemapHandler({
       bulkLimit: 64,
     });
   } catch (error) {
-    logger.error(`${slug} scraping error:`, error);
+    logger.error(`${slug} scraping error:`, { error, slug });
   }
 }
 

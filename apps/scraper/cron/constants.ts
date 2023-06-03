@@ -148,7 +148,7 @@ export const sitemapHandlerArgsArray: SitemapHandlerArrayArgs[] = [
     store: {
       url: "https://krokholdgs.no",
       name: "Krokhol Disc Golf Shop",
-      slug: "krokholdgs-disc-golf-shop",
+      slug: "krokhol-disc-golf-shop",
     },
     itemCondition: ({ loc }) => {
       return loc.includes("/products/");
