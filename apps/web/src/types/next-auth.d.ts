@@ -1,10 +1,11 @@
-import { Role } from "database";
-import NextAuth, { DefaultSession } from "next-auth";
+import 'next-auth';
 
-declare module "next-auth" {
+interface UserDto extends Omit<User, 'emailVerified' | 'createdAt' | 'updatedAt' | 'deletedAt'> {}
+
+declare module 'next-auth' {
   interface Session {
-    user: {
-      role: Role;
-    } & DefaultSession["user"];
+    user: UserDto;
   }
+
+  interface User extends UserDto {}
 }

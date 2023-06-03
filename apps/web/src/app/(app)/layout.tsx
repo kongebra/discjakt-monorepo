@@ -1,20 +1,19 @@
-import React from "react"
-import Navbar from "./_components/Navbar"
+import { authOptions } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
+import React from 'react';
+import Footer from './_components/Footer';
+import Navbar from './_components/Navbar';
 
-export default async function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  // const session = await getServerSession(authOptions);
-  // if (!session || session.user.role !== "Admin") {
-  //   return redirect("/");
-  // }
+export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession(authOptions);
 
   return (
-    <div>
-      <Navbar />
-      <main className="">{children}</main>
+    <div className='flex min-h-screen flex-col'>
+      <Navbar session={session}>
+        <div className='flex-1'>{children}</div>
+      </Navbar>
+
+      <Footer />
     </div>
-  )
+  );
 }
