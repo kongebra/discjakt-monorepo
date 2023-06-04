@@ -1,12 +1,12 @@
-import Queue from "bull";
-import { prisma } from "database";
-import { scrapeProduct } from "../utils/scraper";
-import logger from "../utils/logger";
-import { getCrawlDelay, parseRobotsTxt } from "../utils/robotsTxt";
+import Queue from 'bull';
+import prisma from '../lib/prisma';
+import logger from '../utils/logger';
+import { getCrawlDelay, parseRobotsTxt } from '../utils/robotsTxt';
+import { scrapeProduct } from '../utils/scraper';
 
 // bull: Message queue
 if (!process.env.REDIS_URL) {
-  throw new Error("REDIS_URL is not set");
+  throw new Error('REDIS_URL is not set');
 }
 
 export type ProductQueueData = {
@@ -15,16 +15,12 @@ export type ProductQueueData = {
   lastmod: Date | null;
 };
 
-export const productQueue = new Queue<ProductQueueData>(
-  "product",
-  process.env.REDIS_URL,
-  {
-    defaultJobOptions: {
-      removeOnComplete: true,
-      removeOnFail: true,
-    },
-  }
-);
+export const productQueue = new Queue<ProductQueueData>('product', process.env.REDIS_URL, {
+  defaultJobOptions: {
+    removeOnComplete: true,
+    removeOnFail: true,
+  },
+});
 
 export function initQueue() {
   productQueue.process(5, async (job) => {
@@ -45,7 +41,7 @@ export function initQueue() {
       });
 
       if (!product) {
-        logger.debug("Product not found, discarding job:", { loc: data.loc });
+        logger.debug('Product not found, discarding job:', { loc: data.loc });
         job.discard();
 
         return;
@@ -60,12 +56,12 @@ export function initQueue() {
       }
 
       const robots = parseRobotsTxt(site.robotsTxt);
-      const crawlDelaySecs = getCrawlDelay(robots, "discjakt");
+      const crawlDelaySecs = getCrawlDelay(robots, 'discjakt');
 
       // This starts the scraping process
       await scrapeProduct(data);
     } catch (error) {
-      logger.error("Error scraping product (initQueue):", error);
+      logger.error('Error scraping product (initQueue):', error);
     }
   });
 }

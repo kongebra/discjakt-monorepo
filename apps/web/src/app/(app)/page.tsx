@@ -1,4 +1,5 @@
-import { DiscType, prisma } from 'database';
+import prisma from '@/lib/prisma';
+import { DiscType } from 'database';
 
 type DiscWithLowestPrice = {
   id: number;

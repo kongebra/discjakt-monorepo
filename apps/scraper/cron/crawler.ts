@@ -1,5 +1,6 @@
-import { prisma, Product } from 'database';
+import { Product } from 'database';
 import { CrawlerBaseType, CrawlerOptions } from '../crawler';
+import prisma from '../lib/prisma';
 import logger from '../utils/logger';
 
 type CrawlerConfig = CrawlerOptions<

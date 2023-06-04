@@ -1,24 +1,22 @@
-import { NextResponse } from "next/server";
-import { prisma } from "database";
+import { NextResponse } from 'next/server';
 
-import alfadiscs from "./data/alfadiscs.json";
-import axiom from "./data/axiom.json";
-import clashdiscs from "./data/clashdiscs.json";
-import discmania from "./data/discmania.json";
-import discraft from "./data/discraft.json";
-import dynamicdiscs from "./data/dynamicdiscs.json";
-import ev7 from "./data/ev7.json";
-import innova from "./data/innova.json";
-import kastaplast from "./data/kastaplast.json";
-import latitude64 from "./data/latitude64.json";
-import mvp from "./data/mvp.json";
-import prodigy from "./data/prodigy.json";
-import rpmdiscs from "./data/rpmdiscs.json";
-import streamline from "./data/streamline.json";
-import thoughspaceathletics from "./data/thoughspaceathletics.json";
-import westsidediscs from "./data/westsidediscs.json";
-import yikun from "./data/yikun.json";
-import { slugify } from "@/utils/slug";
+import alfadiscs from './data/alfadiscs.json';
+import axiom from './data/axiom.json';
+import clashdiscs from './data/clashdiscs.json';
+import discmania from './data/discmania.json';
+import discraft from './data/discraft.json';
+import dynamicdiscs from './data/dynamicdiscs.json';
+import ev7 from './data/ev7.json';
+import innova from './data/innova.json';
+import kastaplast from './data/kastaplast.json';
+import latitude64 from './data/latitude64.json';
+import mvp from './data/mvp.json';
+import prodigy from './data/prodigy.json';
+import rpmdiscs from './data/rpmdiscs.json';
+import streamline from './data/streamline.json';
+import thoughspaceathletics from './data/thoughspaceathletics.json';
+import westsidediscs from './data/westsidediscs.json';
+import yikun from './data/yikun.json';
 
 type Item = {
   slug: string;
@@ -28,88 +26,88 @@ type Item = {
 
 const brands: Item[] = [
   {
-    slug: "alfadiscs",
-    name: "Alfa Discs",
+    slug: 'alfadiscs',
+    name: 'Alfa Discs',
     data: alfadiscs,
   },
   {
-    slug: "axiom",
-    name: "Axiom",
+    slug: 'axiom',
+    name: 'Axiom',
     data: axiom,
   },
   {
-    slug: "clashdiscs",
-    name: "Clash Discs",
+    slug: 'clashdiscs',
+    name: 'Clash Discs',
     data: clashdiscs,
   },
   {
-    slug: "discmania",
-    name: "Discmania",
+    slug: 'discmania',
+    name: 'Discmania',
     data: discmania,
   },
   {
-    slug: "discraft",
-    name: "Discraft",
+    slug: 'discraft',
+    name: 'Discraft',
     data: discraft,
   },
   {
-    slug: "dynamicdiscs",
-    name: "Dynamic Discs",
+    slug: 'dynamicdiscs',
+    name: 'Dynamic Discs',
     data: dynamicdiscs,
   },
   {
-    slug: "ev7",
-    name: "EV-7",
+    slug: 'ev7',
+    name: 'EV-7',
     data: ev7,
   },
   {
-    slug: "innova",
-    name: "Innova",
+    slug: 'innova',
+    name: 'Innova',
     data: innova,
   },
   {
-    slug: "kastaplast",
-    name: "Kastaplast",
+    slug: 'kastaplast',
+    name: 'Kastaplast',
     data: kastaplast,
   },
   {
-    slug: "latitude64",
-    name: "Latitude 64",
+    slug: 'latitude64',
+    name: 'Latitude 64',
     data: latitude64,
   },
   {
-    slug: "mvp",
-    name: "MVP",
+    slug: 'mvp',
+    name: 'MVP',
     data: mvp,
   },
   {
-    slug: "prodigy",
-    name: "Prodigy",
+    slug: 'prodigy',
+    name: 'Prodigy',
     data: prodigy,
   },
   {
-    slug: "rpmdiscs",
-    name: "RPM Discs",
+    slug: 'rpmdiscs',
+    name: 'RPM Discs',
     data: rpmdiscs,
   },
   {
-    slug: "streamline",
-    name: "Streamline",
+    slug: 'streamline',
+    name: 'Streamline',
     data: streamline,
   },
   {
-    slug: "thoughspaceathletics",
-    name: "Though Space Athletics",
+    slug: 'thoughspaceathletics',
+    name: 'Though Space Athletics',
     data: thoughspaceathletics,
   },
   {
-    slug: "westsidediscs",
-    name: "West Side Discs",
+    slug: 'westsidediscs',
+    name: 'West Side Discs',
     data: westsidediscs,
   },
   {
-    slug: "yikun",
-    name: "Yikun",
+    slug: 'yikun',
+    name: 'Yikun',
     data: yikun,
   },
 ];
@@ -154,16 +152,16 @@ export async function GET() {
 
 const convertType = (type: string) => {
   switch (type) {
-    case "PUTT_APPROACH":
-      return "Putter";
-    case "MIDRAGE":
-    case "MIDRANGE":
-      return "Midrange";
-    case "FAIRWAY_DRIVER":
-      return "FairwayDriver";
-    case "DISTANCE_DRIVER":
-      return "DistanceDriver";
+    case 'PUTT_APPROACH':
+      return 'Putter';
+    case 'MIDRAGE':
+    case 'MIDRANGE':
+      return 'Midrange';
+    case 'FAIRWAY_DRIVER':
+      return 'FairwayDriver';
+    case 'DISTANCE_DRIVER':
+      return 'DistanceDriver';
     default:
-      return "Putter";
+      return 'Putter';
   }
 };

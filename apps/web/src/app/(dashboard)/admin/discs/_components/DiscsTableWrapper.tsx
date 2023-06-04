@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import DiscsTable, { DiscsTableItem } from "./DiscsTable";
-import DiscsModal from "./DiscsModal";
-import { Brand } from "database";
-import { useBoolean } from "usehooks-ts";
-import { useRouter } from "next/navigation";
+import { Brand } from 'database';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+import { useBoolean } from 'usehooks-ts';
+import DiscsModal from './DiscsModal';
+import DiscsTable, { DiscsTableItem } from './DiscsTable';
 
 type Props = {
   discs: DiscsTableItem[];
@@ -15,9 +15,7 @@ type Props = {
 const DiscsTableWrapper: React.FC<Props> = ({ discs, brands }) => {
   const router = useRouter();
 
-  const [selectedDisc, setSelectedDisc] = useState<DiscsTableItem | undefined>(
-    undefined
-  );
+  const [selectedDisc, setSelectedDisc] = useState<DiscsTableItem | undefined>(undefined);
 
   const createModal = useBoolean();
 
@@ -25,7 +23,9 @@ const DiscsTableWrapper: React.FC<Props> = ({ discs, brands }) => {
     <>
       <DiscsTable
         discs={discs}
-        onClick={setSelectedDisc}
+        onClick={(item, action) => {
+          setSelectedDisc(item);
+        }}
         onClickCreate={createModal.setTrue}
       />
 
@@ -40,7 +40,7 @@ const DiscsTableWrapper: React.FC<Props> = ({ discs, brands }) => {
           }
 
           await fetch(`/api/discs/${selectedDisc.id}`, {
-            method: "PUT",
+            method: 'PUT',
             body: JSON.stringify({
               ...data,
               id: selectedDisc.id,
@@ -59,7 +59,7 @@ const DiscsTableWrapper: React.FC<Props> = ({ discs, brands }) => {
         onClose={createModal.setFalse}
         onSubmit={async (data) => {
           await fetch(`/api/discs`, {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify(data),
           });
 

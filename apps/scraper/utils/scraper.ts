@@ -1,11 +1,11 @@
-import axios, { AxiosError } from "axios";
-import { CheerioAPI, load } from "cheerio";
-import { ProductQueueData } from "../queue";
-import logger from "./logger";
-import type { Currency, Prisma } from "database";
-import { prisma } from "database";
-import decomment from "decomment";
-import { parsePrice } from "./price";
+import axios from 'axios';
+import { CheerioAPI, load } from 'cheerio';
+import type { Currency, Prisma } from 'database';
+import decomment from 'decomment';
+import prisma from '../lib/prisma';
+import { ProductQueueData } from '../queue';
+import logger from './logger';
+import { parsePrice } from './price';
 
 interface ProductResult {
   name: string;
@@ -17,7 +17,7 @@ interface ProductResult {
 }
 
 const isOutOfStock = ($: CheerioAPI, url: string): boolean => {
-  const outOfStockSelectors = ["out-of-stock"];
+  const outOfStockSelectors = ['out-of-stock'];
 
   for (const selector of outOfStockSelectors) {
     if ($(`.${selector}`).length > 0) {
@@ -28,18 +28,14 @@ const isOutOfStock = ($: CheerioAPI, url: string): boolean => {
   return false;
 };
 
-const getLDJson = (
-  $: CheerioAPI,
-  url: string,
-  outOfStock: boolean
-): ProductResult | null => {
+const getLDJson = ($: CheerioAPI, url: string, outOfStock: boolean): ProductResult | null => {
   const scriptTags = $('script[type="application/ld+json"]');
 
   for (let i = 0; i < scriptTags.length; i++) {
     const childNode = scriptTags[i].children[0];
 
-    if (childNode && childNode.type === "text") {
-      let content = childNode.data || "";
+    if (childNode && childNode.type === 'text') {
+      let content = childNode.data || '';
       const originalContent = content.toString();
 
       try {
@@ -52,9 +48,9 @@ const getLDJson = (
         json = JSON.parse(content);
 
         if (
-          json["@type"] === "Webpage" &&
+          json['@type'] === 'Webpage' &&
           json.mainEntity &&
-          json.mainEntity["@type"] === "Product"
+          json.mainEntity['@type'] === 'Product'
         ) {
           const product = {
             name: json.mainEntity.name,
@@ -70,16 +66,12 @@ const getLDJson = (
           return product;
         }
 
-        if (
-          json["@type"] === "Product" &&
-          json.offers &&
-          json.offers.length > 0
-        ) {
+        if (json['@type'] === 'Product' && json.offers && json.offers.length > 0) {
           const product = {
             name: json.name,
             description: json.description,
             price: parseFloat(json.offers[0]?.price),
-            currency: json.offers[0]?.priceCurrency || "NOK",
+            currency: json.offers[0]?.priceCurrency || 'NOK',
             imageUrl: Array.isArray(json.image) ? json.image[0] : json.image,
             outOfStock,
           };
@@ -105,32 +97,32 @@ const getLDJson = (
 };
 
 const getProductTitle = ($: CheerioAPI, url: string): string | null => {
-  const ogName = $('meta[property="og:title"]').attr("content");
+  const ogName = $('meta[property="og:title"]').attr('content');
   if (ogName) {
     return ogName;
   }
 
   const titleSelectors = [
-    "h1",
-    ".product-title",
-    ".product_title",
-    ".product-title-v1",
-    "title",
-    "#productTitle", // Amazon
-    ".product-info-title", // Walmart
-    ".product-detail-title", // Best Buy
-    ".product-name", // Target
-    ".product_name", // Target (alternative)
-    ".product_title", // WooCommerce
-    ".product_title.entry-title", // WooCommerce
-    ".product_title.single-product-title", // WooCommerce
-    ".productTitle", // Wix
-    ".title.product-title", // Wix
-    ".productTitle.product-title", // Wix
-    ".product-single__title", // Shopify
-    ".product-title", // Shopify
-    ".product-single__title.product_title", // Shopify
-    ".product_title.product-single__title", // Shopify
+    'h1',
+    '.product-title',
+    '.product_title',
+    '.product-title-v1',
+    'title',
+    '#productTitle', // Amazon
+    '.product-info-title', // Walmart
+    '.product-detail-title', // Best Buy
+    '.product-name', // Target
+    '.product_name', // Target (alternative)
+    '.product_title', // WooCommerce
+    '.product_title.entry-title', // WooCommerce
+    '.product_title.single-product-title', // WooCommerce
+    '.productTitle', // Wix
+    '.title.product-title', // Wix
+    '.productTitle.product-title', // Wix
+    '.product-single__title', // Shopify
+    '.product-title', // Shopify
+    '.product-single__title.product_title', // Shopify
+    '.product_title.product-single__title', // Shopify
   ];
 
   for (const selector of titleSelectors) {
@@ -149,19 +141,19 @@ const getProductTitle = ($: CheerioAPI, url: string): string | null => {
 };
 
 const getProductDescription = ($: CheerioAPI, url: string): string | null => {
-  const ogDescription = $('meta[property="og:description"]').attr("content");
+  const ogDescription = $('meta[property="og:description"]').attr('content');
   if (ogDescription) {
     return ogDescription;
   }
 
   const descriptionSelectors = [
-    ".product-description",
-    ".product-description-container",
-    ".product-detail-description",
-    "#product-description",
-    "#description",
-    ".product-single__description", // Shopify
-    ".product-single__description.rte", // Shopify
+    '.product-description',
+    '.product-description-container',
+    '.product-detail-description',
+    '#product-description',
+    '#description',
+    '.product-single__description', // Shopify
+    '.product-single__description.rte', // Shopify
   ];
 
   for (const selector of descriptionSelectors) {
@@ -180,34 +172,31 @@ const getProductDescription = ($: CheerioAPI, url: string): string | null => {
 };
 
 const getProductImage = ($: CheerioAPI, url: string): string | null => {
-  const ogSelectors = [
-    'meta[property="og:image"]',
-    'meta[property="og:image:secure_url"]',
-  ];
+  const ogSelectors = ['meta[property="og:image"]', 'meta[property="og:image:secure_url"]'];
   for (const selector of ogSelectors) {
-    const ogImage = $(selector).attr("content");
+    const ogImage = $(selector).attr('content');
     if (ogImage) {
       return ogImage;
     }
   }
 
   const imageSelectors = [
-    ".product-image",
-    ".product-image-container",
-    ".product-detail-image",
-    "#product-image",
-    ".product-single__photo", // Shopify
-    ".product-single__photo.img-fluid", // Shopify
-    ".product_image", // WooCommerce
-    ".product_image img", // WooCommerce
-    ".image-carousel-image", // Wix
-    ".product-image-container img", // Wix
-    ".img-fluid.fit-prod-page.fit-prod-page5050", // Frisbeebutikken & Starframe
-    ".product-media-modal__content img", // Discover Discs
+    '.product-image',
+    '.product-image-container',
+    '.product-detail-image',
+    '#product-image',
+    '.product-single__photo', // Shopify
+    '.product-single__photo.img-fluid', // Shopify
+    '.product_image', // WooCommerce
+    '.product_image img', // WooCommerce
+    '.image-carousel-image', // Wix
+    '.product-image-container img', // Wix
+    '.img-fluid.fit-prod-page.fit-prod-page5050', // Frisbeebutikken & Starframe
+    '.product-media-modal__content img', // Discover Discs
   ];
   for (const selector of imageSelectors) {
     try {
-      const potentialImage = $(selector).first().attr("src");
+      const potentialImage = $(selector).first().attr('src');
       if (potentialImage) {
         return potentialImage;
       }
@@ -221,12 +210,9 @@ const getProductImage = ($: CheerioAPI, url: string): string | null => {
 };
 
 const getProductPrice = ($: CheerioAPI, url: string): string | null => {
-  const ogSelectors = [
-    'meta[property="product:price:amount"]',
-    'meta[property="og:price:amount"]',
-  ];
+  const ogSelectors = ['meta[property="product:price:amount"]', 'meta[property="og:price:amount"]'];
   for (const selector of ogSelectors) {
-    const ogPrice = $(selector).attr("content");
+    const ogPrice = $(selector).attr('content');
     if (ogPrice) {
       logger.debug(`Found price from ${selector}`, { ogPrice });
       return ogPrice;
@@ -234,16 +220,16 @@ const getProductPrice = ($: CheerioAPI, url: string): string | null => {
   }
 
   const priceSelectors = [
-    ".product-price",
-    ".price",
-    ".price-container",
-    ".product-price-container",
-    ".product-price-text",
-    ".product-price span",
-    ".product-price .amount",
-    ".product-price .price",
-    ".product-single__price", // Shopify
-    ".product-single__price.price", // Shopify
+    '.product-price',
+    '.price',
+    '.price-container',
+    '.product-price-container',
+    '.product-price-text',
+    '.product-price span',
+    '.product-price .amount',
+    '.product-price .price',
+    '.product-single__price', // Shopify
+    '.product-single__price.price', // Shopify
   ];
 
   for (const selector of priceSelectors) {
@@ -268,24 +254,24 @@ const getProductCurrency = ($: CheerioAPI, url: string): Currency | null => {
     'meta[property="og:price:currency"]',
   ];
   for (const selector of ogSelectors) {
-    const ogCurrency = $(selector).attr("content");
+    const ogCurrency = $(selector).attr('content');
     if (ogCurrency) {
       return ogCurrency as Currency;
     }
   }
 
   const currencySelectors = [
-    ".currency-symbol",
-    ".product-price .currency",
-    ".product-price .currency-symbol",
-    ".product-single__price .money .currency",
-    ".product-single__price .money .currency-symbol",
-    ".woocommerce-Price-currencySymbol",
-    ".price .woocommerce-Price-currencySymbol",
-    ".price-symbol",
-    ".product-price-symbol",
-    ".money .currency",
-    ".money .currency-symbol",
+    '.currency-symbol',
+    '.product-price .currency',
+    '.product-price .currency-symbol',
+    '.product-single__price .money .currency',
+    '.product-single__price .money .currency-symbol',
+    '.woocommerce-Price-currencySymbol',
+    '.price .woocommerce-Price-currencySymbol',
+    '.price-symbol',
+    '.product-price-symbol',
+    '.money .currency',
+    '.money .currency-symbol',
   ];
 
   for (const selector of currencySelectors) {
@@ -336,11 +322,11 @@ const getProductInfo = ($: CheerioAPI, url: string) => {
     product.currency = currency;
   } else {
     // Default to NOK if no currency is found
-    product.currency = "NOK";
+    product.currency = 'NOK';
   }
 
-  if (currency?.trim().toLowerCase() === "kr") {
-    product.currency = "NOK";
+  if (currency?.trim().toLowerCase() === 'kr') {
+    product.currency = 'NOK';
   }
 
   product.outOfStock = isOutOfStock($, url);
@@ -364,7 +350,7 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
       if (image) {
         ldJsonProduct.imageUrl = image;
       } else {
-        logger.warn("No image found for product", { url });
+        logger.warn('No image found for product', { url });
       }
     }
 
@@ -374,7 +360,7 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
   const product = getProductInfo($, url);
   if (!product.description) {
     // description is not required
-    product.description = "";
+    product.description = '';
   }
 
   if (product.outOfStock && !product.price) {
@@ -386,14 +372,11 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
   }
 
   // extra check on some sites with old products and no 404
-  if (url.includes("wearediscgolf")) {
+  if (url.includes('wearediscgolf')) {
     if (outOfStock) {
-      const outOfStockText = $(".stock.out-of-stock")
-        .text()
-        .trim()
-        .toLowerCase();
+      const outOfStockText = $('.stock.out-of-stock').text().trim().toLowerCase();
 
-      if (outOfStockText.includes("utilgjengelig")) {
+      if (outOfStockText.includes('utilgjengelig')) {
         await prisma.product.update({
           where: {
             loc: url,
@@ -404,7 +387,7 @@ const combinedScraper = async (url: string): Promise<ProductResult | null> => {
           },
         });
 
-        logger.warn("Found unavailable product, marking as deleted", { url });
+        logger.warn('Found unavailable product, marking as deleted', { url });
         return null;
       }
     }
@@ -432,16 +415,16 @@ export const scrapeProduct = async (data: ProductQueueData) => {
     }
 
     const dataProduct: Prisma.ProductUpdateInput = {
-      name: product.name || "none",
-      description: product.description || "none",
-      imageUrl: product.imageUrl || "none",
+      name: product.name || 'none',
+      description: product.description || 'none',
+      imageUrl: product.imageUrl || 'none',
 
       prices: {
         create: [
           {
             price: product.price || 0,
-            currency: product.currency || "NOK",
-            availability: product.outOfStock ? "OutOfStock" : "InStock",
+            currency: product.currency || 'NOK',
+            availability: product.outOfStock ? 'OutOfStock' : 'InStock',
           },
         ],
       },
@@ -457,19 +440,16 @@ export const scrapeProduct = async (data: ProductQueueData) => {
         data: dataProduct,
       });
 
-      logger.info("Scraped product:", { loc: data.loc });
+      logger.info('Scraped product:', { loc: data.loc });
     } catch (error) {
-      logger.error("Error updating product (scrapeProduct):", {
+      logger.error('Error updating product (scrapeProduct):', {
         loc: data.loc,
         error,
         dataProduct,
       });
     }
   } catch (error) {
-    if (
-      (error as any)?.status === 404 ||
-      (error as any)?.message.includes("404")
-    ) {
+    if ((error as any)?.status === 404 || (error as any)?.message.includes('404')) {
       await prisma.product.update({
         where: {
           loc: data.loc,
@@ -479,14 +459,14 @@ export const scrapeProduct = async (data: ProductQueueData) => {
         },
       });
 
-      logger.warn("Product not found HTTP 404 (scrapeProduct):", {
+      logger.warn('Product not found HTTP 404 (scrapeProduct):', {
         loc: data.loc,
       });
 
       return;
     }
 
-    logger.error("Error scraping product (scrapeProduct):", {
+    logger.error('Error scraping product (scrapeProduct):', {
       loc: data.loc,
       error,
     });

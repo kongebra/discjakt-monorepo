@@ -1,7 +1,10 @@
-import React from "react";
-import ProductsList from "./_components/ProductsList";
-import { Disc, prisma } from "database";
-import SuperSuggestor from "./_components/SuperSuggestor";
+import prisma from '@/lib/prisma';
+import { Disc } from 'database';
+import CreateNewDiscButton from './_components/CreateNewDiscButton';
+import DiscSuggestorTable from './_components/DiscSuggestorTable';
+import SuperSuggestor from './_components/SuperSuggestor';
+
+export const dynamic = 'force-dynamic';
 
 export default async function Page() {
   const totalCount = await prisma.product.count({
@@ -9,10 +12,19 @@ export default async function Page() {
       AND: [
         { discId: null },
         {
-          category: "Unknown",
+          category: 'Unknown',
         },
         {
           deletedAt: null,
+        },
+        {
+          prices: {
+            every: {
+              price: {
+                gt: 0,
+              },
+            },
+          },
         },
       ],
     },
@@ -22,20 +34,35 @@ export default async function Page() {
       AND: [
         { discId: null },
         {
-          category: "Unknown",
+          category: 'Unknown',
         },
         {
           deletedAt: null,
+        },
+        {
+          prices: {
+            every: {
+              price: {
+                gt: 0,
+              },
+            },
+          },
         },
       ],
     },
     include: {
       store: true,
+      prices: {
+        orderBy: {
+          createdAt: 'desc',
+        },
+        take: 1,
+      },
     },
-    orderBy: {
-      updatedAt: "asc",
-    },
-    take: 16,
+    // orderBy: {
+    //   updatedAt: 'asc',
+    // },
+    take: 100,
   });
   const discs = await prisma.disc.findMany();
   const mappedDiscs = discs.map((disc) => {
@@ -53,19 +80,35 @@ export default async function Page() {
     };
   });
 
+  const mappedProducts = products.map((product) => {
+    return {
+      ...product,
+      prices: product.prices.map((price) => {
+        return {
+          ...price,
+          price: price.price.toNumber(),
+        };
+      }),
+    };
+  });
+
+  // TODO: Gjør ekstra sjekk på "Ra" & "FL" & "IT", "Ringer"
+  // TODO: Sockibomb Slammer -> Slammer
+  // TODO: Sjekk Armadillo (sekk?)
+  // TODO: Sjekk alle produkter med "start" i navnet
   return (
     <div>
-      <h1 className="text-2xl font-semibold mb-4">
-        {totalCount} uncatigorised products
-      </h1>
+      <h1 className='mb-4 text-2xl font-semibold'>{totalCount} uncatigorised products</h1>
 
-      <SuperSuggestor products={products} discs={mappedDiscs} />
+      <div className='flex gap-4'>
+        <SuperSuggestor products={mappedProducts} discs={mappedDiscs} />
+        <CreateNewDiscButton />
+      </div>
 
-      <ProductsList
-        totalCount={totalCount}
-        products={products}
-        discs={mappedDiscs}
-      />
+      <DiscSuggestorTable products={mappedProducts} discs={mappedDiscs} totalCount={totalCount} />
+      {/* <ProductsList totalCount={totalCount} products={products} discs={mappedDiscs} /> */}
+
+      <SuperSuggestor products={mappedProducts} discs={mappedDiscs} />
     </div>
   );
 }

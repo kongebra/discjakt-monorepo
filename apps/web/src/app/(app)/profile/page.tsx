@@ -1,5 +1,5 @@
 import { authOptions } from '@/lib/auth';
-import { prisma } from 'database';
+import prisma from '@/lib/prisma';
 import { getServerSession } from 'next-auth';
 
 export default async function Page() {

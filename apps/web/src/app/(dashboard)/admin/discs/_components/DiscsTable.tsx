@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import Button from "@/components/Button";
-import Table from "@/components/Table";
-import { createColumnHelper } from "@tanstack/react-table";
-import { Brand, Disc } from "database";
-import React, { useMemo } from "react";
+import Button from '@/components/Button';
+import Table from '@/components/Table';
+import { createColumnHelper } from '@tanstack/react-table';
+import { Brand, Disc } from 'database';
+import React, { useMemo } from 'react';
 
 export type DiscsTableItem = Disc & {
   speed: number;
@@ -22,66 +22,74 @@ export type DiscsTableItem = Disc & {
 
 type Props = {
   discs: DiscsTableItem[];
-  onClick?: (item: DiscsTableItem) => void;
+  onClick?: (item: DiscsTableItem, action: Action) => void;
   onClickCreate?: () => void;
 };
 
 const columnHelper = createColumnHelper<DiscsTableItem>();
 
-const makeColumns = (onClick?: (item: DiscsTableItem) => void) => {
+type Action = 'disc.edit' | 'disc.edit.image';
+
+const makeColumns = (onClick?: (item: DiscsTableItem, action: Action) => void) => {
   return [
-    columnHelper.accessor("id", {
-      cell: (info) => <strong className="font-mono">{info.getValue()}</strong>,
-      header: () => "ID",
+    columnHelper.accessor('id', {
+      cell: (info) => <strong className='font-mono'>{info.getValue()}</strong>,
+      header: () => 'ID',
     }),
-    columnHelper.accessor("name", {
+    columnHelper.accessor('name', {
       cell: (info) => info.getValue(),
-      header: () => "Navn",
+      header: () => 'Navn',
     }),
-    columnHelper.accessor("brand.name", {
+    columnHelper.accessor('brand.name', {
       cell: (info) => info.getValue(),
-      header: () => "Merke",
+      header: () => 'Merke',
     }),
-    columnHelper.accessor("type", {
+    columnHelper.accessor('type', {
       cell: (info) => info.getValue(),
-      header: () => "Type",
+      header: () => 'Type',
     }),
-    columnHelper.accessor("speed", {
+    columnHelper.accessor('speed', {
       cell: (info) => info.getValue(),
-      header: () => "Speed",
+      header: () => 'Speed',
     }),
-    columnHelper.accessor("glide", {
+    columnHelper.accessor('glide', {
       cell: (info) => info.getValue(),
-      header: () => "Glide",
+      header: () => 'Glide',
     }),
-    columnHelper.accessor("turn", {
+    columnHelper.accessor('turn', {
       cell: (info) => info.getValue(),
-      header: () => "Turn",
+      header: () => 'Turn',
     }),
-    columnHelper.accessor("fade", {
+    columnHelper.accessor('fade', {
       cell: (info) => info.getValue(),
-      header: () => "Fade",
+      header: () => 'Fade',
     }),
-    columnHelper.accessor("_count.products", {
-      cell: (info) => <span className="font-mono">{info.getValue()}</span>,
-      header: () => "Produkter",
+    columnHelper.accessor('_count.products', {
+      cell: (info) => <span className='font-mono'>{info.getValue()}</span>,
+      header: () => 'Produkter',
     }),
-    columnHelper.accessor("_count.bags", {
-      cell: (info) => <span className="font-mono">{info.getValue()}</span>,
-      header: () => "Bagger",
+    columnHelper.accessor('_count.bags', {
+      cell: (info) => <span className='font-mono'>{info.getValue()}</span>,
+      header: () => 'Bagger',
     }),
-    columnHelper.accessor("_count.users", {
-      cell: (info) => <span className="font-mono">{info.getValue()}</span>,
-      header: () => "Brukere",
+    columnHelper.accessor('_count.users', {
+      cell: (info) => <span className='font-mono'>{info.getValue()}</span>,
+      header: () => 'Brukere',
     }),
     columnHelper.display({
-      id: "actions",
+      id: 'actions',
       cell: (info) => (
-        <Button ghost size="sm" onClick={() => onClick?.(info.row.original)}>
-          Endre
-        </Button>
+        <div className='flex items-center gap-2'>
+          <Button
+            size='sm'
+            onClick={() => onClick?.(info.row.original, 'disc.edit.image')}
+          ></Button>
+          <Button ghost size='sm' onClick={() => onClick?.(info.row.original, 'disc.edit')}>
+            Endre
+          </Button>
+        </div>
       ),
-      header: () => "Handlinger",
+      header: () => 'Handlinger',
       enableSorting: false,
     }),
   ];
@@ -92,12 +100,12 @@ const DiscsTable: React.FC<Props> = ({ discs, onClick, onClickCreate }) => {
 
   return (
     <Table
-      title="Discer"
+      title='Discer'
       buttons={[
         {
-          children: "Lag ny disc",
-          size: "sm",
-          color: "primary",
+          children: 'Lag ny disc',
+          size: 'sm',
+          color: 'primary',
           onClick: () => onClickCreate?.(),
         },
       ]}

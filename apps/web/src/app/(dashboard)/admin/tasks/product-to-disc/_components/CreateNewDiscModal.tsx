@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import Modal from "@/components/Modal";
-import { Brand, Product, Store } from "database";
-import React from "react";
-import { useBrands } from "../hooks/use-brands";
-import DiscsForm from "../../../discs/_components/DiscsForm";
-import { useDiscMutation } from "../hooks/use-disc-mutation";
-import { useRouter } from "next/navigation";
+import Modal from '@/components/Modal';
+import { Brand, Product, Store } from 'database';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import DiscsForm from '../../../discs/_components/DiscsForm';
+import { useBrands } from '../hooks/use-brands';
+import { useDiscMutation } from '../hooks/use-disc-mutation';
 
 type Props = {
-  product: Product & { store: Store };
+  product?: Product & { store: Store };
   open: boolean;
   onClose: () => void;
 };
@@ -27,10 +27,10 @@ const CreateNewDiscModal: React.FC<Props> = ({ product, open, onClose }) => {
   });
 
   return (
-    <Modal title="Lag ny disc" open={open} onClose={onClose}>
+    <Modal title='Lag ny disc' open={open} onClose={onClose}>
       <DiscsForm
         defaultValues={{
-          imageUrl: product.imageUrl,
+          imageUrl: product?.imageUrl,
         }}
         onSubmit={async (data) => {
           await trigger({

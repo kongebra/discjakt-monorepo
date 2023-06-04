@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import Button from "@/components/Button";
-import { Product, Store } from "database";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import useSWRMutation from "swr/mutation";
-import { useProductMutation } from "../hooks/use-product-mutation";
+import Button from '@/components/Button';
+import clsx from 'clsx';
+import { Product, Store } from 'database';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import { useProductMutation } from '../hooks/use-product-mutation';
 
 type Props = {
   product: Product & { store: Store };
@@ -20,17 +20,16 @@ const MiniMarkerButton: React.FC<Props> = ({ product }) => {
 
   const router = useRouter();
 
-  if (!product.name.toLowerCase().includes("mini")) {
-    return null;
-  }
+  const found = product.name.toLowerCase().includes('mini');
 
   return (
     <Button
-      size="xs"
-      color="warning"
+      size='xs'
+      color={found ? 'success' : 'warning'}
+      className={clsx({ 'animate-pulse': found })}
       onClick={async () => {
         await trigger({
-          category: "Accessories",
+          category: 'Accessories',
         });
       }}
       loading={isMutating}

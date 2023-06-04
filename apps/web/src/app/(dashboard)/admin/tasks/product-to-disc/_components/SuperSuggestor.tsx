@@ -1,8 +1,7 @@
-import { Disc, Product, Store } from "database";
-import React from "react";
-import { searchDiscs } from "../utils/suggestor";
-import Button from "@/components/Button";
-import SuperSuggestorButton from "./SuperSuggestorButton";
+import { Disc, Product, Store } from 'database';
+import React from 'react';
+import { searchDiscs } from '../utils/suggestor';
+import SuperSuggestorButton from './SuperSuggestorButton';
 
 type Props = {
   products: (Product & { store: Store })[];
@@ -28,6 +27,10 @@ const SuperSuggestor: React.FC<Props> = ({ products, discs }) => {
     const suggestions = searchDiscs(product, discs);
     return suggestions.length === 1;
   });
+
+  if (products.length === 0) {
+    return null;
+  }
 
   if (canAllAutoSuggest) {
     return <SuperSuggestorButton suggestions={suggestions} />;

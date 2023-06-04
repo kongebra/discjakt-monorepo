@@ -1,12 +1,12 @@
-import { prisma } from "database";
-import { NextResponse } from "next/server";
+import prisma from '@/lib/prisma';
+import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const id = searchParams.get("siteId");
+  const id = searchParams.get('siteId');
 
   if (!id) {
-    return NextResponse.json({ error: "Missing siteId" }, { status: 400 });
+    return NextResponse.json({ error: 'Missing siteId' }, { status: 400 });
   }
 
   const discs = await prisma.disc.findMany({
@@ -30,8 +30,7 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const { name, slug, speed, glide, turn, fade, type, brandId, imageUrl } =
-    body;
+  const { name, slug, speed, glide, turn, fade, type, brandId, imageUrl } = body;
 
   const disc = await prisma.disc.create({
     data: {

@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
-import { Product, prisma } from "database";
+import prisma from '@/lib/prisma';
+import { Product } from 'database';
+import { NextResponse } from 'next/server';
 
 type Props = {
   params: {
@@ -11,7 +12,7 @@ export async function GET(req: Request, { params: { productId } }: Props) {
   const id = parseInt(productId);
 
   if (!id) {
-    return NextResponse.json("404", { status: 404 });
+    return NextResponse.json('404', { status: 404 });
   }
 
   const product = await prisma.product.findUnique({
@@ -21,7 +22,7 @@ export async function GET(req: Request, { params: { productId } }: Props) {
     include: {
       prices: {
         orderBy: {
-          createdAt: "desc",
+          createdAt: 'desc',
         },
       },
     },
@@ -34,7 +35,7 @@ export async function PUT(req: Request, { params: { productId } }: Props) {
   const id = parseInt(productId);
 
   if (!id) {
-    return NextResponse.json("404", { status: 404 });
+    return NextResponse.json('404', { status: 404 });
   }
 
   const body = await req.json();

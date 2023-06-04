@@ -1,5 +1,6 @@
-import { Store, prisma } from "database";
-import { NextResponse } from "next/server";
+import prisma from '@/lib/prisma';
+import { Store } from 'database';
+import { NextResponse } from 'next/server';
 
 type Props = {
   params: {
@@ -10,7 +11,7 @@ type Props = {
 export async function GET(_req: Request, { params: { storeId } }: Props) {
   const id = Number(storeId);
   if (!storeId || isNaN(id)) {
-    return NextResponse.json({ error: "Invalid storeId" }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid storeId' }, { status: 400 });
   }
 
   const store = await prisma.store.findUnique({
@@ -31,10 +32,7 @@ export async function GET(_req: Request, { params: { storeId } }: Props) {
   });
 
   if (!store) {
-    return NextResponse.json(
-      { error: `Store with id ${storeId} not found` },
-      { status: 404 }
-    );
+    return NextResponse.json({ error: `Store with id ${storeId} not found` }, { status: 404 });
   }
 
   return NextResponse.json(store);
@@ -43,13 +41,13 @@ export async function GET(_req: Request, { params: { storeId } }: Props) {
 export async function PUT(req: Request, { params: { storeId } }: Props) {
   const id = Number(storeId);
   if (!storeId || isNaN(id)) {
-    return NextResponse.json({ error: "Invalid storeId" }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid storeId' }, { status: 400 });
   }
 
   const body = (await req.json()) as Store;
 
   if (id !== body.id) {
-    return NextResponse.json({ error: "Invalid storeId" }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid storeId' }, { status: 400 });
   }
 
   const { name, url, slug } = body;
@@ -77,10 +75,7 @@ export async function PUT(req: Request, { params: { storeId } }: Props) {
   });
 
   if (!store) {
-    return NextResponse.json(
-      { error: `Store with id ${storeId} not found` },
-      { status: 404 }
-    );
+    return NextResponse.json({ error: `Store with id ${storeId} not found` }, { status: 404 });
   }
 
   return NextResponse.json(store);

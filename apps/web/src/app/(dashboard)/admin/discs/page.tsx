@@ -1,7 +1,8 @@
-import React from "react";
-import { prisma } from "database";
-import DiscsTableWrapper from "./_components/DiscsTableWrapper";
-import { DiscsTableItem } from "./_components/DiscsTable";
+import prisma from '@/lib/prisma';
+import { DiscsTableItem } from './_components/DiscsTable';
+import DiscsTableWrapper from './_components/DiscsTableWrapper';
+
+export const dynamic = 'force-dynamic';
 
 export default async function Page() {
   const brands = await prisma.brand.findMany();

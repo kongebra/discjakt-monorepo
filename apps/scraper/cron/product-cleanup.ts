@@ -1,11 +1,12 @@
-import { Prisma, prisma } from "database";
-import logger from "../utils/logger";
-import { productQueue } from "../queue";
-import { getStoreCrawlDelay } from "../utils/store";
+import { Prisma } from 'database';
+import prisma from '../lib/prisma';
+import { productQueue } from '../queue';
+import logger from '../utils/logger';
+import { getStoreCrawlDelay } from '../utils/store';
 
 export async function productCleanup() {
   try {
-    const where: Prisma.ProductFindManyArgs["where"] = {
+    const where: Prisma.ProductFindManyArgs['where'] = {
       AND: [
         {
           OR: [
@@ -45,7 +46,7 @@ export async function productCleanup() {
       },
       take: 128,
       orderBy: {
-        updatedAt: "asc",
+        updatedAt: 'asc',
       },
     });
 
@@ -89,10 +90,10 @@ export async function productCleanup() {
         },
         {
           delay,
-        }
+        },
       );
     }
   } catch (error) {
-    logger.error("product-cleanup error:", error);
+    logger.error('product-cleanup error:', error);
   }
 }

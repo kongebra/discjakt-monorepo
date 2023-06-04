@@ -1,107 +1,96 @@
-"use client";
+'use client';
 
-import { Menu } from "@headlessui/react";
-import clsx from "clsx";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import {
-  FaBars,
-  FaSearch,
-  FaBell,
-  FaCaretDown,
-  FaChevronDown,
-} from "react-icons/fa";
+import { Menu } from '@headlessui/react';
+import clsx from 'clsx';
+import { Session } from 'next-auth';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import { FaBars, FaBell, FaChevronDown, FaSearch } from 'react-icons/fa';
 
-const Topbar = () => {
+type Props = {
+  session: Session;
+};
+
+const Topbar: React.FC<Props> = ({ session }) => {
   return (
-    <div className="lg:px-8 sm:px-6 sm:gap-x-6 shadow-sm px-4 bg-white border-gray-200 border-b gap-x-4 items-center flex flex-shrink-0 h-16 z-40 top-0 sticky">
-      <button type="button" className="lg:hidden text-gray-700 p-2.5 -m-2.5">
-        <span className="sr-only">Open sidebar</span>
+    <div className='sticky top-0 z-40 flex h-16 flex-shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8'>
+      <button type='button' className='-m-2.5 p-2.5 text-gray-700 lg:hidden'>
+        <span className='sr-only'>Open sidebar</span>
         {/* TODO: Finn en tynnere bars icon */}
-        <FaBars className="w-6 h-6" />
+        <FaBars className='h-6 w-6' />
       </button>
 
-      <div className="lg:hidden bg-gray-900/10 w-px h-6" aria-hidden="true" />
+      <div className='h-6 w-px bg-gray-900/10 lg:hidden' aria-hidden='true' />
 
-      <div className="lg:gap-x-6 self-stretch gap-x-4 flex-1 flex">
-        <form
-          action="#"
-          method="GET"
-          id="search-form"
-          className="flex relative flex-1"
-        >
-          <label htmlFor="search-field" className="sr-only">
+      <div className='flex flex-1 gap-x-4 self-stretch lg:gap-x-6'>
+        <form action='#' method='GET' id='search-form' className='relative flex flex-1'>
+          <label htmlFor='search-field' className='sr-only'>
             Search
           </label>
           <FaSearch
-            className="text-gray-400 w-5 h-full left-0 inset-y-0 absolute pointer-events-none"
-            aria-hidden="true"
+            className='pointer-events-none absolute inset-y-0 left-0 h-full w-5 text-gray-400'
+            aria-hidden='true'
           />
           <input
-            type="search"
-            id="search-field"
-            placeholder="Search..."
-            name="search"
-            className="sm:text-sm text-gray-900 pr-0 pl-8 py-0 border-0 w-full h-full block focus:ring-0 focus:outline-none"
+            type='search'
+            id='search-field'
+            placeholder='Search...'
+            name='search'
+            className='block h-full w-full border-0 py-0 pl-8 pr-0 text-gray-900 focus:outline-none focus:ring-0 sm:text-sm'
           />
         </form>
 
-        <div className="lg:gap-x-6 gap-x-4 items-center flex">
-          <div className="indicator">
-            <div className="indicator-item badge badge-primary">3</div>
-            <button
-              type="button"
-              className="text-gray-400 p-2.5 -m-2.5 hover:text-gray-500"
-            >
-              <span className="sr-only">View notifications</span>
-              <FaBell className="w-6 h-6" aria-hidden="true" />
+        <div className='flex items-center gap-x-4 lg:gap-x-6'>
+          <div className='indicator'>
+            <div className='indicator-item badge badge-primary'>3</div>
+            <button type='button' className='-m-2.5 p-2.5 text-gray-400 hover:text-gray-500'>
+              <span className='sr-only'>View notifications</span>
+              <FaBell className='h-6 w-6' aria-hidden='true' />
             </button>
           </div>
 
-          <div
-            className="lg:bg-gray-900/10 lg:w-px lg:h-6 lg:block hidden"
-            aria-hidden="true"
-          />
+          <div className='hidden lg:block lg:h-6 lg:w-px lg:bg-gray-900/10' aria-hidden='true' />
 
-          <Menu as="div" className="relative">
-            <Menu.Button className="p-1.5 flex items-center -m-1.5">
-              <span className="sr-only">Open user menu</span>
-              <Image
-                className="rounded-full w-8 h-8 bg-gray-50"
-                src="https://new.sunesport.no/content/uploads/sites/2/2023/05/Opto-Fuse-Im-a-Fuse-300x300.jpg"
-                alt="User picture"
-                width={32}
-                height={32}
-              />
-              <span className="lg:items-center lg:flex hidden">
-                <span
-                  className="text-gray-900 leading-6 font-semibold text-sm ml-4"
-                  aria-hidden="true"
-                >
-                  Jonathan Fuse
-                </span>
-                <FaChevronDown
-                  className={clsx("text-gray-400 w-5 h-5 ml-2", {
-                    "rotate-90": false,
-                  })}
-                  aria-hidden="true"
+          <Menu as='div' className='relative'>
+            <Menu.Button className='-m-1.5 flex items-center p-1.5'>
+              <span className='sr-only'>Open user menu</span>
+
+              {session?.user?.image ? (
+                <Image
+                  className='h-8 w-8 rounded-full bg-gray-50'
+                  src={session.user.image}
+                  alt={'Profile picture'}
+                  width={32}
+                  height={32}
                 />
+              ) : (
+                <div></div>
+              )}
+
+              <span className='hidden lg:flex lg:items-center'>
+                <span
+                  className='ml-4 text-sm font-semibold leading-6 text-gray-900'
+                  aria-hidden='true'
+                >
+                  {session?.user?.name ?? 'Unknown Username'}
+                </span>
+                <FaChevronDown className={'ml-2 h-5 w-5 text-gray-400'} aria-hidden='true' />
               </span>
             </Menu.Button>
 
             <Menu.Items
-              as="div"
-              className="ring-gray-900/5 ring-1 shadow-lg opacity-100 py-2 bg-white rounded-md transform scale-100 w-32 mt-2.5 z-10 absolute"
+              as='div'
+              className='absolute z-10 mt-2.5 w-32 scale-100 transform rounded-md bg-white py-2 opacity-100 shadow-lg ring-1 ring-gray-900/5'
             >
               <Menu.Item>
                 {({ active }) => (
                   <Link
                     className={clsx(
-                      "text-gray-900 leading-6 text-sm py-1 px-3 block hover:bg-gray-50",
-                      { "bg-gray-50": active }
+                      'block px-3 py-1 text-sm leading-6 text-gray-900 hover:bg-gray-50',
+                      { 'bg-gray-50': active },
                     )}
-                    href="/account-settings"
+                    href='/account-settings'
                   >
                     Your account
                   </Link>
@@ -111,10 +100,10 @@ const Topbar = () => {
                 {({ active }) => (
                   <Link
                     className={clsx(
-                      "text-gray-900 leading-6 text-sm py-1 px-3 block hover:bg-gray-50",
-                      { "bg-gray-50": active }
+                      'block px-3 py-1 text-sm leading-6 text-gray-900 hover:bg-gray-50',
+                      { 'bg-gray-50': active },
                     )}
-                    href="/account-settings"
+                    href='/account-settings'
                   >
                     Sign out
                   </Link>

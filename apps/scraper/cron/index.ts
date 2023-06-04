@@ -1,6 +1,7 @@
-import { Currency, Product, prisma } from 'database';
+import { Currency, Product } from 'database';
 import * as cron from 'node-cron';
 import { Crawler, CrawlerBaseType } from '../crawler';
+import prisma from '../lib/prisma';
 import { calculateDaysSince } from '../utils/date';
 import logger from '../utils/logger';
 import { priceToAvailability } from '../utils/price';
@@ -48,6 +49,10 @@ export function initCronJobs() {
             if (product) {
               // product is deleted
               if (product.deletedAt) {
+                return true;
+              }
+
+              if (product.category !== 'Disc' && product.category !== 'Unknown') {
                 return true;
               }
 

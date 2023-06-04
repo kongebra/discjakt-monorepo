@@ -1,5 +1,6 @@
-import { Disc, prisma } from "database";
-import { NextResponse } from "next/server";
+import prisma from '@/lib/prisma';
+import { Disc } from 'database';
+import { NextResponse } from 'next/server';
 
 type Props = {
   params: {
@@ -10,7 +11,7 @@ type Props = {
 export async function GET(_req: Request, { params: { discId } }: Props) {
   const id = Number(discId);
   if (!discId || isNaN(id)) {
-    return NextResponse.json({ error: "Invalid discId" }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid discId' }, { status: 400 });
   }
 
   const disc = await prisma.disc.findUnique({
@@ -31,10 +32,7 @@ export async function GET(_req: Request, { params: { discId } }: Props) {
   });
 
   if (!disc) {
-    return NextResponse.json(
-      { error: `Disc with id ${discId} not found` },
-      { status: 404 }
-    );
+    return NextResponse.json({ error: `Disc with id ${discId} not found` }, { status: 404 });
   }
 
   return NextResponse.json(disc);
@@ -43,17 +41,16 @@ export async function GET(_req: Request, { params: { discId } }: Props) {
 export async function PUT(req: Request, { params: { discId } }: Props) {
   const id = Number(discId);
   if (!discId || isNaN(id)) {
-    return NextResponse.json({ error: "Invalid discId" }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid discId' }, { status: 400 });
   }
 
   const body = (await req.json()) as Disc;
 
   if (id !== body.id) {
-    return NextResponse.json({ error: "Invalid discId" }, { status: 400 });
+    return NextResponse.json({ error: 'Invalid discId' }, { status: 400 });
   }
 
-  const { name, slug, speed, glide, turn, fade, brandId, type, imageUrl } =
-    body;
+  const { name, slug, speed, glide, turn, fade, brandId, type, imageUrl } = body;
 
   const Disc = await prisma.disc.update({
     where: {
@@ -84,10 +81,7 @@ export async function PUT(req: Request, { params: { discId } }: Props) {
   });
 
   if (!Disc) {
-    return NextResponse.json(
-      { error: `Disc with id ${discId} not found` },
-      { status: 404 }
-    );
+    return NextResponse.json({ error: `Disc with id ${discId} not found` }, { status: 404 });
   }
 
   return NextResponse.json(Disc);

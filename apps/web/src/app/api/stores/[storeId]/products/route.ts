@@ -1,5 +1,5 @@
-import { prisma } from "database";
-import { NextResponse } from "next/server";
+import prisma from '@/lib/prisma';
+import { NextResponse } from 'next/server';
 
 type Props = {
   params: {
@@ -9,19 +9,16 @@ type Props = {
 
 export async function GET(req: Request, { params: { storeId } }: Props) {
   if (!storeId) {
-    return NextResponse.json({ error: "Missing storeId" }, { status: 400 });
+    return NextResponse.json({ error: 'Missing storeId' }, { status: 400 });
   }
 
   const { searchParams } = new URL(req.url);
-  const page = Number(searchParams.get("page") ?? 1);
-  const limit = Number(searchParams.get("limit") ?? 10);
+  const page = Number(searchParams.get('page') ?? 1);
+  const limit = Number(searchParams.get('limit') ?? 10);
 
   // Make sure page and limit are positive integers
   if (page < 1 || limit < 1 || limit > 100) {
-    return NextResponse.json(
-      { error: "Invalid page or limit" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: 'Invalid page or limit' }, { status: 400 });
   }
 
   const products = await prisma.product.findMany({
@@ -54,7 +51,7 @@ export async function GET(req: Request, { params: { storeId } }: Props) {
           createdAt: true,
         },
         orderBy: {
-          createdAt: "desc",
+          createdAt: 'desc',
         },
         take: 1,
       },
@@ -80,17 +77,13 @@ export async function GET(req: Request, { params: { storeId } }: Props) {
   const canNext = page * limit < totalProducts;
   const canPrev = page > 1;
 
-  const baseUrl = req.headers.get("host") ?? "localhost:3000";
+  const baseUrl = req.headers.get('host') ?? 'localhost:3000';
   const baseUri = `${baseUrl}/api/stores/${storeId}/products`;
 
   const first = `${baseUri}?page=1&limit=${limit}`;
-  const previous = canPrev
-    ? `${baseUri}?page=${page - 1}&limit=${limit}`
-    : null;
+  const previous = canPrev ? `${baseUri}?page=${page - 1}&limit=${limit}` : null;
   const next = canNext ? `${baseUri}?page=${page + 1}&limit=${limit}` : null;
-  const last = `${baseUri}?page=${Math.ceil(
-    totalProducts / limit
-  )}&limit=${limit}`;
+  const last = `${baseUri}?page=${Math.ceil(totalProducts / limit)}&limit=${limit}`;
 
   return NextResponse.json({
     data: products,

@@ -3,7 +3,7 @@ import FacebookProvider from 'next-auth/providers/facebook';
 import GoogleProvider from 'next-auth/providers/google';
 
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import { prisma } from 'database';
+import prisma from './prisma';
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -22,10 +22,7 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     session({ session, user }) {
-      // We do not need to send this to the client
-      const { createdAt, updatedAt, deletedAt, emailVerified, ...rest } = user;
-
-      session.user = rest;
+      session.user = user as any;
 
       return session;
     },

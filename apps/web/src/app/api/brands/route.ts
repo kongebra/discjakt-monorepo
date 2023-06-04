@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import { prisma } from "database";
+import prisma from '@/lib/prisma';
+import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
   const brands = await prisma.brand.findMany({

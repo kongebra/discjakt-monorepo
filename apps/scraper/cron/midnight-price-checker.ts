@@ -1,4 +1,5 @@
-import { Store, prisma } from 'database';
+import { Store } from 'database';
+import prisma from '../lib/prisma';
 import { productQueue } from '../queue';
 import { getStoreCrawlDelay } from '../utils/store';
 

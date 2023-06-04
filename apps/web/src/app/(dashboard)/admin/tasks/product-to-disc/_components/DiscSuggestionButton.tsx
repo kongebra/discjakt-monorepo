@@ -1,11 +1,10 @@
-"use client";
+'use client';
 
-import Button from "@/components/Button";
-import { Disc, Product, Store } from "database";
-import React from "react";
-import { useProductMutation } from "../hooks/use-product-mutation";
-import { useRouter } from "next/navigation";
-import CreateNewDiscButton from "./CreateNewDiscButton";
+import Button from '@/components/Button';
+import { Disc, Product, Store } from 'database';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import { useProductMutation } from '../hooks/use-product-mutation';
 
 type Props = {
   product: Product & { store: Store };
@@ -26,21 +25,17 @@ const DiscSuggestionButton: React.FC<Props> = ({ product, discs }) => {
 
   const router = useRouter();
 
-  if (discs.length === 0) {
-    return <CreateNewDiscButton product={product} />;
-  }
-
   return (
-    <>
+    <div className='flex items-center gap-2'>
       {discs.map((disc) => {
         return (
           <Button
             key={disc.id}
-            size="xs"
-            color="info"
+            size='xs'
+            color='info'
             onClick={async () => {
               await trigger({
-                category: "Disc",
+                category: 'Disc',
                 discId: disc.id,
               });
             }}
@@ -51,7 +46,7 @@ const DiscSuggestionButton: React.FC<Props> = ({ product, discs }) => {
           </Button>
         );
       })}
-    </>
+    </div>
   );
 };
 
