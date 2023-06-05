@@ -1,11 +1,11 @@
-import Button from "@/components/Button";
-import Input from "@/components/Input";
-import Select from "@/components/Select";
-import { slugify } from "@/utils/slug";
-import { Brand, DiscType } from "database";
-import Image from "next/image";
-import React, { useMemo } from "react";
-import { useForm } from "react-hook-form";
+import Button from '@/components/Button';
+import Input from '@/components/Input';
+import Select from '@/components/Select';
+import { slugify } from '@/utils/slug';
+import { Brand, DiscType } from 'database';
+import Image from 'next/image';
+import React, { useMemo } from 'react';
+import { useForm } from 'react-hook-form';
 
 export type DiscFormData = {
   name: string;
@@ -26,49 +26,44 @@ type Props = {
   isLoading?: boolean;
 };
 
-const DiscsForm: React.FC<Props> = ({
-  onSubmit,
-  defaultValues,
-  brands,
-  isLoading,
-}) => {
-  const form = useForm<DiscFormData>({ defaultValues, mode: "onChange" });
+const DiscsForm: React.FC<Props> = ({ onSubmit, defaultValues, brands, isLoading }) => {
+  const form = useForm<DiscFormData>({ defaultValues, mode: 'onChange' });
 
   const brandOptions = useMemo(
     () =>
       brands
         .map((brand) => ({ label: brand.name, value: brand.id }))
         .sort((a, b) => a.label.localeCompare(b.label)),
-    [brands]
+    [brands],
   );
 
-  const imageUrlWatch: string | undefined = form.watch("imageUrl");
+  const imageUrlWatch: string | undefined = form.watch('imageUrl');
 
   return (
-    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col">
+    <form onSubmit={form.handleSubmit(onSubmit)} className='flex flex-col'>
       <Input
-        label="Navn"
-        placeholder="Navn"
-        {...form.register("name", {
-          required: "Navn er påkrevd",
+        label='Navn'
+        placeholder='Navn'
+        {...form.register('name', {
+          required: 'Navn er påkrevd',
         })}
         error={form.formState.errors?.name?.message}
       />
 
       <Input
-        label="Slug"
-        placeholder="Slug"
-        {...form.register("slug", {
-          required: "Slug er påkrevd",
+        label='Slug'
+        placeholder='Slug'
+        {...form.register('slug', {
+          required: 'Slug er påkrevd',
         })}
         error={form.formState.errors?.slug?.message}
-        className="join-item"
+        className='join-item'
         suffix={
           <Button
-            type="button"
-            className="join-item"
+            type='button'
+            className='join-item'
             onClick={() => {
-              form.setValue("slug", slugify(form.getValues("name")));
+              form.setValue('slug', slugify(form.getValues('name')));
             }}
           >
             Slugify
@@ -76,46 +71,46 @@ const DiscsForm: React.FC<Props> = ({
         }
       />
 
-      <div className="grid grid-cols-4 gap-2">
+      <div className='grid grid-cols-4 gap-2'>
         <Input
-          type="number"
-          label="Speed"
-          placeholder="Speed"
-          {...form.register("speed", {
-            required: "Speed er påkrevd",
+          type='number'
+          label='Speed'
+          placeholder='Speed'
+          {...form.register('speed', {
+            required: 'Speed er påkrevd',
             valueAsNumber: true,
           })}
           error={form.formState.errors?.speed?.message}
           step={0.5}
         />
         <Input
-          type="number"
-          label="Glide"
-          placeholder="Glide"
-          {...form.register("glide", {
-            required: "Glide er påkrevd",
+          type='number'
+          label='Glide'
+          placeholder='Glide'
+          {...form.register('glide', {
+            required: 'Glide er påkrevd',
             valueAsNumber: true,
           })}
           error={form.formState.errors?.glide?.message}
           step={0.5}
         />
         <Input
-          type="number"
-          label="Turn"
-          placeholder="Turn"
-          {...form.register("turn", {
-            required: "Turn er påkrevd",
+          type='number'
+          label='Turn'
+          placeholder='Turn'
+          {...form.register('turn', {
+            required: 'Turn er påkrevd',
             valueAsNumber: true,
           })}
           error={form.formState.errors?.turn?.message}
           step={0.5}
         />
         <Input
-          type="number"
-          label="Fade"
-          placeholder="Fade"
-          {...form.register("fade", {
-            required: "Fade er påkrevd",
+          type='number'
+          label='Fade'
+          placeholder='Fade'
+          {...form.register('fade', {
+            required: 'Fade er påkrevd',
             valueAsNumber: true,
           })}
           error={form.formState.errors?.fade?.message}
@@ -124,72 +119,62 @@ const DiscsForm: React.FC<Props> = ({
       </div>
 
       <Select
-        label="Type"
+        label='Type'
         options={[
           {
-            label: "Putter",
-            value: "Putter",
+            label: 'Putter',
+            value: 'Putter',
           },
           {
-            label: "Midrange",
-            value: "Midrange",
+            label: 'Midrange',
+            value: 'Midrange',
           },
           {
-            label: "Fairway Driver",
-            value: "FairwayDriver",
+            label: 'Fairway Driver',
+            value: 'FairwayDriver',
           },
           {
-            label: "Distance Driver",
-            value: "DistanceDriver",
+            label: 'Distance Driver',
+            value: 'DistanceDriver',
           },
         ]}
-        {...form.register("type", { required: "Type er påkrevd" })}
+        {...form.register('type', { required: 'Type er påkrevd' })}
         error={form.formState.errors?.type?.message}
       />
 
       <Select
-        label="Merke"
+        label='Merke'
         options={brandOptions}
-        {...form.register("brandId", {
-          required: "Merke er påkrevd",
+        {...form.register('brandId', {
+          required: 'Merke er påkrevd',
           valueAsNumber: true,
         })}
         error={form.formState.errors?.brandId?.message}
       />
 
       <Input
-        label="Bilde URL"
-        placeholder="Bilde URL"
-        {...form.register("imageUrl", {
-          required: "Bilde URL er påkrevd",
+        label='Bilde URL'
+        placeholder='Bilde URL'
+        {...form.register('imageUrl', {
+          required: 'Bilde URL er påkrevd',
         })}
         error={form.formState.errors?.imageUrl?.message}
-        className="mb-2"
+        className='mb-2'
       />
 
-      <p className="mb-2">
+      <p className='mb-2'>
         <strong>Preview</strong>
       </p>
 
-      <div className="rounded-lg border w-full aspect-square overflow-hidden">
+      <div className='aspect-square w-full overflow-hidden rounded-lg border'>
         {imageUrlWatch ? (
-          <Image
-            src={imageUrlWatch}
-            width={512}
-            height={512}
-            alt="Image preview"
-          />
+          <Image src={imageUrlWatch} width={512} height={512} alt='Image preview' unoptimized />
         ) : null}
       </div>
 
-      <div className="mb-4"></div>
+      <div className='mb-4'></div>
 
-      <Button
-        type="submit"
-        color="primary"
-        loading={isLoading}
-        disabled={isLoading}
-      >
+      <Button type='submit' color='primary' loading={isLoading} disabled={isLoading}>
         Submit
       </Button>
     </form>

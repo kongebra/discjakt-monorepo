@@ -1,8 +1,7 @@
-import React from "react";
-import { prisma } from "database";
+import prisma from '@/lib/prisma';
 
 export default async function Page() {
-  const products = await prisma?.product.findMany();
+  const products = await prisma.product.findMany();
 
   return <div>{products?.length}</div>;
 }

@@ -36,6 +36,7 @@ const ProductsList: React.FC<Props> = ({ products, discs }) => {
                   width={48}
                   height={48}
                   className='h-12 w-12 flex-none rounded-full bg-gray-800'
+                  unoptimized
                 />
               )}
 

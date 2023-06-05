@@ -16,6 +16,7 @@ export default async function Page() {
         },
       },
       brand: true,
+      products: true,
     },
   });
 

@@ -4,6 +4,7 @@ import { Brand } from 'database';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useBoolean } from 'usehooks-ts';
+import DiscImageModal from './DiscImageModal';
 import DiscsModal from './DiscsModal';
 import DiscsTable, { DiscsTableItem } from './DiscsTable';
 
@@ -18,6 +19,8 @@ const DiscsTableWrapper: React.FC<Props> = ({ discs, brands }) => {
   const [selectedDisc, setSelectedDisc] = useState<DiscsTableItem | undefined>(undefined);
 
   const createModal = useBoolean();
+  const editModal = useBoolean();
+  const imageModal = useBoolean();
 
   return (
     <>
@@ -25,15 +28,26 @@ const DiscsTableWrapper: React.FC<Props> = ({ discs, brands }) => {
         discs={discs}
         onClick={(item, action) => {
           setSelectedDisc(item);
+          if (action === 'disc.edit') {
+            editModal.setTrue();
+          }
+
+          if (action === 'disc.edit.image') {
+            imageModal.setTrue();
+          }
         }}
         onClickCreate={createModal.setTrue}
       />
 
       <DiscsModal
         brands={brands}
-        open={selectedDisc !== undefined}
+        open={editModal.value}
         disc={selectedDisc}
-        onClose={() => setSelectedDisc(undefined)}
+        onClose={() => {
+          editModal.setFalse();
+          setSelectedDisc(undefined);
+          router.refresh();
+        }}
         onSubmit={async (data) => {
           if (!selectedDisc) {
             return;
@@ -65,6 +79,16 @@ const DiscsTableWrapper: React.FC<Props> = ({ discs, brands }) => {
 
           createModal.setFalse();
 
+          router.refresh();
+        }}
+      />
+
+      <DiscImageModal
+        disc={selectedDisc}
+        open={imageModal.value}
+        onClose={() => {
+          imageModal.setFalse();
+          setSelectedDisc(undefined);
           router.refresh();
         }}
       />

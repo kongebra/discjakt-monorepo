@@ -21,6 +21,10 @@ const nextConfig = {
         hostname: 'new.sunesport.no',
       },
       {
+        protocol: 'https',
+        hostname: 'wearediscgolf.no',
+      },
+      {
         protocol: 'http',
         hostname: 'cdn.shopify.com',
       },

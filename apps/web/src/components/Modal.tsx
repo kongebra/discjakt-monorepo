@@ -1,41 +1,38 @@
-import React, { Fragment, ReactNode } from "react";
-import { Dialog, Transition, DialogProps } from "@headlessui/react";
-import clsx from "clsx";
-import { FaTimes } from "react-icons/fa";
-import Button from "./Button";
+import { Dialog } from '@headlessui/react';
+import clsx from 'clsx';
+import React, { ReactNode } from 'react';
+import { FaTimes } from 'react-icons/fa';
+import Button from './Button';
 
 export type ModalProps = React.PropsWithChildren<{
   open: boolean;
   onClose: () => void;
 
   title?: ReactNode;
+
+  className?: string;
 }>;
 
-const Modal: React.FC<ModalProps> = ({ open, onClose, title, children }) => {
+// TODO: Implement size
+const Modal: React.FC<ModalProps> = ({ open, onClose, title, className, children }) => {
   return (
     <Dialog
-      as="div"
-      className={clsx("modal", { "modal-open": open })}
+      as='div'
+      className={clsx('modal', { 'modal-open': open })}
       open={open}
       onClose={onClose}
     >
-      <Dialog.Panel className="modal-box">
-        <Button
-          size="sm"
-          shape="square"
-          ghost
-          className="absolute right-5 top-5"
-          onClick={onClose}
-        >
+      <Dialog.Panel className={clsx('modal-box', className)}>
+        <Button size='sm' shape='square' ghost className='absolute right-5 top-5' onClick={onClose}>
           <FaTimes />
         </Button>
 
         {title !== undefined ? (
-          <Dialog.Title as="h3" className="font-bold text-lg">
+          <Dialog.Title as='h3' className='text-lg font-bold'>
             {title}
           </Dialog.Title>
         ) : (
-          <div className="h-7 w-full" />
+          <div className='h-7 w-full' />
         )}
 
         {children}

@@ -63,6 +63,7 @@ const Topbar: React.FC<Props> = ({ session }) => {
                   alt={'Profile picture'}
                   width={32}
                   height={32}
+                  unoptimized
                 />
               ) : (
                 <div></div>
