@@ -8,6 +8,8 @@ type CrawlerParserFuncHelperType = {
     price: CrawlerParserFunc<number>;
     currency: CrawlerParserFunc<string>;
     imageUrl: CrawlerParserFunc<string>;
+
+    outOfStock: CrawlerParserFunc<boolean>;
   };
 };
 
@@ -177,6 +179,8 @@ export const CrawlerParserFuncHelper: CrawlerParserFuncHelperType = {
         '.product-image-container img', // Wix
         '.img-fluid.fit-prod-page.fit-prod-page5050', // Frisbeebutikken & Starframe
         '.product-media-modal__content img', // Discover Discs
+        '.product__media img', // Prodisc
+        '.image-magnify-none', // Prodisc
       ];
       for (const selector of imageSelectors) {
         const potentialImage = $(selector).first().attr('src');
@@ -186,6 +190,18 @@ export const CrawlerParserFuncHelper: CrawlerParserFuncHelperType = {
       }
 
       return '';
+    },
+    outOfStock: ($) => {
+      const outOfStockSelectors = ['.out-of-stock', '.out-of-stock-text', '.product-out-of-stock'];
+
+      for (const selector of outOfStockSelectors) {
+        const potentialOutOfStock = $(selector).first().text().trim();
+        if (potentialOutOfStock) {
+          return true;
+        }
+      }
+
+      return false;
     },
   },
 };

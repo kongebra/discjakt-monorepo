@@ -9,7 +9,7 @@ import type {
   CrawlerFieldParser,
   CrawlerOptions,
   CrawlerSitemapFilterFunc,
-  CrawlerSitemapItemFilterFunc,
+  JsonLdProductObject,
   Logger,
   SitemapItem,
 } from './types';
@@ -29,7 +29,6 @@ export class Crawler<T extends CrawlerBaseType> {
   private headers: Record<string, string>;
   private userAgent: string;
   private sitemapFilter?: CrawlerSitemapFilterFunc;
-  private filterSitemapItems?: CrawlerSitemapItemFilterFunc;
 
   constructor(options: CrawlerOptions<T>) {
     this.baseUrl = ensureUrlNotEndingWithSlash(options.baseUrl);
@@ -39,7 +38,6 @@ export class Crawler<T extends CrawlerBaseType> {
     this.headers = options.headers || {};
     this.userAgent = this.headers['User-Agent'] || DEFAULT_USER_AGENT;
     this.sitemapFilter = options.sitemapFilter;
-    this.filterSitemapItems = options.sitemapItemFilter;
   }
 
   private async fetchRobotsTxt() {
@@ -57,8 +55,7 @@ export class Crawler<T extends CrawlerBaseType> {
       this.events.robotsTxtFetchFinished?.();
       this.logger.debug('robotsTxtFetchFinished');
     } catch (error) {
-      this.events.error?.(error as Error, 'fetching robots.txt', robotsUrl);
-      this.logger.error('Error fetching robots.txt', error);
+      this.handleFetchError(error as Error, 'Error fetching robots.txt', robotsUrl);
     }
   }
 
@@ -86,8 +83,11 @@ export class Crawler<T extends CrawlerBaseType> {
 
       this.delayMs = crawlDelayInSeconds ? crawlDelayInSeconds * 1000 : this.delayMs;
     } catch (error) {
-      this.events.error?.(error as Error, 'parsing robots.txt');
-      this.logger.error('Error parsing robots.txt', error);
+      this.handleFetchError(
+        error as Error,
+        'Error parsing robots.txt',
+        `${this.baseUrl}/${ROBOTS_TXT_PATH}`,
+      );
     }
   }
 
@@ -143,8 +143,7 @@ export class Crawler<T extends CrawlerBaseType> {
           this.parseUrlset($, rootElement, filter);
         }
       } catch (error) {
-        this.events.error?.(error as Error, 'fetching sitemap', sitemapUrl);
-        this.logger.error('Error fetching sitemap', error);
+        this.handleFetchError(error as Error, 'Error fetching sitemap', sitemapUrl);
       }
     };
 
@@ -208,12 +207,80 @@ export class Crawler<T extends CrawlerBaseType> {
     }
   }
 
+  private async parseSitemapItems(
+    $: CheerioAPI,
+    sitemapUrl: string,
+    type: 'urlset' | 'sitemapindex',
+    filter: (item: SitemapItem, type: 'urlset' | 'sitemapindex') => boolean,
+  ) {
+    const response = await axios.get(sitemapUrl, {
+      headers: this.headers,
+    });
+
+    if (response.status !== 200) {
+      throw new Error(`Error fetching sitemap: ${response.status}`);
+    }
+
+    const $sitemapUrls = load(response.data)('url');
+
+    $sitemapUrls.each((_index, urlElement) => {
+      const $url = $(urlElement);
+      const item: Partial<SitemapItem> = {
+        loc: this.getFieldText($, $url, 'loc'),
+        lastmod: new Date(this.getFieldText($, $url, 'lastmod')),
+        priority: this.getFieldText($, $url, 'priority'),
+      };
+
+      if (filter(item as SitemapItem, type)) {
+        this.sitemapItems.push(item as SitemapItem);
+      }
+    });
+  }
+
+  private handleFetchError(error: Error, message: string, url: string) {
+    this.events.error?.(error, message, url);
+    this.logger.error(message, error);
+  }
+
   public parseField<K extends keyof T>(field: K, parser: CrawlerFieldParser<T, K>) {
     this.fieldParsers.set(field, parser);
   }
 
   public on<Event extends keyof CrawlerEvents<T>>(event: Event, handler: CrawlerEvents<T>[Event]) {
     this.events[event] = handler;
+  }
+
+  public async crawlProductSite(item: SitemapItem) {
+    const response = await axios.get(item.loc, {
+      headers: this.headers,
+    });
+    if (response.status !== 200) {
+      throw new Error(`Error fetching product site: ${response.status}`);
+    }
+
+    const $ = load(response.data);
+
+    const parsedItem: Partial<T> = {};
+
+    parsedItem.loc = item.loc;
+    parsedItem.lastmod = item.lastmod;
+    parsedItem.priority = item.priority;
+
+    const jsonLdProduct = this.parseJsonLdProduct($);
+    if (jsonLdProduct) {
+      this.events.jsonLd?.(item.loc, jsonLdProduct);
+    }
+
+    for (const [field, parser] of this.fieldParsers) {
+      try {
+        parsedItem[field] = parser($, response);
+      } catch (error) {
+        this.handleFetchError(error as Error, `Error parsing field: ${field as string}`, item.loc);
+        return;
+      }
+    }
+
+    this.events.item?.(parsedItem as T, response);
   }
 
   public async crawl() {
@@ -231,8 +298,11 @@ export class Crawler<T extends CrawlerBaseType> {
       this.parseRobotsTxt((line) => line.trim() !== '');
     } catch (error) {
       // If robots.txt is not available or returns a non-200 status code, log the message and proceed with the crawling
-      this.events.error?.(error as Error, 'fetching robots.txt', `${this.baseUrl}/robots.txt`);
-      this.logger.error('Error fetching robots.txt', error);
+      this.handleFetchError(
+        error as Error,
+        'Error fetching robots.txt',
+        `${this.baseUrl}/robots.txt`,
+      );
     }
 
     const chunks = this.chunkArray(this.sitemapItems, this.chunkSize);
@@ -287,6 +357,11 @@ export class Crawler<T extends CrawlerBaseType> {
                 parsedItem.lastmod = item.lastmod;
                 parsedItem.priority = item.priority;
 
+                const jsonLdProduct = this.parseJsonLdProduct($, item.loc);
+                if (jsonLdProduct) {
+                  this.events.jsonLd?.(item.loc, jsonLdProduct);
+                }
+
                 for (const [field, parser] of this.fieldParsers) {
                   try {
                     parsedItem[field] = parser($, response);
@@ -340,5 +415,44 @@ export class Crawler<T extends CrawlerBaseType> {
 
   private delayRequest() {
     return new Promise<void>((resolve) => setTimeout(resolve, this.delayMs));
+  }
+
+  private parseJsonLdProduct($: CheerioAPI, url?: string) {
+    try {
+      const jsonLd = $('script[type="application/ld+json"]');
+
+      if (jsonLd.length > 0) {
+        const jsonLdText = jsonLd.html();
+        if (jsonLdText) {
+          const jsonLdObject = JSON.parse(jsonLdText);
+          if (jsonLdObject['@type'] === 'Product') {
+            return jsonLdObject as JsonLdProductObject;
+          }
+        }
+      }
+
+      return null;
+    } catch (error) {
+      this.logger.error('Error parsing JSON LD product', { error, url });
+      throw error;
+    }
+  }
+
+  private async httpGetRequest(url: string) {
+    try {
+      const response = await axios.get(url, {
+        headers: this.headers,
+      });
+
+      if (response.status !== 200) {
+        throw new Error(`Error fetching ${url}: ${response.status}`);
+      }
+
+      return response;
+    } catch (error) {
+      // Handle or re-throw error
+      this.logger.error(`Error fetching ${url}`, error);
+      throw error;
+    }
   }
 }

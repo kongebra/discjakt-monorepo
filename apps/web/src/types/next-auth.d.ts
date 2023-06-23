@@ -1,14 +1,18 @@
 import 'next-auth';
 
-import { User as DatabaseUser } from 'database';
-
-interface UserDto
-  extends Omit<DatabaseUser, 'emailVerified' | 'createdAt' | 'updatedAt' | 'deletedAt'> {}
+import type { Role } from 'database';
+import type { DefaultSession } from 'next-auth';
 
 declare module 'next-auth' {
   interface Session {
-    user: UserDto;
+    user: DefaultSession['user'] & {
+      id: string;
+      role: Role;
+    };
   }
 
-  interface User extends UserDto {}
+  interface User {
+    id: string;
+    role: Role;
+  }
 }

@@ -1,7 +1,7 @@
 generator client {
   provider        = "prisma-client-js"
-  // output          = "../generated/prisma-client"
-  previewFeatures = ["filteredRelationCount"]
+  previewFeatures = []
+  output          = "../generated/prisma-client"
 }
 
 datasource db {
@@ -114,6 +114,8 @@ model Disc {
   plastics DiscPlasticLink[]
   users    UserDiscs[]
   products Product[]
+
+  viewCount Int @default(0)
 
   proPlayersSignature ProPlayerDiscLink[] @ignore
 

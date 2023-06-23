@@ -1,19 +1,20 @@
 "use client";
 
-import Link from "next/link";
-import React from "react";
 import clsx from "clsx";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from "react";
+import { IconType } from "react-icons";
 import {
   FaCog,
   FaCompactDisc,
   FaHome,
+  FaImages,
   FaShoppingCart,
   FaStore,
   FaTasks,
   FaUser,
 } from "react-icons/fa";
-import { IconType } from "react-icons";
 
 type SidenavLinkProps = {
   label: string;
@@ -122,6 +123,12 @@ const Sidenav = () => {
                     href="/admin/tasks/product-to-disc"
                     label="Koble produkter"
                     icon={FaTasks}
+                  />
+
+                  <SidenavLink
+                    href="/admin/tasks/disc-image"
+                    label="Bilde til disc"
+                    icon={FaImages}
                   />
 
                   <SidenavLink

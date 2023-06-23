@@ -39,6 +39,11 @@ export function initCronJobs() {
               return true;
             }
 
+            // temp force, for re-crawling
+            // if (loc.includes('prodisc.no')) {
+            //   return false;
+            // }
+
             const product = await prisma.product.findFirst({
               where: {
                 loc,

@@ -42,6 +42,8 @@ export type CrawlerEvents<T> = {
   robotsTxtFetchFinished: () => void;
   pageNotFound: (item: SitemapItem) => void;
   skipItem: (item: SitemapItem) => Promise<boolean | void>;
+
+  jsonLd: (url: string, data: JsonLdProductObject) => void;
 };
 
 export type CrawlerBaseType = SitemapItem;
@@ -52,3 +54,22 @@ export type CrawlerSitemapFilterFunc = (
 ) => boolean;
 
 export type CrawlerSitemapItemFilterFunc = (item: SitemapItem) => Promise<boolean> | boolean;
+
+export type JsonLdProductObject = {
+  '@type': 'Product';
+
+  name: string;
+  url: string;
+  image: string | string[];
+  description: string;
+
+  offers: {
+    '@type': 'Offer';
+    price: number;
+    priceCurrency: string;
+    availability: string;
+    url: string;
+  }[];
+
+  [key: string]: any;
+};

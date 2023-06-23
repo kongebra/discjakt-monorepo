@@ -2,7 +2,7 @@ import prisma from '@/lib/prisma';
 import { DiscView } from './types';
 
 export async function fetchLatestUpdatedDiscs() {
-  const products = await prisma.product.findMany({
+  const latestUpdatedProducts = await prisma.product.findMany({
     where: {
       AND: [
         {
@@ -15,37 +15,66 @@ export async function fetchLatestUpdatedDiscs() {
         },
       ],
     },
+    distinct: ['discId'],
     orderBy: {
       updatedAt: 'desc',
-    },
-    include: {
-      disc: {
-        include: {
-          brand: true,
-        },
-      },
-      prices: {
-        where: {
-          availability: 'InStock',
-        },
-        orderBy: {
-          createdAt: 'desc',
-        },
-        distinct: ['productId'],
-      },
     },
     take: 4,
   });
 
-  const discs: DiscView[] = products.map((product) => {
-    const lowestPrice = product.prices.reduce((prev, current) => {
-      const price = current.price.toNumber();
-      return price < prev ? price : prev;
-    }, Number.MAX_VALUE);
-    const disc = product.disc!;
+  const productIds = latestUpdatedProducts.map((product) => product.discId!);
+
+  const latestDiscs = await prisma.disc.findMany({
+    where: {
+      id: {
+        in: productIds,
+      },
+    },
+    include: {
+      brand: true,
+      products: {
+        include: {
+          prices: {
+            where: {
+              availability: 'InStock',
+            },
+            orderBy: {
+              createdAt: 'desc',
+            },
+          },
+        },
+      },
+    },
+  });
+
+  const discs: DiscView[] = latestDiscs.map((disc) => {
+    const { products, ...rest } = disc;
+
+    const lowestPrice = products.reduce((lowestPrice, product) => {
+      const productLowestPrice = product.prices
+        .filter(
+          (productPrice) =>
+            // Filter out prices that are not in stock or have a price of 0
+            productPrice.availability === 'InStock' && productPrice.price.toNumber() > 0,
+        )
+        .reduce((prev, productPrice) => {
+          // Find the lowest price
+          if (productPrice.price.toNumber() < prev) {
+            return productPrice.price.toNumber();
+          }
+
+          return prev;
+        }, Number.MAX_SAFE_INTEGER);
+
+      if (productLowestPrice < lowestPrice) {
+        return productLowestPrice;
+      }
+
+      return lowestPrice;
+    }, Number.MAX_SAFE_INTEGER);
 
     return {
-      ...disc,
+      ...rest,
 
       speed: disc.speed.toNumber(),
       glide: disc.glide.toNumber(),
@@ -55,37 +84,6 @@ export async function fetchLatestUpdatedDiscs() {
       price: lowestPrice,
     } as DiscView;
   });
-
-  // const latestUpdatedDiscs: DiscWithLowestPrice[] = products.map((product) => {
-  //   const lowestPrice = product.prices.reduce(
-  //     (prev, current) => (current.price.toNumber() < prev ? current.price.toNumber() : prev),
-  //     Number.MAX_VALUE,
-  //   );
-
-  //   const disc = product.disc!;
-
-  //   return {
-  //     id: disc.id,
-  //     name: disc.name,
-  //     slug: disc.slug,
-  //     imageUrl: disc.imageUrl,
-
-  //     speed: disc.speed.toNumber(),
-  //     glide: disc.glide.toNumber(),
-  //     turn: disc.turn.toNumber(),
-  //     fade: disc.fade.toNumber(),
-
-  //     type: disc.type,
-  //     brand: {
-  //       id: disc.brand.id,
-  //       name: disc.brand.name,
-  //       slug: disc.brand.slug,
-  //       imageUrl: disc.brand.imageUrl,
-  //     },
-
-  //     lowestPrice,
-  //   };
-  // });
 
   return discs;
 }
